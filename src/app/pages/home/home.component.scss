@@ -1,0 +1,46 @@
+.content {
+    margin-top: 35px;
+    background: gray;
+}
+
+.div-info {
+    justify-content: space-evenly;
+    width: 100%;
+    height: 35px;
+}
+
+.btn-about {
+    background: brown;
+    border: 0;
+}
+
+.div-acessibility {
+    justify-content: center;
+    background: cadetblue;
+}
+
+.div-bro,
+.div-info,
+.div-acessibility {
+    display: flex;
+    align-items: center;
+}
+
+.btn-about,
+.div-acessibility {
+    width: 50%;
+    height: 100%;
+}
+
+.high-contrast {
+    margin-right: 3%;
+}
+
+// .div-bro {
+//     justify-content: space-around;
+// }
+// .bro {
+//     background: pink;
+//     width: 250px;
+//     height: 250px;
+// }
