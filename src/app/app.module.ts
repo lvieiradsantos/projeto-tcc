@@ -21,6 +21,8 @@ import { ManagerProfileComponent } from './pages/manager-profile/manager-profile
 import { HeaderComponent } from './shared/header/header.component';
 import { FooterComponent } from './shared/footer/footer.component';
 import { OpenObjectComponent } from './pages/open-object/open-object.component';
+import { MenuComponent } from './pages/menu/menu.component';
+import { MenuFooterComponent } from './pages/menu-footer/menu-footer.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +41,9 @@ import { OpenObjectComponent } from './pages/open-object/open-object.component';
     ManagerProfileComponent,
     HeaderComponent,
     FooterComponent,
-    OpenObjectComponent    
+    OpenObjectComponent,
+    MenuComponent,
+    MenuFooterComponent    
   ],
   imports: [
     FormsModule,

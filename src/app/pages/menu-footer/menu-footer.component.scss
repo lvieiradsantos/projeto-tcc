@@ -1,0 +1,32 @@
+.menu-footer {
+    margin-bottom: 0 !important;
+    &__btn {
+        display: flex;
+        justify-content: space-evenly;
+        button {
+            border: none;
+            width: 100%;
+            color: #FFF;
+            font-weight: 700;
+            padding: 10px 0;
+        }
+        &__home {
+            background: #7a7b79;
+        }
+        &__home:hover {
+            background: #3f3f3f;
+        }
+        &__about-us {
+            background: #8f908d;
+        }
+        &__about-us:hover {
+            background: #3f3f3f;
+        }
+        &__contact-us {
+            background: #9ea09a;
+        }
+        &__contact-us:hover {
+            background: #3f3f3f;
+        }
+    }
+}

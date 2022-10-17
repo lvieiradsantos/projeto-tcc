@@ -1,0 +1,32 @@
+.menu {
+    margin-top: 60px;
+    &__btn {
+        display: flex;
+        justify-content: space-evenly;
+        button {
+            border: none;
+            width: 100%;
+            color: #FFF;
+            font-weight: 700;
+            padding: 10px 0;
+        }
+        &__sign-in {
+            background: #96ad4f;
+        }
+        &__sign-in:hover {
+            background: #5d7024;
+        }
+        &__sign-up {
+            background: #0f96ae;
+        }
+        &__sign-up:hover {
+            background: #166e7d;
+        }
+        &__about-us {
+            background: #ef7d00;
+        }
+        &__about-us:hover {
+            background: #ac702f;
+        }
+    }
+}
