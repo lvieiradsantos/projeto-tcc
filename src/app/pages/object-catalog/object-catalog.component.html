@@ -1,67 +1,21 @@
 <div class="container">
     <div class="filter">
-        <form class="filter__search-form">
+        <!-- <form class="filter__search-form">
             <mat-form-field>
                 <input type="text" matInput placeholder="Pesquisar">
             </mat-form-field>
             <button class="filter__search-form--icon">LUPA</button>
-        </form>
+        </form> -->
     </div>
-    <section class="catalog">
+    <section class="catalog" *ngFor="let items of this.catalogItems">
         <div class="catalog__item">
-            <div class="catalog__item--name">Secador</div>
-            <div class="catalog__item--description">Esse é um secador</div>
-            <div class="catalog__item--loud">Barulhento</div>
-            <div class="catalog__item--favorite">* Favoritar</div>
-            <div class="catalog__item--Link">Link</div>
-        </div>
-
-        <div class="catalog__item">
-            <div class="catalog__item--name">Secador</div>
-            <div class="catalog__item--description">Esse é um secador</div>
-            <div class="catalog__item--loud">Barulhento</div>
-            <div class="catalog__item--favorite">* Favoritar</div>
-            <div class="catalog__item--Link">Link</div>
-        </div>
-
-        <div class="catalog__item">
-            <div class="catalog__item--name">Secador</div>
-            <div class="catalog__item--description">Esse é um secador</div>
-            <div class="catalog__item--loud">Barulhento</div>
-            <div class="catalog__item--favorite">* Favoritar</div>
-            <div class="catalog__item--Link">Link</div>
-        </div>
-
-        <div class="catalog__item">
-            <div class="catalog__item--name">Secador</div>
-            <div class="catalog__item--description">Esse é um secador</div>
-            <div class="catalog__item--loud">Barulhento</div>
-            <div class="catalog__item--favorite">* Favoritar</div>
-            <div class="catalog__item--Link">Link</div>
-        </div>
-
-        <div class="catalog__item">
-            <div class="catalog__item--name">Secador</div>
-            <div class="catalog__item--description">Esse é um secador</div>
-            <div class="catalog__item--loud">Barulhento</div>
-            <div class="catalog__item--favorite">* Favoritar</div>
-            <div class="catalog__item--Link">Link</div>
-        </div>
-
-        <div class="catalog__item">
-            <div class="catalog__item--name">Secador</div>
-            <div class="catalog__item--description">Esse é um secador</div>
-            <div class="catalog__item--loud">Barulhento</div>
-            <div class="catalog__item--favorite">* Favoritar</div>
-            <div class="catalog__item--Link">Link</div>
-        </div>
-
-        <div class="catalog__item">
-            <div class="catalog__item--name">Secador</div>
-            <div class="catalog__item--description">Esse é um secador</div>
-            <div class="catalog__item--loud">Barulhento</div>
-            <div class="catalog__item--favorite">* Favoritar</div>
-            <div class="catalog__item--Link">Link</div>
+            <div class="catalog__item--photo"><img src="{{items.photo}}"></div>
+            <div class="catalog__item--name">{{items.name}}</div>
+            <div class="catalog__item--model">{{items.model}}</div>
+            <div class="catalog__item--brand">{{items.brand}}</div>
+            <div class="catalog__item--db">{{items.db}}</div>
+            <div class="catalog__item--watts">{{items.watts}}</div>
+            <div class="catalog__item--rate">{{items.rate}}</div>
         </div>
     </section>
 </div>
