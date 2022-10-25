@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 
 import { AppComponent } from './app.component';
@@ -51,6 +51,7 @@ import { HttpErrorInterceptor } from './interceptors/error.interceptor';
   ],
   imports: [
     FormsModule,
+    ReactiveFormsModule,
     MatFormFieldModule,
     BrowserModule,
     AppRoutingModule,
