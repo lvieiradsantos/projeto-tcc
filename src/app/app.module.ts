@@ -2,8 +2,8 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
-import { FormsModule } from '@angular/forms';
-import {MatFormFieldModule} from '@angular/material/form-field';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatFormFieldModule } from '@angular/material/form-field';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './pages/home/home.component';
@@ -23,6 +23,10 @@ import { FooterComponent } from './shared/footer/footer.component';
 import { OpenObjectComponent } from './pages/open-object/open-object.component';
 import { MenuComponent } from './pages/menu/menu.component';
 import { MenuFooterComponent } from './pages/menu-footer/menu-footer.component';
+import { ApiService } from './services/api.service';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HeadersInterceptor } from './interceptors/api.interceptor';
+import { HttpErrorInterceptor } from './interceptors/error.interceptor';
 
 @NgModule({
   declarations: [
@@ -43,15 +47,28 @@ import { MenuFooterComponent } from './pages/menu-footer/menu-footer.component';
     FooterComponent,
     OpenObjectComponent,
     MenuComponent,
-    MenuFooterComponent    
+    MenuFooterComponent
   ],
   imports: [
     FormsModule,
+    ReactiveFormsModule,
     MatFormFieldModule,
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [ApiService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: HeadersInterceptor,
+      multi: true
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: HttpErrorInterceptor,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

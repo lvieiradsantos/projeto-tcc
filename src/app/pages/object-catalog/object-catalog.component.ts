@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { CatalogModel } from 'src/app/model/catalog.model';
+import { ApiService } from 'src/app/services/api.service';
+
 
 @Component({
   selector: 'app-object-catalog',
@@ -7,9 +10,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ObjectCatalogComponent implements OnInit {
 
-  constructor() { }
+  items: any;
+  catalogItems: CatalogModel | any;
+
+  constructor(
+    private apiService: ApiService,
+  ) { }
 
   ngOnInit(): void {
+    this.getCatalogue();
+  }
+
+
+  getCatalogue() {
+    this.apiService.getItens().subscribe((items) => {
+      this.catalogItems = items;
+      console.log(this.catalogItems)
+    })
   }
 
 }
