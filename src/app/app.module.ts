@@ -27,6 +27,7 @@ import { ApiService } from './services/api.service';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { HeadersInterceptor } from './interceptors/api.interceptor';
 import { HttpErrorInterceptor } from './interceptors/error.interceptor';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [
@@ -55,7 +56,8 @@ import { HttpErrorInterceptor } from './interceptors/error.interceptor';
     MatFormFieldModule,
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FontAwesomeModule
   ],
   providers: [ApiService,
     {
