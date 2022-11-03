@@ -1,12 +1,12 @@
 <section class="login container" *ngIf="!token">
 
     <form [formGroup]="loginForm" class="login__form">
-        <p class="login__form--title">Faça o login</p>
+        <p class="login__form__title">Faça o login</p>
 
         <input formControlName="email" type="email" matInput placeholder="Email">
 
         <input formControlName="password" type="password" matInput placeholder="Senha">
 
-        <button (click)="sendLogin()" class="login__form--btn">ENTRAR</button>
+        <button (click)="sendLogin()" class="login__form__btn">ENTRAR</button>
     </form>
 </section>

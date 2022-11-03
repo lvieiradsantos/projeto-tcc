@@ -1,18 +1,24 @@
 .login {
     display: flex;
+    justify-content: center;
     align-items: center;
     &__form {
         display: flex;
         flex-direction: column;
-        width: 100%;
+        width: 70%;
         padding: 40px 40px 40px 30px;
         margin-top: 40px;
         border: 1px solid #93b4d8;
         border-radius: 5px;
-        box-shadow: 2px 2px 15px rgb(0 46 71 / 10%);
-        &--title {
+        box-shadow: 10px 10px 5px rgb(0 46 71 / 10%);
+        &__title {
             font-size: 20px;
             font-weight: 600;
+        }
+        input {
+            border-radius: 5px;
+            margin-bottom: 2%;
+            border: 2px solid rgb(132, 123, 123);
         }
         .mat-form-field {
             width: 100%;
@@ -24,10 +30,18 @@
         .mat-form-field-wrapper {
             padding: 0 !important;
         }
-        &--btn {
+        &__btn {
             padding: 20px;
             font-size: 20px;
             font-weight: 600;
+            border-radius: 10px;
+            border: 1px solid #abc75a;
+            margin-top: 5%;
+            background: #96ad4f;
+            color: #FFF;
+        }
+        &__btn:hover {
+            background: #829745;
         }
     }
 }
@@ -38,6 +52,14 @@
             .mat-form-field-wrapper {
                 padding: 0 !important;
             }
+        }
+    }
+}
+
+@media (min-width: 1000px) {
+    .login {
+        &__form {
+            width: 30%;
         }
     }
 }
