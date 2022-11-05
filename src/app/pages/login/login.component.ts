@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { ApiService } from 'src/app/services/api.service';
+import { HomeComponent } from '../home/home.component';
 
 @Component({
   selector: 'app-login',
@@ -15,11 +17,12 @@ export class LoginComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private apiService: ApiService,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
     this.loginForm = this.formBuilder.group({
-      email: [null, Validators.required],
+      email: [null, Validators.required, Validators.email],
       password: [null, Validators.required]
     })
 
@@ -30,8 +33,10 @@ export class LoginComponent implements OnInit {
     const { email, password } = this.loginForm.value;
 
     this.apiService.login(email, password).subscribe((response) => {
-      console.log('Pronto');
-    })
+      this.router.navigate(['/']).then(() => {
+        window.location.reload();
+      })
+    });
   }
 
 }

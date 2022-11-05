@@ -1,12 +1,14 @@
 <section class="login container" *ngIf="!token">
 
     <form [formGroup]="loginForm" class="login__form">
-        <p class="login__form__title">Faça o login</p>
+        <div class="login__form-wrapper">
+            <p class="login__form-wrapper__title">Login</p>
 
-        <input formControlName="email" type="email" matInput placeholder="Email">
+            <input formControlName="email" type="email" matInput placeholder="Email">
 
-        <input formControlName="password" type="password" matInput placeholder="Senha">
+            <input formControlName="password" type="password" matInput placeholder="Senha">
 
-        <button (click)="sendLogin()" class="login__form__btn">ENTRAR</button>
+            <button (click)="sendLogin()" class="login__form-wrapper__btn">Entrar</button>
+        </div>
     </form>
 </section>

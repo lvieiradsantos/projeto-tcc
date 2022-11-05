@@ -4,44 +4,53 @@
     align-items: center;
     &__form {
         display: flex;
-        flex-direction: column;
-        width: 70%;
-        padding: 40px 40px 40px 30px;
+        justify-content: center;
+        padding: 40px;
         margin-top: 40px;
         border: 1px solid #93b4d8;
-        border-radius: 5px;
+        border-radius: 2px;
         box-shadow: 10px 10px 5px rgb(0 46 71 / 10%);
-        &__title {
-            font-size: 20px;
-            font-weight: 600;
-        }
-        input {
-            border-radius: 5px;
-            margin-bottom: 2%;
-            border: 2px solid rgb(132, 123, 123);
-        }
-        .mat-form-field {
+        max-width: 450px;
+        width: 100%;
+        &-wrapper {
+            display: flex;
+            flex-direction: column;
+            max-width: 400px;
             width: 100%;
-            input {
-                width: 100%;
-                padding: 20px 0 20px 10px;
+            &__title {
+                font-size: 20px;
+                font-weight: 600;
+                margin-bottom: 15px;
             }
-        }
-        .mat-form-field-wrapper {
-            padding: 0 !important;
-        }
-        &__btn {
-            padding: 20px;
-            font-size: 20px;
-            font-weight: 600;
-            border-radius: 10px;
-            border: 1px solid #abc75a;
-            margin-top: 5%;
-            background: #96ad4f;
-            color: #FFF;
-        }
-        &__btn:hover {
-            background: #829745;
+            input {
+                border-radius: 2px;
+                margin-bottom: 15px;
+                border: 1px solid rgb(132, 123, 123);
+                height: 40px;
+                padding-left: 12px;
+            }
+            .mat-form-field {
+                width: 100%;
+                input {
+                    width: 100%;
+                    padding: 20px 0 20px 10px;
+                }
+            }
+            .mat-form-field-wrapper {
+                padding: 0 !important;
+            }
+            &__btn {
+                padding: 10px;
+                font-size: 20px;
+                font-weight: 600;
+                border-radius: 2px;
+                border: 1px solid #abc75a;
+                background: #96ad4f;
+                color: #fff;
+            }
+            &__btn:hover {
+                background: #829745;
+            }
         }
     }
 }
@@ -52,14 +61,6 @@
             .mat-form-field-wrapper {
                 padding: 0 !important;
             }
-        }
-    }
-}
-
-@media (min-width: 1000px) {
-    .login {
-        &__form {
-            width: 30%;
         }
     }
 }
