@@ -1,1 +1,60 @@
-<p>sign-up works!</p>
+<section class="sign-up container">
+    <form [formGroup]="signUp" class="sign-up__form">
+        <div class="sign-up__form-wrapper">
+            <p class="sign-up__form-wrapper__title">Cadastrar</p>
+
+            <mat-form-field>
+                <mat-label>Nome Completo</mat-label>
+                <input formControlName="name" type="text" matInput placeholder="Nome completo">
+                <mat-hint *ngIf="signUp.get('name').touched && signUp.get('name').errors?.required">Preencha o campo de
+                    nome
+                </mat-hint>
+            </mat-form-field>
+
+            <mat-form-field>
+                <mat-label>Email</mat-label>
+                <input formControlName="email" type="email" matInput placeholder="Email">
+                <mat-hint *ngIf="signUp.get('email').touched && signUp.get('email').errors?.required">Preencha o campo
+                    de email
+                </mat-hint>
+            </mat-form-field>
+
+            <mat-form-field>
+                <mat-label>Senha</mat-label>
+                <input formControlName="password" type="password" matInput placeholder="Senha">
+                <mat-hint *ngIf="signUp.get('password').touched && signUp.get('password').errors?.required">Preencha o
+                    campo de senha
+                </mat-hint>
+            </mat-form-field>
+
+            <mat-form-field>
+                <mat-label>Confirme sua senha</mat-label>
+                <input formControlName="confirmPassword" type="password" matInput placeholder="Repita sua senha">
+                <mat-hint
+                    *ngIf="signUp.get('confirmPassword').touched && signUp.get('confirmPassword').errors?.required">
+                    Preencha o campo de confirmação de senha
+                </mat-hint>
+            </mat-form-field>
+
+            <mat-form-field>
+                <mat-label>Ouvinte?</mat-label>
+                <mat-select formControlName="userType">
+                    <mat-option value="Sim">Sim</mat-option>
+                    <mat-option value="Não">Não</mat-option>
+                    <mat-option value="Parcialmente">Parcialmente</mat-option>
+                </mat-select>
+                <mat-hint *ngIf="signUp.get('userType').touched && signUp.get('userType').errors?.required">Escolha uma
+                    das opções
+                </mat-hint>
+            </mat-form-field>
+
+            <mat-checkbox formControlName="compliance" [checked]="false">Aceito as politicas de privacidade!
+
+            </mat-checkbox>
+
+
+            <button (click)="sendResgister()" class="sign-up__form-wrapper__btn">Entrar</button>
+
+        </div>
+    </form>
+</section>

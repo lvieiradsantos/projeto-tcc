@@ -29,6 +29,12 @@ import { HeadersInterceptor } from './interceptors/api.interceptor';
 import { HttpErrorInterceptor } from './interceptors/error.interceptor';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { RouterModule } from '@angular/router';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatInputModule } from '@angular/material/input';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatSelectModule } from '@angular/material/select';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 
 @NgModule({
   declarations: [
@@ -59,7 +65,12 @@ import { RouterModule } from '@angular/router';
     AppRoutingModule,
     HttpClientModule,
     FontAwesomeModule,
-    RouterModule
+    RouterModule,
+    MatDialogModule,
+    MatInputModule,
+    MatCheckboxModule,
+    MatSelectModule,
+    BrowserAnimationsModule,
   ],
   providers: [ApiService,
     {
@@ -71,7 +82,7 @@ import { RouterModule } from '@angular/router';
       provide: HTTP_INTERCEPTORS,
       useClass: HttpErrorInterceptor,
       multi: true
-    }
+    },
   ],
   bootstrap: [AppComponent]
 })

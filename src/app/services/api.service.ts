@@ -50,7 +50,7 @@ export class ApiService {
         email: string,
         password: string
     }) {
-        return this.http.post(environment.api.itens, user) as Observable<any>;
+        return this.http.post(environment.api.user, user) as Observable<any>;
     }
 
     getUsuario(userId: string) {

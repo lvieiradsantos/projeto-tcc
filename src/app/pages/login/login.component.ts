@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ApiService } from 'src/app/services/api.service';
-import { HomeComponent } from '../home/home.component';
 
 @Component({
   selector: 'app-login',
@@ -17,12 +16,12 @@ export class LoginComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private apiService: ApiService,
-    private router: Router
+    private router: Router,
   ) { }
 
   ngOnInit(): void {
     this.loginForm = this.formBuilder.group({
-      email: [null, Validators.required, Validators.email],
+      email: [null, Validators.required],
       password: [null, Validators.required]
     })
 
@@ -32,11 +31,14 @@ export class LoginComponent implements OnInit {
   sendLogin() {
     const { email, password } = this.loginForm.value;
 
-    this.apiService.login(email, password).subscribe((response) => {
-      this.router.navigate(['/']).then(() => {
-        window.location.reload();
-      })
-    });
-  }
+    this.apiService.login(email, password).subscribe({
 
+      next: (v) => {
+        this.router.navigate(['/']).then(() => {
+          window.location.reload();
+        })
+      },
+      error: (e) => alert(e.error.message)
+    })
+  }
 }

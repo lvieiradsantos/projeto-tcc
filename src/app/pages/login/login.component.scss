@@ -22,23 +22,6 @@
                 font-weight: 600;
                 margin-bottom: 15px;
             }
-            input {
-                border-radius: 2px;
-                margin-bottom: 15px;
-                border: 1px solid rgb(132, 123, 123);
-                height: 40px;
-                padding-left: 12px;
-            }
-            .mat-form-field {
-                width: 100%;
-                input {
-                    width: 100%;
-                    padding: 20px 0 20px 10px;
-                }
-            }
-            .mat-form-field-wrapper {
-                padding: 0 !important;
-            }
             &__btn {
                 padding: 10px;
                 font-size: 20px;
@@ -50,16 +33,6 @@
             }
             &__btn:hover {
                 background: #829745;
-            }
-        }
-    }
-}
-
-::ng-deep .login {
-    &__form {
-        .mat-form-field:first-of-type {
-            .mat-form-field-wrapper {
-                padding: 0 !important;
             }
         }
     }

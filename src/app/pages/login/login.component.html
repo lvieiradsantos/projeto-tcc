@@ -3,9 +3,20 @@
         <div class="login__form-wrapper">
             <p class="login__form-wrapper__title">Login</p>
 
-            <input formControlName="email" type="email" matInput placeholder="Email">
+            <mat-form-field>
+                <mat-label>Email</mat-label>
+                <input formControlName="email" type="email" matInput placeholder="Email">
+                <mat-hint *ngIf="loginForm.get('email').touched && loginForm.get('email').errors?.required">Preencha o campo email
+                </mat-hint>
+            </mat-form-field>
 
-            <input formControlName="password" type="password" matInput placeholder="Senha">
+            <mat-form-field>
+                <mat-label>Senha</mat-label>
+                <input formControlName="password" type="password" matInput placeholder="Senha">
+                <mat-hint *ngIf="loginForm.get('password').touched && loginForm.get('password').errors?.required">Preencha o campo senha
+                </mat-hint>
+            </mat-form-field>
+
 
             <button (click)="sendLogin()" class="login__form-wrapper__btn">Entrar</button>
         </div>
