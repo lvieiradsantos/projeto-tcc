@@ -10,6 +10,7 @@ export class MenuComponent implements OnInit {
 
 
   token: any;
+
   constructor(
     private router: Router
   ) { }

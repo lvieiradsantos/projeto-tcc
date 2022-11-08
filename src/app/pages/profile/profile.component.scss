@@ -1,0 +1,37 @@
+.profile {
+    margin-top: 40px;
+    &-info {
+        &-title {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+        &-subtitle {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+        &__form {
+            display: flex;
+            flex-direction: column;
+
+            &__btn {
+                padding: 10px;
+                font-size: 20px;
+                font-weight: 600;
+                border-radius: 2px;
+                border: 1px solid #abc75a;
+                background: #96ad4f;
+                color: #fff;
+                margin-top: 10px;
+            }
+            &__btn:hover {
+                background: #829745;
+            }
+
+            input[readonly] {
+                color: rgb(163, 162, 162);
+            }
+        }
+    }
+}
