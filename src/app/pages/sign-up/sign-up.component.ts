@@ -20,20 +20,20 @@ export class SignUpComponent implements OnInit {
 
   ngOnInit(): void {
     this.signUp = this.formBuilder.group({
-      name: [null, Validators.required],
-      email: [null, Validators.required, Validators.email],
-      password: [null, Validators.required],
-      confirmPassword: [null, Validators.required],
-      userType: [null, Validators.required],
-      compliance: [false, Validators.required]
+      name: ['', Validators.required],
+      email: ['', Validators.required],
+      password: ['', Validators.required],
+      confirmPassword: ['', Validators.required],
+      userType: ['', Validators.required],
+      termsAccepted: [false, Validators.required]
     })
   }
 
 
   sendResgister() {
-    const { name, email, password, confirmPassword, userType, compliance } = this.signUp.value
+    const { name, email, password, type, termsAccepted } = this.signUp.value
 
-    const user = { name, email, password }
+    const user = { name, email, password, type, termsAccepted }
 
     this.apiService.createUsuario(user).pipe(take(1)).subscribe({
       next: (v) => {

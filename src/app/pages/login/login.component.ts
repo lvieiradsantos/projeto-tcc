@@ -21,8 +21,8 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
     this.loginForm = this.formBuilder.group({
-      email: [null, Validators.required],
-      password: [null, Validators.required]
+      email: ['', Validators.required],
+      password: ['', Validators.required]
     })
 
     this.token = localStorage.getItem('token');

@@ -39,21 +39,28 @@
             <mat-form-field>
                 <mat-label>Ouvinte?</mat-label>
                 <mat-select formControlName="userType">
-                    <mat-option value="Sim">Sim</mat-option>
-                    <mat-option value="Não">Não</mat-option>
-                    <mat-option value="Parcialmente">Parcialmente</mat-option>
+                    <mat-option value="s">Sim</mat-option>
+                    <mat-option value="n">Não</mat-option>
+                    <mat-option value="p">Parcialmente</mat-option>
                 </mat-select>
                 <mat-hint *ngIf="signUp.get('userType').touched && signUp.get('userType').errors?.required">Escolha uma
                     das opções
                 </mat-hint>
             </mat-form-field>
 
-            <mat-checkbox formControlName="compliance" [checked]="false">Aceito as politicas de privacidade!
+            <mat-checkbox formControlName="termsAccepted" [checked]="false">Aceito as politicas de privacidade!
 
             </mat-checkbox>
 
 
-            <button (click)="sendResgister()" class="sign-up__form-wrapper__btn">Entrar</button>
+            <button (click)="sendResgister()" class="sign-up__form-wrapper__btn" [disabled]="
+                signUp.get('name').value == '' ||
+                signUp.get('email').value == '' || 
+                signUp.get('password').value == ''|| 
+                signUp.get('confirmPassword').value == ''||
+                signUp.get('password').value != signUp.get('confirmPassword').value ||
+                signUp.get('userType').value == ''||
+                signUp.get('termsAccepted').value == false">Entrar</button>
 
         </div>
     </form>
