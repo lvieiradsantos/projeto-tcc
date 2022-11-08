@@ -20,16 +20,10 @@ export class MenuComponent implements OnInit {
 
   logout() {
     this.token = localStorage.removeItem('token');
-    this.refreshPage()
-  }
-
-  refreshPage() {
-
     this.router.navigate(['/login']).then(() => {
       window.location.reload();
     })
   }
-
 }
 
 
