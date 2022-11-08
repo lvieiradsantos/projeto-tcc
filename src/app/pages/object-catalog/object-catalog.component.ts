@@ -25,7 +25,6 @@ export class ObjectCatalogComponent implements OnInit {
   getCatalogue() {
     this.apiService.getItens().subscribe((items) => {
       this.catalogItems = items;
-      console.log(this.catalogItems)
     })
   }
 
