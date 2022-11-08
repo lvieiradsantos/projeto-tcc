@@ -10,7 +10,6 @@ import { FormBuilder, FormGroup } from '@angular/forms';
   styleUrls: ['./profile.component.scss']
 })
 export class ProfileComponent implements OnInit {
-  token: any;
   userId: string | any;
   updateProfile: FormGroup | any;
   profileInfo: ProfileModel | any;
@@ -50,12 +49,13 @@ export class ProfileComponent implements OnInit {
   sendUpdate() {
     const { name, email, phone, type, country, ageGroup, hearing } = this.updateProfile.value
 
-    const userUpdated = { name, email, phone, type, country, ageGroup, hearing };
+    const userUpdated = { name, email, phone, type, country, ageGroup, hearing};
+    console.log(hearing);
 
-
-
-    this.apiService.editUsuario(this.userId, userUpdated).pipe(take(1)).subscribe(v => {
-      console.log(v);
+    this.apiService.editUsuario(this.userId, userUpdated).pipe(take(1)).subscribe({
+      next: (v) => {
+        alert('Alterações feitas com sucesso!')
+      }, error: (e) => alert(e.error.message)
     })
   }
 }
