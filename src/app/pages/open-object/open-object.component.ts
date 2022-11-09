@@ -11,6 +11,7 @@ import { ApiService } from 'src/app/services/api.service';
 })
 export class OpenObjectComponent implements OnInit {
   faCircleQuestion = faCircleQuestion;
+  itemDetails: any;
   constructor(
     private apiService: ApiService,
     private activatedRoute: ActivatedRoute
@@ -26,8 +27,9 @@ export class OpenObjectComponent implements OnInit {
       .pipe(take(1))
       .subscribe(item => {
         const itemId = item['id']
-        this.apiService.getItem(itemId).subscribe(v => {
-          console.log(v);
+        this.apiService.getItem(itemId).subscribe(item => {
+          this.itemDetails = item;
+          console.log(this.itemDetails);
         })
       })
   }
