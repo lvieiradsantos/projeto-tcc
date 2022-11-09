@@ -6,13 +6,19 @@ import { LoginComponent } from './pages/login/login.component';
 import { OpenObjectComponent } from './pages/open-object/open-object.component';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { SignUpComponent } from './pages/sign-up/sign-up.component';
+import { TalkUsComponent } from './pages/talk-us/talk-us.component';
 import { AuthGuard } from './services/auth.guard';
 
 const routes: Routes = [
-  { path: '', component: HomeComponent },
+  {
+    path: '',
+    component: HomeComponent,
+    canActivate: [AuthGuard]
+  },
   {
     path: 'home',
-    component: HomeComponent
+    component: HomeComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'profile',
@@ -34,7 +40,13 @@ const routes: Routes = [
   },
   {
     path: 'item/:id',
-    component: OpenObjectComponent
+    component: OpenObjectComponent,
+    canActivate: [AuthGuard]
+  },
+
+  {
+    path: 'fale-conosco',
+    component: TalkUsComponent
   },
 
   { path: '**', redirectTo: '' }

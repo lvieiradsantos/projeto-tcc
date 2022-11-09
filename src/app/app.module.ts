@@ -37,6 +37,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AboutUsComponent } from './pages/about-us/about-us.component';
 import { JwtHelperService, JWT_OPTIONS } from '@auth0/angular-jwt';
 import { NgxMaskModule, IConfig } from 'ngx-mask'
+import { TalkUsComponent } from './pages/talk-us/talk-us.component';
 export const options: Partial<null | IConfig> | (() => Partial<IConfig>) = null;
 
 @NgModule({
@@ -59,7 +60,8 @@ export const options: Partial<null | IConfig> | (() => Partial<IConfig>) = null;
     OpenObjectComponent,
     MenuComponent,
     MenuFooterComponent,
-    AboutUsComponent
+    AboutUsComponent,
+    TalkUsComponent
   ],
   imports: [
     FormsModule,
