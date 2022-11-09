@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { take } from 'rxjs';
 import { ApiService } from 'src/app/services/api.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-sign-up',
@@ -37,9 +38,14 @@ export class SignUpComponent implements OnInit {
 
     this.apiService.createUsuario(user).pipe(take(1)).subscribe({
       next: (v) => {
-        this.router.navigate(['/login'])
-      }, error: (e) => alert(e.error.message)
+        Swal.fire({
+          title: 'Sucesso',
+          text: 'Usuário cadastrado com sucesso',
+          icon: 'success',
+          confirmButtonText: 'Fechar'
+        }).then(() =>
+          this.router.navigate(['/login']))
+      }
     })
   }
-
 }

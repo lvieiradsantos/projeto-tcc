@@ -22,7 +22,7 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
     this.loginForm = this.formBuilder.group({
       email: ['', [Validators.required, Validators.email]],
-      password: ['', Validators.required]
+      password: ['', [Validators.required, Validators.minLength(5)]]
     })
 
     this.token = localStorage.getItem('token');
@@ -37,8 +37,7 @@ export class LoginComponent implements OnInit {
         this.router.navigate(['/']).then(() => {
           window.location.reload();
         })
-      },
-      error: (e) => alert(e.error.message)
+      }
     })
   }
 }
