@@ -41,6 +41,10 @@ export class ApiService {
         return this.http.delete(`${environment.api.itens}/${itemId}`) as Observable<any>;
     }
 
+    getItem(itemId: string) {
+        return this.http.get(`${environment.api.itens}/${itemId}`) as Observable<any>;
+    }
+
     editItem(itemId: string, item: any) {
         return this.http.put(`${environment.api.itens}/${itemId}`, item) as Observable<any>;
     }

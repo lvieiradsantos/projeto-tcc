@@ -1,21 +1,28 @@
 <div class="container">
     <div class="filter">
-        <!-- <form class="filter__search-form">
+        <form [formGroup]="filterCatalog" class="filter__search-form">
             <mat-form-field>
-                <input type="text" matInput placeholder="Pesquisar">
+                <input type="text" formControlName="searchInput" matInput placeholder="Pesquisar"
+                    class="filter__search-form-input">
             </mat-form-field>
-            <button class="filter__search-form--icon">LUPA</button>
-        </form> -->
+        </form>
     </div>
-    <section class="catalog" *ngFor="let items of this.catalogItems">
-        <div class="catalog__item">
-            <div class="catalog__item--photo"><img src="{{items.photo}}"></div>
-            <div class="catalog__item--name">{{items.name}}</div>
-            <div class="catalog__item--model">{{items.model}}</div>
-            <div class="catalog__item--brand">{{items.brand}}</div>
+    <section class="catalog">
+        <div class="catalog__item" *ngFor="let item of this.catalogItems">
+            <div class="catalog__item--photo" *ngIf="item.photo"><img src="{{item.photo}}"></div>
+            <div class="catalog__item--photo nophoto" *ngIf="!item.photo">Este item ainda não possue foto</div>
+            <div class="catalog__item-description">
+                <div class="catalog__item-description--name">{{item.name}}</div>
+                <div class="catalog__item-description--model">{{item.model}}</div>
+                {{item.id}}
+                <div class="catalog__item-description--link"> <a [routerLink]="[ '/item', item.id ]">Saiba
+                        mais</a>
+                </div>
+            </div>
+            <!-- <div class="catalog__item--brand">{{items.brand}}</div>
             <div class="catalog__item--db">{{items.db}}</div>
             <div class="catalog__item--watts">{{items.watts}}</div>
-            <div class="catalog__item--rate">{{items.rate}}</div>
+            <div class="catalog__item--rate">{{items.rate}}</div> -->
         </div>
     </section>
 </div>
