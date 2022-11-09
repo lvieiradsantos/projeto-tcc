@@ -35,7 +35,9 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatSelectModule } from '@angular/material/select';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AboutUsComponent } from './pages/about-us/about-us.component';
-
+import { JwtHelperService, JWT_OPTIONS } from '@auth0/angular-jwt';
+import { NgxMaskModule, IConfig } from 'ngx-mask'
+export const options: Partial<null | IConfig> | (() => Partial<IConfig>) = null;
 
 @NgModule({
   declarations: [
@@ -73,6 +75,7 @@ import { AboutUsComponent } from './pages/about-us/about-us.component';
     MatCheckboxModule,
     MatSelectModule,
     BrowserAnimationsModule,
+    NgxMaskModule.forRoot(),
   ],
   providers: [ApiService,
     {
@@ -85,6 +88,8 @@ import { AboutUsComponent } from './pages/about-us/about-us.component';
       useClass: HttpErrorInterceptor,
       multi: true
     },
+    { provide: JWT_OPTIONS, useValue: JWT_OPTIONS },
+    JwtHelperService,
   ],
   bootstrap: [AppComponent]
 })

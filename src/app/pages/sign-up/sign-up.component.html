@@ -6,33 +6,36 @@
             <mat-form-field>
                 <mat-label>Nome Completo</mat-label>
                 <input formControlName="name" type="text" matInput placeholder="Nome completo">
-                <mat-hint *ngIf="signUp.get('name').touched && signUp.get('name').errors?.required">Preencha o campo de
-                    nome
+                <mat-hint *ngIf="!signUp.controls.name.valid">Preencha o campo de
+                    nome corretamente
                 </mat-hint>
             </mat-form-field>
 
             <mat-form-field>
                 <mat-label>Email</mat-label>
                 <input formControlName="email" type="email" matInput placeholder="Email">
-                <mat-hint *ngIf="signUp.get('email').touched && signUp.get('email').errors?.required">Preencha o campo
-                    de email
+                <mat-hint *ngIf="!signUp.controls.email.valid">Preencha o campo
+                    de email corretamente
                 </mat-hint>
             </mat-form-field>
 
             <mat-form-field>
                 <mat-label>Senha</mat-label>
                 <input formControlName="password" type="password" matInput placeholder="Senha">
-                <mat-hint *ngIf="signUp.get('password').touched && signUp.get('password').errors?.required">Preencha o
-                    campo de senha
+                <mat-hint *ngIf="!signUp.controls.password.valid">A senha precisa ter no minimo 5 caracteres
+                </mat-hint>
+                <mat-hint *ngIf="signUp.controls.password.value != signUp.controls.confirmPassword.value">As senhas
+                    precisam ser iguais
                 </mat-hint>
             </mat-form-field>
 
             <mat-form-field>
                 <mat-label>Confirme sua senha</mat-label>
                 <input formControlName="confirmPassword" type="password" matInput placeholder="Repita sua senha">
-                <mat-hint
-                    *ngIf="signUp.get('confirmPassword').touched && signUp.get('confirmPassword').errors?.required">
-                    Preencha o campo de confirmação de senha
+                <mat-hint *ngIf="!signUp.controls.confirmPassword.valid">A senha precisa ter no minimo 5 caracteres
+                </mat-hint>
+                <mat-hint *ngIf="signUp.controls.password.value != signUp.controls.confirmPassword.value">As senhas
+                    precisam ser iguais
                 </mat-hint>
             </mat-form-field>
 
@@ -43,25 +46,16 @@
                     <mat-option value="n">Não</mat-option>
                     <mat-option value="p">Parcialmente</mat-option>
                 </mat-select>
-                <mat-hint *ngIf="signUp.get('userType').touched && signUp.get('userType').errors?.required">Escolha uma
+                <mat-hint *ngIf="!signUp.controls.userType.value">Escolha uma
                     das opções
                 </mat-hint>
             </mat-form-field>
 
             <mat-checkbox formControlName="termsAccepted" [checked]="false">Aceite os termos de uso.
-
             </mat-checkbox>
 
-
-            <button (click)="sendResgister()" class="sign-up__form-wrapper__btn" [disabled]="
-                signUp.get('name').value == '' ||
-                signUp.get('email').value == '' || 
-                signUp.get('password').value == ''|| 
-                signUp.get('confirmPassword').value == ''||
-                signUp.get('password').value != signUp.get('confirmPassword').value ||
-                signUp.get('userType').value == ''||
-                signUp.get('termsAccepted').value == false">Cadastrar</button>
-
+            <button (click)="sendResgister()" class="sign-up__form-wrapper__btn"
+                [disabled]="!signUp.valid || signUp.controls.confirmPassword.value != signUp.controls.password.value || !signUp.controls.termsAccepted.value ">Cadastrar</button>
         </div>
     </form>
 </section>

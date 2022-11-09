@@ -2,7 +2,8 @@ import { Component, OnInit, OnChanges } from '@angular/core';
 import { ProfileModel } from 'src/app/model/profile.model';
 import { take } from 'rxjs';
 import { ApiService } from 'src/app/services/api.service';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import Swal from 'sweetalert2'
 
 @Component({
   selector: 'app-profile',
@@ -34,13 +35,13 @@ export class ProfileComponent implements OnInit {
       this.profileInfo = userInfo;
 
       this.updateProfile = this.formBuilder.group({
-        name: [this.profileInfo.name],
-        email: [this.profileInfo.email],
-        phone: [this.profileInfo.phone],
-        type: [this.profileInfo.type],
-        country: [this.profileInfo.country],
-        ageGroup: [this.profileInfo.ageGroup],
-        hearing: [this.profileInfo.hearing]
+        name: [this.profileInfo.name, [Validators.required, Validators.minLength(5)]],
+        email: [this.profileInfo.email, [Validators.required, Validators.email]],
+        phone: [this.profileInfo.phone, [Validators.required]],
+        type: [this.profileInfo.type, [Validators.required]],
+        country: [this.profileInfo.country, [Validators.required]],
+        ageGroup: [this.profileInfo.ageGroup, [Validators.required, Validators.maxLength(2)]],
+        hearing: [this.profileInfo.hearing, [Validators.required]]
       })
     })
   }
@@ -49,13 +50,23 @@ export class ProfileComponent implements OnInit {
   sendUpdate() {
     const { name, email, phone, type, country, ageGroup, hearing } = this.updateProfile.value
 
-    const userUpdated = { name, email, phone, type, country, ageGroup, hearing};
+    const userUpdated = { name, email, phone, type, country, ageGroup, hearing };
     console.log(hearing);
 
     this.apiService.editUsuario(this.userId, userUpdated).pipe(take(1)).subscribe({
       next: (v) => {
-        alert('Alterações feitas com sucesso!')
-      }, error: (e) => alert(e.error.message)
+        Swal.fire({
+          title: 'Sucesso',
+          text: 'Seus dados foram alterados com sucesso',
+          icon: 'success',
+          confirmButtonText: 'Fechar'
+        })
+      }, error: (e) => Swal.fire({
+        title: 'Erro',
+        text: e.error.message,
+        icon: 'error',
+        confirmButtonText: 'Fechar'
+      })
     })
   }
 }

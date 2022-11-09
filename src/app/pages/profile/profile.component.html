@@ -7,44 +7,40 @@
             <mat-form-field>
                 <mat-label>Nome Completo</mat-label>
                 <input formControlName="name" type="text" matInput placeholder="Nome Completo">
-                <!-- <mat-hint *ngIf="loginForm.get('email').touched && loginForm.get('email').errors?.required">Preencha o
-                    campo email
-                </mat-hint> -->
+                <mat-hint *ngIf="!updateProfile.controls.name.valid">Nome inválido
+                </mat-hint>
             </mat-form-field>
             <mat-form-field>
                 <mat-label>Email</mat-label>
                 <input formControlName="email" type="email" matInput placeholder="Email">
-                <!-- <mat-hint *ngIf="loginForm.get('email').touched && loginForm.get('email').errors?.required">Preencha o
-                    campo email
-                </mat-hint> -->
+                <mat-hint *ngIf="!updateProfile.controls.email.valid">email inválido
+                </mat-hint>
             </mat-form-field>
             <mat-form-field>
                 <mat-label>Telefone</mat-label>
-                <input formControlName="phone" type="text" matInput placeholder="Telefone">
-                <!-- <mat-hint *ngIf="loginForm.get('email').touched && loginForm.get('email').errors?.required">Preencha o
-                    campo email
-                </mat-hint> -->
+                <input formControlName="phone" type="text" matInput placeholder="Telefone"
+                    [dropSpecialCharacters]="true" mask="(00)0000-0000" [clearIfNotMatch]="true">
+                <mat-hint *ngIf="!updateProfile.controls.phone.valid">Telefone inválido
+                </mat-hint>
             </mat-form-field>
             <mat-form-field>
                 <mat-label>Tipo de perfil</mat-label>
                 <input formControlName="type" type="text" matInput placeholder="Tipo de perfil" readonly>
-                <!-- <mat-hint *ngIf="loginForm.get('email').touched && loginForm.get('email').errors?.required">Preencha o
-                    campo email
-                </mat-hint> -->
+                <mat-hint *ngIf="!updateProfile.controls.type.valid">Usuario inválido
+                </mat-hint>
             </mat-form-field>
             <mat-form-field>
                 <mat-label>País</mat-label>
                 <input formControlName="country" type="text" matInput placeholder="País">
-                <!-- <mat-hint *ngIf="loginForm.get('email').touched && loginForm.get('email').errors?.required">Preencha o
-                    campo email
-                </mat-hint> -->
+                <mat-hint *ngIf="!updateProfile.controls.country.valid">País inválido
+                </mat-hint>
             </mat-form-field>
             <mat-form-field>
                 <mat-label>Idade</mat-label>
-                <input formControlName="ageGroup" type="text" matInput placeholder="Idade">
-                <!-- <mat-hint *ngIf="loginForm.get('email').touched && loginForm.get('email').errors?.required">Preencha o
-                    campo email
-                </mat-hint> -->
+                <input formControlName="ageGroup" type="text" mask="00" matInput placeholder="Idade">
+                <mat-hint *ngIf="!updateProfile.controls.ageGroup.valid">Idade
+                    invalida
+                </mat-hint>
             </mat-form-field>
             <mat-form-field>
                 <mat-label>Ouvinte?</mat-label>
@@ -53,10 +49,12 @@
                     <mat-option value="n">Não</mat-option>
                     <mat-option value="p">Parcialmente</mat-option>
                 </mat-select>
-
+                <mat-hint *ngIf="!updateProfile.controls.hearing.valid">Preencha corretamente
+                </mat-hint>
             </mat-form-field>
 
-            <button (click)="sendUpdate()" class="profile-info__form__btn">Alterar dados</button>
+            <button (click)="sendUpdate()" class="profile-info__form__btn" [disabled]="updateProfile.valid">Alterar
+                dados</button>
         </form>
     </div>
 </section>
