@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Buffer } from 'buffer';
 import jwt_decode from "jwt-decode";
 
 @Component({
