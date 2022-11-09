@@ -19,15 +19,13 @@
             <mat-form-field>
                 <mat-label>Telefone</mat-label>
                 <input formControlName="phone" type="text" matInput placeholder="Telefone"
-                    [dropSpecialCharacters]="true" mask="(00)0000-0000" [clearIfNotMatch]="true">
+                    [dropSpecialCharacters]="true" mask="(00)00000-0000" [clearIfNotMatch]="true">
                 <mat-hint *ngIf="!updateProfile.controls.phone.valid">Telefone inválido
                 </mat-hint>
             </mat-form-field>
             <mat-form-field>
                 <mat-label>Tipo de perfil</mat-label>
                 <input formControlName="type" type="text" matInput placeholder="Tipo de perfil" readonly>
-                <mat-hint *ngIf="!updateProfile.controls.type.valid">Usuario inválido
-                </mat-hint>
             </mat-form-field>
             <mat-form-field>
                 <mat-label>País</mat-label>
@@ -53,7 +51,7 @@
                 </mat-hint>
             </mat-form-field>
 
-            <button (click)="sendUpdate()" class="profile-info__form__btn" [disabled]="updateProfile.valid">Alterar
+            <button (click)="sendUpdate()" class="profile-info__form__btn" [disabled]="!updateProfile.valid">Alterar
                 dados</button>
         </form>
     </div>

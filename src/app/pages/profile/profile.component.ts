@@ -21,13 +21,8 @@ export class ProfileComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-
     this.getUserProfile();
   }
-
-
-
-
 
   getUserProfile() {
     this.userId = localStorage.getItem('userId');
@@ -37,22 +32,19 @@ export class ProfileComponent implements OnInit {
       this.updateProfile = this.formBuilder.group({
         name: [this.profileInfo.name, [Validators.required, Validators.minLength(5)]],
         email: [this.profileInfo.email, [Validators.required, Validators.email]],
-        phone: [this.profileInfo.phone, [Validators.required]],
-        type: [this.profileInfo.type, [Validators.required]],
-        country: [this.profileInfo.country, [Validators.required]],
-        ageGroup: [this.profileInfo.ageGroup, [Validators.required, Validators.maxLength(2)]],
+        phone: [this.profileInfo.phone],
+        type: [this.profileInfo.type],
+        country: [this.profileInfo.country],
+        ageGroup: [this.profileInfo.ageGroup, [Validators.maxLength(2)]],
         hearing: [this.profileInfo.hearing, [Validators.required]]
       })
     })
   }
 
-
   sendUpdate() {
     const { name, email, phone, type, country, ageGroup, hearing } = this.updateProfile.value
 
     const userUpdated = { name, email, phone, type, country, ageGroup, hearing };
-    console.log(hearing);
-
     this.apiService.editUsuario(this.userId, userUpdated).pipe(take(1)).subscribe({
       next: (v) => {
         Swal.fire({
@@ -61,12 +53,7 @@ export class ProfileComponent implements OnInit {
           icon: 'success',
           confirmButtonText: 'Fechar'
         })
-      }, error: (e) => Swal.fire({
-        title: 'Erro',
-        text: e.error.message,
-        icon: 'error',
-        confirmButtonText: 'Fechar'
-      })
+      }
     })
   }
 }

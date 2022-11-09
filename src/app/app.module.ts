@@ -15,8 +15,6 @@ import { ManageUserComponent } from './pages/manage-user/manage-user.component';
 import { ManageObjectComponent } from './pages/manage-object/manage-object.component';
 import { FavoriteObjectsCatalogComponent } from './pages/favorite-objects-catalog/favorite-objects-catalog.component';
 import { ProfileComponent } from './pages/profile/profile.component';
-import { EditProfileComponent } from './pages/edit-profile/edit-profile.component';
-import { DeleteProfileComponent } from './pages/delete-profile/delete-profile.component';
 import { ManagerProfileComponent } from './pages/manager-profile/manager-profile.component';
 import { HeaderComponent } from './shared/header/header.component';
 import { FooterComponent } from './shared/footer/footer.component';
@@ -39,6 +37,7 @@ import { JwtHelperService, JWT_OPTIONS } from '@auth0/angular-jwt';
 import { NgxMaskModule, IConfig } from 'ngx-mask'
 import { TalkUsComponent } from './pages/talk-us/talk-us.component';
 export const options: Partial<null | IConfig> | (() => Partial<IConfig>) = null;
+import { BlockUIModule } from 'ng-block-ui';
 
 @NgModule({
   declarations: [
@@ -52,8 +51,6 @@ export const options: Partial<null | IConfig> | (() => Partial<IConfig>) = null;
     ManageObjectComponent,
     FavoriteObjectsCatalogComponent,
     ProfileComponent,
-    EditProfileComponent,
-    DeleteProfileComponent,
     ManagerProfileComponent,
     HeaderComponent,
     FooterComponent,
@@ -78,6 +75,7 @@ export const options: Partial<null | IConfig> | (() => Partial<IConfig>) = null;
     MatSelectModule,
     BrowserAnimationsModule,
     NgxMaskModule.forRoot(),
+    BlockUIModule.forRoot(),
   ],
   providers: [ApiService,
     {
