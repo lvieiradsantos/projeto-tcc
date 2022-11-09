@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-menu-footer',
   templateUrl: './menu-footer.component.html',
@@ -8,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class MenuFooterComponent implements OnInit {
 
   token: any;
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
     this.token = localStorage.getItem('token');

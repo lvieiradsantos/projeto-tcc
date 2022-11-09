@@ -15,10 +15,10 @@ export class HeaderComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-
     this.token = localStorage.getItem('token');
   }
 
+  altoContraste() {}
 
   redirectLogo() {
     this.token ? this.router.navigate(['/']) : this.router.navigate(['/login']);

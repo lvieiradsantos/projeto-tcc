@@ -34,6 +34,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatSelectModule } from '@angular/material/select';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AboutUsComponent } from './pages/about-us/about-us.component';
 
 
 @NgModule({
@@ -55,7 +56,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     FooterComponent,
     OpenObjectComponent,
     MenuComponent,
-    MenuFooterComponent
+    MenuFooterComponent,
+    AboutUsComponent
   ],
   imports: [
     FormsModule,
