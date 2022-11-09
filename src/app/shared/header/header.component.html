@@ -1,13 +1,17 @@
 <header class="header">
-    <div class="container">
-        <div class="header__logo">
-            <img src="./../../../assets/images/logo.png" (click)="redirectLogo()">
-        </div>
-        <div class="header__acessibility-menu">
-            <button class="header__acessibility-menu__font-up">A+</button>
-            <button class="header__acessibility-menu__font-down">A-</button>
-            <span class="header__acessibility-menu__divisor"></span>
-            <button class="header__acessibility-menu__highlight acessibilidade" (click)="altoContraste()">Alto Contraste</button>
+    <div class="header-fix">
+        <div class="container">
+            <div class="header__logo">
+                <img src="./../../../assets/images/logo.png" (click)="redirectLogo()">
+            </div>
+            <div class="header__acessibility-menu">
+                <button class="header__acessibility-menu__font-up">A+</button>
+                <button class="header__acessibility-menu__font-down">A-</button>
+                <span class="header__acessibility-menu__divisor"></span>
+                <button class="header__acessibility-menu__highlight acessibilidade" (click)="altoContraste()">Alto
+                    Contraste</button>
+            </div>
         </div>
     </div>
+    <app-menu></app-menu>
 </header>

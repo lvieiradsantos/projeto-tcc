@@ -1,11 +1,13 @@
 .header {
-    position: fixed;
     top: 0;
-    left: 0;
     width: 100%;
-    background: hsl(0, 0%, 90%);
-    height: 60px;
-    display: flex;
+    left: 0;
+    .header-fix {
+        background: hsl(0deg, 0%, 90%);
+        height: 60px;
+        display: flex;
+        align-items: center;
+    }
     .container {
         display: flex;
         justify-content: space-between;
