@@ -3,8 +3,6 @@
     width: 100%;
     height: 480px;
     .container-page {
-        // width: 100%;
-        // height: 450px;
         .about-us {
             &__banner {
                 & img {
@@ -12,7 +10,39 @@
                 }
             }
             &__text {
-                display: flex;
+                &__center,
+                &__bottom {
+                    display: flex;
+                    justify-content: center;
+                }
+                &__center {
+                    width: 100%;
+                    & p {
+                        margin: 50px 0;
+                        color: #0b877d;
+                        font-size: 1.5rem;
+                        font-weight: 600;
+                        text-align: center;
+                    }
+                }
+                &__bottom {
+                    &__left,
+                    &__right {
+                        width: 50%;
+                    }
+                    &__left__p {
+                        font-size: 1rem;
+                        & strong {
+                            color: #ef8943;
+                        }
+                    }
+                    &__right__p {
+                        font-size: 1.5rem;
+                    }
+                    &__right__p2 {
+                        font-size: 1rem;
+                    }
+                }
             }
         }
     }
