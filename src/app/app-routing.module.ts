@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AboutUsComponent } from './pages/about-us/about-us.component';
 import { HomeComponent } from './pages/home/home.component';
 import { LoginComponent } from './pages/login/login.component';
 import { OpenObjectComponent } from './pages/open-object/open-object.component';
@@ -26,6 +27,11 @@ const routes: Routes = [
   {
     path: 'cadastrar',
     component: SignUpComponent
+  },
+
+  {
+    path: 'sobre-nos',
+    component: AboutUsComponent
   },
   {
     path: 'item/:id',
