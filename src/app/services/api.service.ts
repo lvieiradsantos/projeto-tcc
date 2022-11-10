@@ -1,5 +1,5 @@
 import { Injectable } from "@angular/core";
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpRequest } from '@angular/common/http';
 import { environment } from "src/environments/environment";
 import { tap } from 'rxjs/operators';
 import { Observable } from 'rxjs';
@@ -71,5 +71,21 @@ export class ApiService {
 
     removeFavouriteItem(itemId: string, userId: string) {
         return this.http.delete(`${environment.api.user}/${userId}/${environment.api.itens}/${itemId}`, {}) as Observable<any>;
+    }
+
+    uploadItemPhoto(itemId: string, file: File) {
+        const formData = new FormData();
+        formData.append('file', file);
+        formData.append('itemId', itemId);
+
+        const request = new HttpRequest(
+            'POST',
+            environment.api.itemPhoto,
+            formData, {
+            headers: new HttpHeaders({ Authorization: String(localStorage.getItem('token')) }),
+            reportProgress: true,
+        }
+        );
+        return this.http.request(request);
     }
 }

@@ -7,5 +7,6 @@ export const environment = {
     itensPendentes: baseUrl + 'item/pending',
     itens: baseUrl + 'item',
     user: baseUrl + 'user',
+    itemPhoto: baseUrl + 'item/photo'
   }
 };
