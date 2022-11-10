@@ -3,42 +3,80 @@
     .container-page {
         .about-us {
             &__banner {
+                max-height: 380px;
+                height: 100%;
+                overflow: hidden;
                 & img {
-                    object-fit: contain;
+                    object-fit: cover;
+                    margin-top: -4%;
                 }
             }
             &__text {
                 &__center,
                 &__bottom {
                     display: flex;
-                    justify-content: center;
                 }
                 &__center {
                     width: 100%;
-                    & p {
+                    & h1 {
                         margin: 50px 0;
                         color: #0b877d;
                         font-size: 1.5rem;
+                        line-height: 1.4;
                         font-weight: 600;
                         text-align: center;
+                        letter-spacing: 3px;
+
+                        @media screen and (max-width: 650px) {
+                            font-size: 1.2rem;
+                        }
                     }
                 }
                 &__bottom {
+                    display: flex;
+                    justify-content: space-between;
+                    flex-wrap: wrap;
                     &__left,
                     &__right {
-                        width: 50%;
+                        width: 48%;
                     }
                     &__left__p {
                         font-size: 1rem;
+                        line-height: 2;
                         & strong {
-                            color: #ef8943;
+                            color: #592f8c;
                         }
                     }
                     &__right__p {
-                        font-size: 1.5rem;
+                        line-height: 1.4;
+                        font-weight: 400;
+                        font-size: 1.4rem;
+                        @media screen and (max-width: 650px) {
+                            line-height: 1.2;
+                            font-size: 1.2rem;
+                        }
                     }
                     &__right__p2 {
                         font-size: 1rem;
+                        display: flex;
+                        justify-content: space-between;
+                        flex-wrap: wrap;
+                        max-width: 600px;
+                        width: 100%;
+                        gap: 20px;
+                        &-card {
+                            max-width: 250px;
+                            width: 100%;
+                            padding: 1.25rem;
+                            box-shadow: 0 15px 45px 0 rgb(135 140 189 / 20%);
+                            color: #0b877d;
+                            font-size: 1.125rem;
+                            font-weight: 600;
+                            letter-spacing: 2px;
+                        }
+                        &-card:hover {
+                            background: rgb(247, 245, 245);
+                        }
                     }
                 }
             }
