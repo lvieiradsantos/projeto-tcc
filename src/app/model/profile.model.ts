@@ -1,3 +1,5 @@
+import { CatalogModel } from "./catalog.model";
+
 export interface ProfileModel {
     id: string,
     name: string,
@@ -8,5 +10,5 @@ export interface ProfileModel {
     ageGroup?: string,
     hearing: string,
     termsAccepted: boolean,
-    favItems?: []
+    favItems?: CatalogModel[]
 }
