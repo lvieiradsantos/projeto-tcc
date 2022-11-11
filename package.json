@@ -28,6 +28,7 @@
     "angular-font-awesome": "^3.1.2",
     "angular-input-masks": "^4.4.1",
     "buffer": "^6.0.3",
+    "chart.js": "^3.9.1",
     "font-awesome": "^4.7.0",
     "jwt-decode": "^3.1.2",
     "ng-block-ui": "^3.0.2",

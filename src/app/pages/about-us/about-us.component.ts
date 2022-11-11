@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { faHeart, faUsers, faHandsAslInterpreting } from '@fortawesome/free-solid-svg-icons';
+import { faHeart, faUserGroup, faHandsAslInterpreting, faStar, faHandshake, faEquals , faHandHoldingHeart, faUsersRectangle } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-about-us',
@@ -10,8 +10,13 @@ import { faHeart, faUsers, faHandsAslInterpreting } from '@fortawesome/free-soli
 export class AboutUsComponent implements OnInit {
 
   faHeart = faHeart;
-  faUsers = faUsers;
+  faUserGroup = faUserGroup;
   faHandsAslInterpreting = faHandsAslInterpreting;
+  faStar = faStar;
+  faHandshake = faHandshake;
+  faEquals = faEquals;
+  faHandHoldingHeart = faHandHoldingHeart;
+  faUsersRectangle = faUsersRectangle;
 
   constructor(
     private router: Router)

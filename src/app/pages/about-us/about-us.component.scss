@@ -73,6 +73,9 @@
                             font-size: 1.125rem;
                             font-weight: 600;
                             letter-spacing: 2px;
+                            & fa-icon {
+                                margin-right: 10px;
+                            }
                         }
                         &-card:hover {
                             background: rgb(247, 245, 245);
