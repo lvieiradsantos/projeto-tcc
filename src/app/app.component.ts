@@ -23,5 +23,6 @@ export class AppComponent implements OnInit {
     this.userId = this.tokenDecripted.id;
     localStorage.setItem('userId', this.userId);
   }
+
 }
 
