@@ -61,6 +61,10 @@ export class ApiService {
         return this.http.get(`${environment.api.user}/${userId}`) as Observable<any>;
     }
 
+    deleteUser(userId: string) {
+        return this.http.delete(`${environment.api.user}/${userId}`) as Observable<any>;
+    }
+
     editUsuario(userId: string, user: any) {
         return this.http.put(`${environment.api.user}/${userId}`, user) as Observable<any>;
     }

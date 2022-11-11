@@ -1,0 +1,27 @@
+.resgitry-item {
+    margin-top:40px;
+    &__area {
+        &__form {
+            display: flex;
+            flex-direction: column;
+
+            &__btn {
+                padding: 10px;
+                font-size: 20px;
+                font-weight: 600;
+                border-radius: 2px;
+                border: 1px solid #abc75a;
+                background: #96ad4f;
+                color: #fff;
+                margin-top: 10px;
+                &:hover {
+                    background: #829745;
+                }
+            }
+            &__btn:disabled {
+                background: rgb(209, 208, 208);
+                border: rgb(179, 179, 179);
+            }
+        }
+    }
+}

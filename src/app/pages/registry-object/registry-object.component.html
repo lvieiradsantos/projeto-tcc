@@ -1,1 +1,42 @@
-<p>registry-object works!</p>
+<section class="resgitry-item container">
+    <div class="resgitry-item__area">
+        <h1>Cadastre um novo item</h1>
+        <form [formGroup]="registryItem" class="resgitry-item__area__form">
+            <mat-form-field>
+                <mat-label>Nome do produto</mat-label>
+                <input formControlName="name" type="text" matInput placeholder="Nome do produto">
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>Modelo</mat-label>
+                <input formControlName="model" type="text" matInput placeholder="Modelo">
+
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>Marca</mat-label>
+                <input formControlName="brand" type="text" matInput placeholder="Marca">
+
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>Potência</mat-label>
+                <input formControlName="watts" type="text" matInput placeholder="Potência">
+
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>Decibéis</mat-label>
+                <input formControlName="db" type="text" matInput placeholder="Decibéis">
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>Selo de classificação</mat-label>
+                <mat-select formControlName="rate">
+                    <mat-option value="green">Verde</mat-option>
+                    <mat-option value="yellow">Armarelo</mat-option>
+                    <mat-option value="red">Vermelho</mat-option>
+                </mat-select>
+
+            </mat-form-field>
+            <button (click)="sendRegisterItem()" class="resgitry-item__area__form__btn"
+                [disabled]="!registryItem.valid">Cadastrar item</button>
+        </form>
+
+    </div>
+</section>

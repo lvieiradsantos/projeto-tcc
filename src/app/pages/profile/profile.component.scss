@@ -37,5 +37,20 @@
                 color: rgb(163, 162, 162);
             }
         }
+
+        &__delete {
+            text-align: right;
+            margin-top: 20px;
+            &-btn {
+                color: rgb(185, 6, 6);
+                background: none;
+                border: none;
+                text-decoration: underline;
+                cursor: pointer;
+                &:hover {
+                    color: rgb(216, 10, 10);
+                }
+            }
+        }
     }
 }
