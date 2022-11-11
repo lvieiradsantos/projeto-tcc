@@ -2,15 +2,14 @@
     <div class="filter">
         <form [formGroup]="filterCatalog" class="filter__search-form">
             <mat-form-field>
-                <input type="text" formControlName="searchInput" matInput placeholder="Pesquisar"
-                    class="filter__search-form-input">
+                <input type="text" formControlName="searchInput" matInput placeholder="Pesquisar" class="filter__search-form-input">
             </mat-form-field>
         </form>
     </div>
     <section class="catalog">
         <div class="catalog__item" *ngFor="let item of this.catalogItems">
             <div class="catalog__item--photo" *ngIf="item.photo"><img src="{{item.photo}}"></div>
-            <div class="catalog__item--photo nophoto" *ngIf="!item.photo">Este item ainda não possue foto</div>
+            <div class="catalog__item--photo nophoto" *ngIf="!item.photo">Este item ainda não possui foto</div>
             <div class="catalog__item-description">
                 <div class="catalog__item-description--name">{{item.name}}</div>
                 <div class="catalog__item-description--model">{{item.model}}</div>

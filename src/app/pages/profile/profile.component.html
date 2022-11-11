@@ -18,8 +18,7 @@
             </mat-form-field>
             <mat-form-field>
                 <mat-label>Telefone</mat-label>
-                <input formControlName="phone" type="text" matInput placeholder="Telefone"
-                    [dropSpecialCharacters]="true" mask="(00)00000-0000" [clearIfNotMatch]="true">
+                <input formControlName="phone" type="text" matInput placeholder="Telefone" [dropSpecialCharacters]="true" mask="(00)00000-0000" [clearIfNotMatch]="true">
                 <mat-hint *ngIf="!updateProfile.controls.phone.valid">Telefone inválido
                 </mat-hint>
             </mat-form-field>
@@ -36,8 +35,7 @@
             <mat-form-field>
                 <mat-label>Idade</mat-label>
                 <input formControlName="ageGroup" type="text" mask="00" matInput placeholder="Idade">
-                <mat-hint *ngIf="!updateProfile.controls.ageGroup.valid">Idade
-                    invalida
+                <mat-hint *ngIf="!updateProfile.controls.ageGroup.valid">Idade invalida
                 </mat-hint>
             </mat-form-field>
             <mat-form-field>
