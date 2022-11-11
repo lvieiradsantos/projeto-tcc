@@ -1,6 +1,9 @@
 <div class="app-alignment">
     <app-header></app-header>
-    <div style="height:100%;">
+    <div style="height:100%;" class="img" *ngIf="!token">
+        <router-outlet></router-outlet>
+    </div>
+    <div style="height:100%;" *ngIf="token">
         <router-outlet></router-outlet>
     </div>
     <app-footer></app-footer>
