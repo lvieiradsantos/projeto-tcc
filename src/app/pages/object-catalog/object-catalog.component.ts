@@ -1,7 +1,7 @@
 import { Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { debounceTime } from 'rxjs';
-import { CatalogModel } from 'src/app/model/catalog.model';
+import { CatalogItemModel } from 'src/app/model/catalog-item.model';
 import { ApiService } from 'src/app/services/api.service';
 
 
@@ -12,7 +12,7 @@ import { ApiService } from 'src/app/services/api.service';
 })
 export class ObjectCatalogComponent implements OnInit, OnChanges {
 
-  catalogItems: CatalogModel[];
+  catalogItems: CatalogItemModel[];
   filterCatalog: FormGroup;
   filteredWord: string;
 

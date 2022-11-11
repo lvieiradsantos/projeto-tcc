@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders, HttpRequest } from '@angular/common/http';
 import { environment } from "src/environments/environment";
 import { tap } from 'rxjs/operators';
 import { Observable } from 'rxjs';
+import { CatalogItemModel } from "../model/catalog-item.model";
 
 @Injectable()
 export class ApiService {
@@ -15,15 +16,17 @@ export class ApiService {
         return this.http.post(environment.api.login, { email, password })
             .pipe(tap((respnse: any) => {
                 localStorage.setItem('token', respnse.token);
-            })) as Observable<any>;
+            })) as Observable<{
+                token: string
+            }>;
     }
 
     getItensPendentes() {
-        return this.http.get(environment.api.itensPendentes) as Observable<any>;
+        return this.http.get(environment.api.itensPendentes) as Observable<CatalogItemModel>;
     }
 
     getItens(like?: string) {
-        return this.http.get(`${environment.api.itens}?like=${like || ''}`) as Observable<any>;
+        return this.http.get(`${environment.api.itens}?like=${like || ''}`) as Observable<CatalogItemModel[]>;
     }
 
     createItem(item: {
@@ -34,19 +37,19 @@ export class ApiService {
         db: number,
         rate: 'yellow' | 'red' | 'green'
     }) {
-        return this.http.post(environment.api.itens, item) as Observable<any>;
+        return this.http.post(environment.api.itens, item) as Observable<CatalogItemModel>;
     }
 
     deleteItem(itemId: string) {
-        return this.http.delete(`${environment.api.itens}/${itemId}`) as Observable<any>;
+        return this.http.delete(`${environment.api.itens}/${itemId}`) as Observable<{ message: string }>;
     }
 
     getItem(itemId: string) {
-        return this.http.get(`${environment.api.itens}/${itemId}`) as Observable<any>;
+        return this.http.get(`${environment.api.itens}/${itemId}`) as Observable<CatalogItemModel>;
     }
 
     editItem(itemId: string, item: any) {
-        return this.http.put(`${environment.api.itens}/${itemId}`, item) as Observable<any>;
+        return this.http.put(`${environment.api.itens}/${itemId}`, item) as Observable<CatalogItemModel>;
     }
 
     createUsuario(user: {
@@ -91,5 +94,24 @@ export class ApiService {
         }
         );
         return this.http.request(request);
+    }
+
+    getItensPaginado(page: number, limit: number, like?: string) {
+        return this.http.get(`${environment.api.itensPag}?page=${page || ''}&limit=${limit || ''}&like=${like || ''}`) as Observable<{
+            items: CatalogItemModel[],
+            meta: {
+                totalItems: number;
+                itemCount: number;
+                itemsPerPage: number;
+                totalPages: number;
+                currentPage: number;
+            },
+            links: {
+                first: string;
+                previous: string;
+                next: string;
+                last: string;
+            }
+        }>;
     }
 }

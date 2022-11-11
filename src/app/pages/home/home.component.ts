@@ -7,21 +7,14 @@ import { Router } from '@angular/router';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-
-
-  token: any;
   constructor(
-    private router: Router,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
-
-
-    this.token = localStorage.getItem('token');
-    if (this.token == null) {
-      this.router.navigate(['/login']).then(() => {
-        window.location.reload();
-      })
+    const token = localStorage.getItem('token');
+    if (!token) {
+      this.router.navigate(['/login']);
     }
   }
 
