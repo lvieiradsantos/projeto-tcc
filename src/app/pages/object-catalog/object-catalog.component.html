@@ -1,10 +1,15 @@
 <div class="container">
-    <div class="filter">
-        <form [formGroup]="filterCatalog" class="filter__search-form">
-            <mat-form-field>
-                <input type="text" formControlName="searchInput" matInput placeholder="Pesquisar" class="filter__search-form-input">
-            </mat-form-field>
-        </form>
+    <div class="catalog-header">
+        <div class="filter">
+            <form [formGroup]="filterCatalog" class="filter__search-form">
+                <mat-form-field>
+                    <input type="text" formControlName="searchInput" matInput placeholder="Pesquisar" class="filter__search-form-input">
+                </mat-form-field>
+            </form>
+        </div>
+        <div class="new-catalog__item">
+            <button class="new-catalog__item-btn" routerLink="/cadastrar-item">Cadastrar Item</button>
+        </div>
     </div>
     <section class="catalog">
         <div class="catalog__item" *ngFor="let item of this.catalogItems">
@@ -14,8 +19,8 @@
                 <div class="catalog__item-description--name">{{item.name}}</div>
                 <div class="catalog__item-description--model">{{item.model}}</div>
 
-                <div class="catalog__item-description--link"> <a [routerLink]="[ '/item', item.id ]">Saiba
-                        mais</a>
+                <div class="catalog__item-description--link"> <a [routerLink]="[ '/item', item.id ]">Mais
+                        informações</a>
                 </div>
             </div>
         </div>

@@ -5,6 +5,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { LoginComponent } from './pages/login/login.component';
 import { OpenObjectComponent } from './pages/open-object/open-object.component';
 import { ProfileComponent } from './pages/profile/profile.component';
+import { RegistryObjectComponent } from './pages/registry-object/registry-object.component';
 import { SignUpComponent } from './pages/sign-up/sign-up.component';
 import { TalkUsComponent } from './pages/talk-us/talk-us.component';
 import { AuthGuard } from './services/auth.guard';
@@ -23,6 +24,11 @@ const routes: Routes = [
   {
     path: 'profile',
     component: ProfileComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'cadastrar-item',
+    component: RegistryObjectComponent,
     canActivate: [AuthGuard]
   },
   {

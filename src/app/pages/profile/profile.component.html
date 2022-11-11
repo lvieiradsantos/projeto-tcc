@@ -52,5 +52,8 @@
             <button (click)="sendUpdate()" class="profile-info__form__btn" [disabled]="!updateProfile.valid">Alterar
                 dados</button>
         </form>
+        <div class="profile-info__delete">
+            <button class="profile-info__delete-btn" (click)="deleteProfileUser()">Deletar conta</button>
+        </div>
     </div>
 </section>

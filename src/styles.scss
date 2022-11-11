@@ -6,10 +6,12 @@
 html {
     height: 100%;
 }
+
 body {
     padding: 0;
     margin: 0;
     height: 100%;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
 }
 
 //
@@ -35,9 +37,4 @@ body {
     @media screen and (max-width: 380px) {
         max-width: 320px;
     }
-}
-
-body {
-    margin: 0;
-    font-family: Roboto, "Helvetica Neue", sans-serif;
 }
