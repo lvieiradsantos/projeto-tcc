@@ -33,10 +33,10 @@ export class AppComponent implements OnInit {
 
 
   getUrl() {
-    if (window.location.pathname == '/sobre-nos') {
-      return false;
-    } else {
+    if (window.location.pathname == '/login' || window.location.pathname == '/cadastro') {
       return true;
+    } else {
+      return false;
     }
   }
 

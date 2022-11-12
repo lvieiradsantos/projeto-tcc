@@ -2,7 +2,7 @@
     <div class="menu__btn">
         <button routerLink="/login" class="menu__btn__sign-in" *ngIf="!token">ENTRAR</button>
         <button routerLink="/profile" class="menu__btn__sign-in" *ngIf="token">PERFIL</button>
-        <button routerLink="/cadastrar" class="menu__btn__sign-up" *ngIf="!token">CADASTRAR-SE</button>
+        <button routerLink="/cadastro" class="menu__btn__sign-up" *ngIf="!token">CADASTRAR-SE</button>
         <button class="menu__btn__sign-up" *ngIf="token" (click)="logout()">SAIR</button>
         <button routerLink="/sobre-nos" class="menu__btn__about-us-catalog" *ngIf="!token">SOBRE NÓS</button>
         <button routerLink="/home" class="menu__btn__about-us-catalog" *ngIf="token">CATÁLOGO</button>

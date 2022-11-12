@@ -3,12 +3,14 @@
         <div class="filter">
             <form [formGroup]="filterCatalog" class="filter__search-form">
                 <mat-form-field>
-                    <input type="text" formControlName="searchInput" matInput placeholder="Pesquisar" class="filter__search-form-input">
+                    <input type="text" formControlName="searchInput" matInput placeholder="Pesquisar"
+                        class="filter__search-form-input">
                 </mat-form-field>
             </form>
         </div>
         <div class="new-catalog__item">
-            <button class="new-catalog__item-btn" routerLink="/cadastrar-item">Cadastrar Item</button>
+            <button class="new-catalog__item-btn" routerLink="/cadastrar-item" *ngIf="this.token">Cadastrar
+                Item</button>
         </div>
     </div>
     <section class="catalog">

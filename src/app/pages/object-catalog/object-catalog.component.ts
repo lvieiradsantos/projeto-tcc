@@ -15,6 +15,7 @@ export class ObjectCatalogComponent implements OnInit, OnChanges {
   catalogItems: CatalogItemModel[];
   filterCatalog: FormGroup;
   filteredWord: string;
+  token: string;
 
   constructor(
     private apiService: ApiService,
@@ -22,6 +23,7 @@ export class ObjectCatalogComponent implements OnInit, OnChanges {
   ) { }
 
   ngOnInit(): void {
+    this.token = localStorage.getItem('token');
     this.apiService.getItens().subscribe((items) => {
       this.catalogItems = items;
       console.log(this.catalogItems)

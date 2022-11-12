@@ -18,9 +18,4 @@ export class HeaderComponent implements OnInit {
     this.token = localStorage.getItem('token');
   }
 
-  altoContraste() {}
-
-  redirectLogo() {
-    this.token ? this.router.navigate(['/']) : this.router.navigate(['/sobre-nos']);
-  }
 }

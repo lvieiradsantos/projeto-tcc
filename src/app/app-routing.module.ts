@@ -13,8 +13,7 @@ import { AuthGuard } from './services/auth.guard';
 const routes: Routes = [
   {
     path: '',
-    component: HomeComponent,
-    canActivate: [AuthGuard]
+    component: HomeComponent
   },
   {
     path: 'profile',
@@ -31,7 +30,7 @@ const routes: Routes = [
     component: LoginComponent
   },
   {
-    path: 'cadastrar',
+    path: 'cadastro',
     component: SignUpComponent
   },
 
@@ -41,8 +40,7 @@ const routes: Routes = [
   },
   {
     path: 'item/:id',
-    component: OpenObjectComponent,
-    canActivate: [AuthGuard]
+    component: OpenObjectComponent
   },
 
   {
