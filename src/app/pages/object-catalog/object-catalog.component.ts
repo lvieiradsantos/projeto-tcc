@@ -1,6 +1,6 @@
 import { Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { debounceTime } from 'rxjs';
+import { debounceTime, take } from 'rxjs';
 import { CatalogItemModel } from 'src/app/model/catalog-item.model';
 import { ApiService } from 'src/app/services/api.service';
 
@@ -12,7 +12,9 @@ import { ApiService } from 'src/app/services/api.service';
 })
 export class ObjectCatalogComponent implements OnInit, OnChanges {
 
-  catalogItems: CatalogItemModel[];
+  catalogItems: any;
+  catalogLinks: any;
+  catalogMeta: any;
   filterCatalog: FormGroup;
   filteredWord: string;
   token: string;
@@ -24,10 +26,11 @@ export class ObjectCatalogComponent implements OnInit, OnChanges {
 
   ngOnInit(): void {
     this.token = localStorage.getItem('token');
-    this.apiService.getItens().subscribe((items) => {
-      this.catalogItems = items;
-      console.log(this.catalogItems)
-    })
+    // this.apiService.getItens().subscribe((items) => {
+    //   this.catalogItems = items;
+    //   console.log(this.catalogItems)
+    // })
+    this.paginatedItems();
     this.filterCatalog = this.formBuilder.group({
       searchInput: ['']
     })
@@ -36,6 +39,19 @@ export class ObjectCatalogComponent implements OnInit, OnChanges {
   }
 
   ngOnChanges() {
+  }
+
+  paginatedItems() {
+    this.apiService.getItensPaginado(1, 8).pipe(take(1)).subscribe({
+      next: pagination => {
+        this.catalogItems = pagination.items;
+        this.catalogLinks = pagination.links;
+        this.catalogMeta = pagination.meta;
+        console.log(this.catalogItems);
+        console.log(this.catalogLinks);
+        console.log(this.catalogMeta);
+      }
+    })
   }
 
   filterCatalogItems() {

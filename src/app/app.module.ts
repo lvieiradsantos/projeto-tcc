@@ -38,6 +38,7 @@ import { NgxMaskModule, IConfig } from 'ngx-mask'
 import { TalkUsComponent } from './pages/talk-us/talk-us.component';
 export const options: Partial<null | IConfig> | (() => Partial<IConfig>) = null;
 import { BlockUIModule } from 'ng-block-ui';
+import { NgxMatFileInputModule } from '@angular-material-components/file-input';
 
 @NgModule({
   declarations: [
@@ -76,6 +77,7 @@ import { BlockUIModule } from 'ng-block-ui';
     BrowserAnimationsModule,
     NgxMaskModule.forRoot(),
     BlockUIModule.forRoot(),
+    NgxMatFileInputModule
   ],
   providers: [ApiService,
     {

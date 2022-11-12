@@ -2,10 +2,10 @@
     <div class="catalog-header">
         <div class="filter">
             <form [formGroup]="filterCatalog" class="filter__search-form">
-                <mat-form-field>
-                    <input type="text" formControlName="searchInput" matInput placeholder="Pesquisar"
-                        class="filter__search-form-input">
-                </mat-form-field>
+                <div class="filter__search-form--bar">
+                    <input type="text" formControlName="searchInput" placeholder="Pesquisar"
+                        class="filter__search-form--bar-input">
+                </div>
             </form>
         </div>
         <div class="new-catalog__item">
@@ -25,6 +25,13 @@
                         informações</a>
                 </div>
             </div>
+        </div>
+        <div class="catalog__item-navigation">
+            <span><a href="{{this.catalogLinks.first}}">Pagina Inicial</a></span>
+            <span> </span>
+            <span> &lt;&lt;</span>
+            <span>>></span>
+            <span><a href="{{this.catalogLinks.last}}">Pagina Final</a></span>
         </div>
     </section>
 </div>

@@ -37,13 +37,13 @@ export class ApiService {
         db: number,
         rate: 'yellow' | 'red' | 'green',
         file?: File
-    }) { 
-        if(item.file){
-              return this.http.post(environment.api.itens, item).pipe(
+    }) {
+        if (item.file) {
+            return this.http.post(environment.api.itens, item).pipe(
                 switchMap(resp => this.uploadItemPhoto(resp['id'], item.file))
             );
         } else {
-            return this.http.post(environment.api.itens, item) as Observable<CatalogItemModel>;
+            return this.http.post(environment.api.itens, item) as Observable<any>;
         }
     }
 

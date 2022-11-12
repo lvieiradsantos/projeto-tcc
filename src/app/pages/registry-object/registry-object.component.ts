@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { take } from 'rxjs';
+import { CatalogItemModel } from 'src/app/model/catalog-item.model';
 import { ApiService } from 'src/app/services/api.service';
 import Swal from 'sweetalert2';
 
@@ -25,7 +26,7 @@ export class RegistryObjectComponent implements OnInit {
       brand: ['', [Validators.required]],
       watts: ['', [Validators.required]],
       db: [''],
-      photo: [null],
+      file: [''],
       rate: ['', [Validators.required]],
       active: [false]
     })
@@ -33,15 +34,14 @@ export class RegistryObjectComponent implements OnInit {
 
 
   sendRegisterItem() {
-    let { name, model, brand, watts, db, rate } = this.registryItem.value;
+    let { name, model, brand, watts, db, rate, file } = this.registryItem.value;
 
     db = +db;
     watts = +watts;
 
-    const item = { name, model, brand, db, watts, rate };
+    const item = { name, model, brand, db, watts, rate, file };
 
-    console.log(item);
-    this.apiService.createItem(item).pipe(take(1)).subscribe({
+    this.apiService.createItem(item).subscribe({
       next: (v) => {
         console.log('next', v);
         Swal.fire({
@@ -49,6 +49,8 @@ export class RegistryObjectComponent implements OnInit {
           text: 'Novo item cadastrado com sucesso',
           icon: 'success',
           confirmButtonText: 'Fechar'
+        }).then(()=>{
+          this.registryItem.reset();
         })
       }
     })

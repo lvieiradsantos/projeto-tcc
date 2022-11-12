@@ -3,6 +3,10 @@
         <h1>Cadastre um novo item</h1>
         <form [formGroup]="registryItem" class="resgitry-item__area__form">
             <mat-form-field>
+                <ngx-mat-file-input formControlName="file" [accept]="'.png, .jpg, .jpeg'" placeholder="Insira a foto do produto">
+                </ngx-mat-file-input>
+            </mat-form-field>
+            <mat-form-field>
                 <mat-label>Nome do produto</mat-label>
                 <input formControlName="name" type="text" matInput placeholder="Nome do produto">
                 <mat-hint *ngIf="!registryItem.controls['name'].valid">O campo nome do produto é inválido</mat-hint>
