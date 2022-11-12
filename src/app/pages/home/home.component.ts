@@ -7,14 +7,15 @@ import { Router } from '@angular/router';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
+  token: string;
   constructor(
     private router: Router
   ) { }
 
   ngOnInit(): void {
-    const token = localStorage.getItem('token');
-    if (!token) {
-      this.router.navigate(['/login']);
+    this.token = localStorage.getItem('token');
+    if (!this.token) {
+      this.router.navigate(['/']);
     }
   }
 

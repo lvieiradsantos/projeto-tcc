@@ -31,7 +31,7 @@ export class HttpErrorInterceptor implements HttpInterceptor {
                 }
                 );
                 localStorage.clear();
-                this.router.navigate(['/login']);
+                this.router.navigate(['/sobre-nos']);
                 return throwError(error);
             }),
         );

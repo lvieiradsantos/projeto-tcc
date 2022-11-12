@@ -21,7 +21,7 @@ export class MenuComponent implements OnInit {
 
   logout() {
     this.token = localStorage.removeItem('token');
-    this.router.navigate(['/login']).then(() => {
+    this.router.navigate(['/']).then(() => {
       window.location.reload();
     })
   }

@@ -21,6 +21,6 @@ export class HeaderComponent implements OnInit {
   altoContraste() {}
 
   redirectLogo() {
-    this.token ? this.router.navigate(['/']) : this.router.navigate(['/login']);
+    this.token ? this.router.navigate(['/']) : this.router.navigate(['/sobre-nos']);
   }
 }
