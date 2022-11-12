@@ -1,7 +1,7 @@
 import { Injectable } from "@angular/core";
 import { HttpClient, HttpHeaders, HttpRequest } from '@angular/common/http';
 import { environment } from "src/environments/environment";
-import { tap } from 'rxjs/operators';
+import { switchMap, tap } from 'rxjs/operators';
 import { Observable } from 'rxjs';
 import { CatalogItemModel } from "../model/catalog-item.model";
 
@@ -14,8 +14,8 @@ export class ApiService {
 
     login(email: string, password: string) {
         return this.http.post(environment.api.login, { email, password })
-            .pipe(tap((respnse: any) => {
-                localStorage.setItem('token', respnse.token);
+            .pipe(tap((response: any) => {
+                localStorage.setItem('token', response.token);
             })) as Observable<{
                 token: string
             }>;
@@ -35,9 +35,16 @@ export class ApiService {
         brand: string,
         watts: number,
         db: number,
-        rate: 'yellow' | 'red' | 'green'
-    }) {
-        return this.http.post(environment.api.itens, item) as Observable<CatalogItemModel>;
+        rate: 'yellow' | 'red' | 'green',
+        file?: File
+    }) { 
+        if(item.file){
+              return this.http.post(environment.api.itens, item).pipe(
+                switchMap(resp => this.uploadItemPhoto(resp['id'], item.file))
+            );
+        } else {
+            return this.http.post(environment.api.itens, item) as Observable<CatalogItemModel>;
+        }
     }
 
     deleteItem(itemId: string) {
