@@ -1,11 +1,9 @@
-<div class="app-alignment" [ngClass]="!this.token ? 'loggedOut-background' : '' ">
+<div class="app-alignment" [ngClass]="(!this.token && getUrl() )? 'loggedOut-background' : '' ">
     <app-header></app-header>
-    <!-- <div class="img" *ngIf="!token"> -->
     <div style="height:100%;">
         <router-outlet></router-outlet>
     </div>
     <app-footer></app-footer>
 </div>
-<!-- </div> -->
 
 <block-ui></block-ui>

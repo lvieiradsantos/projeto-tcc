@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import jwt_decode from "jwt-decode";
 
 @Component({
@@ -12,16 +13,31 @@ export class AppComponent implements OnInit {
   tokenDecripted: any;
   userId: any;
 
+  constructor(
+    private activatedRoute: ActivatedRoute,
+  ) { }
 
   ngOnInit() {
+    this.getUrl();
     this.getUserId();
   }
 
   getUserId() {
     this.token = localStorage.getItem('token');
-    this.tokenDecripted = jwt_decode(this.token);
-    this.userId = this.tokenDecripted.id;
-    localStorage.setItem('userId', this.userId);
+    if (this.token) {
+      this.tokenDecripted = jwt_decode(this.token);
+      this.userId = this.tokenDecripted.id;
+      localStorage.setItem('userId', this.userId);
+    }
+  }
+
+
+  getUrl() {
+    if (window.location.pathname == '/sobre-nos') {
+      return false;
+    } else {
+      return true;
+    }
   }
 
 }
