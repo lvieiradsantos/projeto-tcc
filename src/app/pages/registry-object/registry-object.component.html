@@ -5,21 +5,23 @@
             <mat-form-field>
                 <mat-label>Nome do produto</mat-label>
                 <input formControlName="name" type="text" matInput placeholder="Nome do produto">
+                <mat-hint *ngIf="!registryItem.controls['name'].valid">O campo nome do produto é inválido</mat-hint>
             </mat-form-field>
             <mat-form-field>
                 <mat-label>Modelo</mat-label>
                 <input formControlName="model" type="text" matInput placeholder="Modelo">
+                <mat-hint *ngIf="!registryItem.controls['model'].valid">O campo modelo do produto é inválido</mat-hint>
 
             </mat-form-field>
             <mat-form-field>
                 <mat-label>Marca</mat-label>
                 <input formControlName="brand" type="text" matInput placeholder="Marca">
-
+                <mat-hint *ngIf="!registryItem.controls['brand'].valid">O campo marca do produto é inválido</mat-hint>
             </mat-form-field>
             <mat-form-field>
                 <mat-label>Potência</mat-label>
                 <input formControlName="watts" type="text" matInput placeholder="Potência">
-
+                <mat-hint *ngIf="!registryItem.controls['watts'].valid">O campo watts do produto é inválido</mat-hint>
             </mat-form-field>
             <mat-form-field>
                 <mat-label>Decibéis</mat-label>
@@ -32,7 +34,7 @@
                     <mat-option value="yellow">Armarelo</mat-option>
                     <mat-option value="red">Vermelho</mat-option>
                 </mat-select>
-
+                <mat-hint *ngIf="!registryItem.controls['rate'].valid">O campo selo do produto é inválido</mat-hint>
             </mat-form-field>
             <button (click)="sendRegisterItem()" class="resgitry-item__area__form__btn"
                 [disabled]="!registryItem.valid">Cadastrar item</button>

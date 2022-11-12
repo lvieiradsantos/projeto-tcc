@@ -35,8 +35,8 @@ export class RegistryObjectComponent implements OnInit {
   sendRegisterItem() {
     let { name, model, brand, watts, db, rate } = this.registryItem.value;
 
-    db = Number(db);
-    watts = Number(watts);
+    db = +db;
+    watts = +watts;
 
     const item = { name, model, brand, db, watts, rate };
 
