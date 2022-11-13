@@ -1,37 +1,66 @@
-.middle-content {
-    width: 100%;
-    padding-bottom: 20px;
-    display: flex;
-    justify-content: center;
-    & .talk-us {
-        background-color: #ffff;
+    .middle-content {
         width: 100%;
-        height: fit-content;
-        padding: 30px;
+        padding-bottom: 20px;
         display: flex;
-        flex-direction: column;
         justify-content: center;
-        align-items: center;
-        border: 1px solid #c1d5eb;
-        border-radius: 5px;
-        box-shadow: 10px 10px 5px rgb(0 46 71 / 10%);
-        &__title {
-            font-size: 16px;
-            text-transform: uppercase;
-        }
-        &__sub-title {
-            font-size: 18px;
-            text-transform: lowercase;
-        }
-        &__email {
-            font-size: 16px;
-            text-transform: lowercase;
-            &__text {
-                margin-left: 5px;
+        & .talk-us {
+            background-color: #ffff;
+            width: 100%;
+            height: fit-content;
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid #c1d5eb;
+            border-radius: 5px;
+            box-shadow: 10px 10px 5px rgb(0 46 71 / 10%);
+            & h1,
+            h2 {
+                margin-bottom: 0;
             }
-            &__icon {
-                color: #592f8c;
+            &__title {
+                font-size: 16px;
+                text-transform: uppercase;
+            }
+            &__sub-title {
+                font-size: 18px;
+                text-transform: lowercase;
+            }
+            &__email {
+                font-size: 16px;
+                text-transform: lowercase;
+                &__text {
+                    margin-left: 5px;
+                }
+                &__icon {
+                    color: #592f8c;
+                }
             }
         }
     }
-}
+    
+    @media screen and (min-width: 981px) {
+        .talk-us {
+            width: 50% !important;
+            & h1,
+            h2 {
+                margin-bottom: 15px !important;
+            }
+            &__title {
+                font-size: 30px !important;
+                text-transform: uppercase !important;
+            }
+            &__sub-title {
+                font-size: 25px !important;
+                text-transform: lowercase !important;
+            }
+            &__email {
+                font-size: 20px !important;
+                text-transform: lowercase !important;
+                &__text {
+                    margin-left: 5px !important;
+                }
+            }
+        }
+    }
