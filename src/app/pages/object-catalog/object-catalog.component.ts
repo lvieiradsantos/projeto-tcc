@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 import { debounceTime, take } from 'rxjs';
 import { CatalogItemModel } from 'src/app/model/catalog-item.model';
 import { ApiService } from 'src/app/services/api.service';
-
+import { faPenToSquare, faTrashCan } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-object-catalog',
@@ -18,6 +18,9 @@ export class ObjectCatalogComponent implements OnInit, OnChanges {
   filterCatalog: FormGroup;
   filteredWord: string;
   token: string;
+
+  faPenToSquare = faPenToSquare;
+  faTrashCan = faTrashCan;
 
   constructor(
     private apiService: ApiService,

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { faEnvelope} from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-talk-us',
@@ -7,9 +8,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TalkUsComponent implements OnInit {
 
+  faEnvelope = faEnvelope;
+
   constructor() { }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
 }

@@ -3,8 +3,7 @@
         <div class="filter">
             <form [formGroup]="filterCatalog" class="filter__search-form">
                 <div class="filter__search-form--bar">
-                    <input type="text" formControlName="searchInput" placeholder="Pesquisar"
-                        class="filter__search-form--bar-input">
+                    <input type="text" formControlName="searchInput" placeholder="Pesquisar" class="filter__search-form--bar-input">
                 </div>
             </form>
         </div>
@@ -21,8 +20,10 @@
                 <div class="catalog__item-description--name">{{item.name}}</div>
                 <div class="catalog__item-description--model">{{item.model}}</div>
 
-                <div class="catalog__item-description--link"> <a [routerLink]="[ '/item', item.id ]">Mais
-                        informações</a>
+                <div class="catalog__item-description--link">
+                    <a [routerLink]="[ '/item', item.id ]">Mais informações</a>
+                    <fa-icon [icon]="faPenToSquare" class="icon-edit"></fa-icon>
+                    <fa-icon [icon]="faTrashCan" class="icon-delete"></fa-icon>
                 </div>
             </div>
         </div>

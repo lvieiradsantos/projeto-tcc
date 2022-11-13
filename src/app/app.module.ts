@@ -39,6 +39,8 @@ import { TalkUsComponent } from './pages/talk-us/talk-us.component';
 export const options: Partial<null | IConfig> | (() => Partial<IConfig>) = null;
 import { BlockUIModule } from 'ng-block-ui';
 import { NgxMatFileInputModule } from '@angular-material-components/file-input';
+import { TermsOfUseComponent } from './pages/terms-of-use/terms-of-use.component';
+import { PrivacyPolicyComponent } from './pages/privacy-policy/privacy-policy.component';
 
 @NgModule({
   declarations: [
@@ -59,7 +61,9 @@ import { NgxMatFileInputModule } from '@angular-material-components/file-input';
     MenuComponent,
     MenuFooterComponent,
     AboutUsComponent,
-    TalkUsComponent
+    TalkUsComponent,
+    TermsOfUseComponent,
+    PrivacyPolicyComponent
   ],
   imports: [
     FormsModule,
