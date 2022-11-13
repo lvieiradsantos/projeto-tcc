@@ -28,7 +28,10 @@
                         {{ item.name }}
                     </div>
                     <div class="catalog-item__wrapper__item-description--model">
-                        {{ item.model }}
+                        Modelo: {{ item.model }}
+                    </div>
+                    <div class="catalog-item__wrapper__item-description--brand">
+                        Marca: {{ item.brand }}
                     </div>
 
                     <div class="catalog-item__wrapper__item-description_buttons">
@@ -36,13 +39,15 @@
                             <a [routerLink]="['/item', item.id]">Mais informações</a>
                         </div>
 
-                        <div class="catalog-item__wrapper__item-description_buttons--actions">
+                        <div class="catalog-item__wrapper__item-description_buttons--actions"
+                            *ngIf="this.token && this.userType.type =='admin'">
                             <button class="catalog-item__wrapper__item-description_buttons--actions--icon-edit">
                                 <fa-icon [icon]="faPenToSquare" class="icon">
                                 </fa-icon>
                             </button>
-                            <button class="catalog-item__wrapper__item-description_buttons--actions--icon-delete">
-                                <fa-icon [icon]="faTrashCan"  class="icon">
+                            <button class="catalog-item__wrapper__item-description_buttons--actions--icon-delete"
+                                (click)="deleteItem(item.id)">
+                                <fa-icon [icon]="faTrashCan" class="icon">
                                 </fa-icon>
                             </button>
                         </div>

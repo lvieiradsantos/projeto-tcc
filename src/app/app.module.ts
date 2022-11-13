@@ -11,11 +11,8 @@ import { LoginComponent } from './pages/login/login.component';
 import { RegistryObjectComponent } from './pages/registry-object/registry-object.component';
 import { ObjectCatalogComponent } from './pages/object-catalog/object-catalog.component';
 import { SignUpComponent } from './pages/sign-up/sign-up.component';
-import { ManageUserComponent } from './pages/manage-user/manage-user.component';
-import { ManageObjectComponent } from './pages/manage-object/manage-object.component';
 import { FavoriteObjectsCatalogComponent } from './pages/favorite-objects-catalog/favorite-objects-catalog.component';
 import { ProfileComponent } from './pages/profile/profile.component';
-import { ManagerProfileComponent } from './pages/manager-profile/manager-profile.component';
 import { HeaderComponent } from './shared/header/header.component';
 import { FooterComponent } from './shared/footer/footer.component';
 import { OpenObjectComponent } from './pages/open-object/open-object.component';
@@ -41,6 +38,7 @@ import { BlockUIModule } from 'ng-block-ui';
 import { NgxMatFileInputModule } from '@angular-material-components/file-input';
 import { TermsOfUseComponent } from './pages/terms-of-use/terms-of-use.component';
 import { PrivacyPolicyComponent } from './pages/privacy-policy/privacy-policy.component';
+import { ObjectCatalogEditComponent } from './pages/object-catalog-edit/object-catalog-edit.component';
 
 @NgModule({
   declarations: [
@@ -50,11 +48,8 @@ import { PrivacyPolicyComponent } from './pages/privacy-policy/privacy-policy.co
     RegistryObjectComponent,
     ObjectCatalogComponent,
     SignUpComponent,
-    ManageUserComponent,
-    ManageObjectComponent,
     FavoriteObjectsCatalogComponent,
     ProfileComponent,
-    ManagerProfileComponent,
     HeaderComponent,
     FooterComponent,
     OpenObjectComponent,
@@ -63,7 +58,8 @@ import { PrivacyPolicyComponent } from './pages/privacy-policy/privacy-policy.co
     AboutUsComponent,
     TalkUsComponent,
     TermsOfUseComponent,
-    PrivacyPolicyComponent
+    PrivacyPolicyComponent,
+    ObjectCatalogEditComponent
   ],
   imports: [
     FormsModule,
