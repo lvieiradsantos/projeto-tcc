@@ -71,7 +71,7 @@ export class ObjectCatalogComponent implements OnInit, OnChanges {
   }
 
   paginatedItems() {
-    this.apiService.getItensPaginado(this.pageNumber, 12).pipe(take(1)).subscribe({
+    this.apiService.getItensPaginado(this.pageNumber, 8).pipe(take(1)).subscribe({
       next: pagination => {
         this.catalogItems = pagination.items;
         this.catalogMeta = pagination.meta;
