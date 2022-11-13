@@ -29,7 +29,9 @@ export class HttpErrorInterceptor implements HttpInterceptor {
                     icon: 'error',
                     confirmButtonText: 'Fechar'
                 }
-                );
+                ).then(() => {
+                    window.location.reload();
+                });
                 localStorage.clear();
                 this.router.navigate(['/']);
                 return throwError(error);

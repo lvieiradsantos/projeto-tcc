@@ -13,11 +13,11 @@ import { ApiService } from 'src/app/services/api.service';
 export class ObjectCatalogComponent implements OnInit, OnChanges {
 
   catalogItems: any;
-  catalogLinks: any;
   catalogMeta: any;
   filterCatalog: FormGroup;
   filteredWord: string;
   token: string;
+  pageNumber = 1;
 
   constructor(
     private apiService: ApiService,
@@ -26,40 +26,68 @@ export class ObjectCatalogComponent implements OnInit, OnChanges {
 
   ngOnInit(): void {
     this.token = localStorage.getItem('token');
-    // this.apiService.getItens().subscribe((items) => {
-    //   this.catalogItems = items;
-    //   console.log(this.catalogItems)
-    // })
     this.paginatedItems();
     this.filterCatalog = this.formBuilder.group({
       searchInput: ['']
     })
-
     this.filterCatalogItems();
   }
 
   ngOnChanges() {
   }
 
+  beforePage() {
+    this.pageNumber--;
+    const { searchInput } = this.filterCatalog.controls;
+    if (searchInput.value == '') {
+      this.paginatedItems();
+    } else {
+      this.apiService.getItensPaginado(this.pageNumber, 8, searchInput.value?.toLowerCase()).subscribe({
+        next: pagination => {
+          this.catalogItems = pagination.items;
+          this.catalogMeta = pagination.meta;
+        }
+      })
+    }
+  }
+
+  afterPage() {
+    this.pageNumber++;
+    const { searchInput } = this.filterCatalog.controls;
+    if (searchInput.value == '') {
+      this.paginatedItems();
+    } else {
+      this.apiService.getItensPaginado(this.pageNumber, 8, searchInput.value?.toLowerCase()).subscribe({
+        next: pagination => {
+          this.catalogItems = pagination.items;
+          this.catalogMeta = pagination.meta;
+        }
+      })
+    }
+
+  }
+
   paginatedItems() {
-    this.apiService.getItensPaginado(1, 8).pipe(take(1)).subscribe({
+    this.apiService.getItensPaginado(this.pageNumber, 12).pipe(take(1)).subscribe({
       next: pagination => {
         this.catalogItems = pagination.items;
-        this.catalogLinks = pagination.links;
         this.catalogMeta = pagination.meta;
-        console.log(this.catalogItems);
-        console.log(this.catalogLinks);
-        console.log(this.catalogMeta);
       }
     })
   }
+
+
+
 
   filterCatalogItems() {
     const { searchInput } = this.filterCatalog.controls;
 
     searchInput.valueChanges.pipe(debounceTime(1000)).subscribe((word: string) => {
-      this.apiService.getItens(word.toLowerCase()).subscribe((items) => {
-        this.catalogItems = items;
+      this.apiService.getItensPaginado(this.pageNumber, 8, word?.toLowerCase()).subscribe({
+        next: pagination => {
+          this.catalogItems = pagination.items;
+          this.catalogMeta = pagination.meta;
+        }
       })
     })
   }
