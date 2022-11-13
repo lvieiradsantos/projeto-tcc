@@ -4,10 +4,12 @@ import { AboutUsComponent } from './pages/about-us/about-us.component';
 import { HomeComponent } from './pages/home/home.component';
 import { LoginComponent } from './pages/login/login.component';
 import { OpenObjectComponent } from './pages/open-object/open-object.component';
+import { PrivacyPolicyComponent } from './pages/privacy-policy/privacy-policy.component';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { RegistryObjectComponent } from './pages/registry-object/registry-object.component';
 import { SignUpComponent } from './pages/sign-up/sign-up.component';
 import { TalkUsComponent } from './pages/talk-us/talk-us.component';
+import { TermsOfUseComponent } from './pages/terms-of-use/terms-of-use.component';
 import { AuthGuard } from './services/auth.guard';
 
 const routes: Routes = [
@@ -47,8 +49,19 @@ const routes: Routes = [
     path: 'fale-conosco',
     component: TalkUsComponent
   },
+  
+  {
+    path: 'politica-de-privacidade',
+    component: PrivacyPolicyComponent
+  },
 
-  { path: '**', redirectTo: '' }
+  {
+    path: 'termos-de-uso',
+    component: TermsOfUseComponent
+  },
+
+  { path: '**', redirectTo: '' },
+
 
 ];
 
