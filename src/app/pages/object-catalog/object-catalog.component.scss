@@ -119,22 +119,54 @@
                     text-transform: capitalize;
                     font-weight: 500;
                 }
-            }
-            &-description--link {
-                padding: 10px;
-                border-radius: 2px;
-                border: 1px solid #abc75a;
-                background: #96ad4f;
-                margin-top: 10px;
-                max-width: fit-content;
-                &:hover {
-                    background: #829745;
-                }
-                a {
-                    color: #fff;
-                    font-weight: 600;
-                    font-size: 14px;
-                    text-decoration: none;
+                &_buttons {
+                    display: flex;
+                    justify-content: space-between;
+                    margin-top: 10px;
+                    &--link {
+                        padding: 10px;
+                        border-radius: 2px;
+                        border: 1px solid #abc75a;
+                        background: #96ad4f;
+                        max-width: fit-content;
+                        &:hover {
+                            background: #829745;
+                        }
+                        a {
+                            color: #fff;
+                            font-weight: 600;
+                            font-size: 14px;
+                            text-decoration: none;
+                        }
+                    }
+                    &--actions {
+                        display: flex;
+                        gap: 10px;
+                        width: 100px;
+                        &--icon-edit,
+                        &--icon-delete {
+                            border-radius: 5px;
+                            width: 100%;
+                            cursor: pointer;
+                            .icon {
+                                color: #fff;
+                            }
+                        }
+                        &--icon-delete {
+                            background: #b90606;
+                            border: 1px solid #d40a0a;
+                            &:hover {
+                                background: #9b0404;
+                            }
+                        }
+                        &--icon-edit {
+                            background: #0f96ae;
+                            border: 1px solid #13acc7;
+                            &:hover {
+                                background: #166e7d;
+                            }
+                        }
+                    }
                 }
             }
         }
@@ -161,5 +193,11 @@
                 border: rgb(179, 179, 179);
             }
         }
+    }
+}
+
+::ng-deep .catalog {
+    svg {
+        height: 16px !important;
     }
 }

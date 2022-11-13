@@ -3,14 +3,15 @@
         <div class="filter">
             <form [formGroup]="filterCatalog" class="filter__search-form">
                 <div class="filter__search-form--bar">
-                    <input type="text" formControlName="searchInput" placeholder="Pesquisar" class="filter__search-form--bar-input" />
+                    <input type="text" formControlName="searchInput" placeholder="Pesquisar"
+                        class="filter__search-form--bar-input" />
                 </div>
             </form>
         </div>
         <div class="new-catalog__item">
             <button class="new-catalog__item-btn" routerLink="/cadastrar-item" *ngIf="this.token">
-        Cadastrar Item
-      </button>
+                Cadastrar Item
+            </button>
         </div>
     </div>
     <section class="catalog">
@@ -30,28 +31,36 @@
                         {{ item.model }}
                     </div>
 
-                    <div class="catalog__item-description--link">
-                        <a [routerLink]="['/item', item.id]">Mais informações</a>
-                        <fa-icon [icon]="faPenToSquare" class="icon-edit"></fa-icon>
-                        <fa-icon [icon]="faTrashCan" class="icon-delete"></fa-icon>
+                    <div class="catalog-item__wrapper__item-description_buttons">
+                        <div class="catalog-item__wrapper__item-description_buttons--link">
+                            <a [routerLink]="['/item', item.id]">Mais informações</a>
+                        </div>
+
+                        <div class="catalog-item__wrapper__item-description_buttons--actions">
+                            <button class="catalog-item__wrapper__item-description_buttons--actions--icon-edit">
+                                <fa-icon [icon]="faPenToSquare" class="icon">
+                                </fa-icon>
+                            </button>
+                            <button class="catalog-item__wrapper__item-description_buttons--actions--icon-delete">
+                                <fa-icon [icon]="faTrashCan"  class="icon">
+                                </fa-icon>
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
         <div class="catalog__item-navigation" *ngIf="this.catalogMeta">
-            <button class="catalog__item-navigation--previous" [disabled]="this.catalogMeta.currentPage < 2" (click)="beforePage()">
-        anterior
-      </button>
+            <button class="catalog__item-navigation--previous" [disabled]="this.catalogMeta.currentPage < 2"
+                (click)="beforePage()">
+                anterior
+            </button>
             <span>Pagina {{ this.catalogMeta.currentPage }} de
-        {{ this.catalogMeta.totalPages }}</span
-      >
-      <button
-        class="catalog__item-navigation--next"
-        (click)="afterPage()"
-        [disabled]="this.catalogMeta.currentPage >= this.catalogMeta.totalPages"
-      >
-        proxima
-      </button>
-    </div>
-  </section>
+                {{ this.catalogMeta.totalPages }}</span>
+            <button class="catalog__item-navigation--next" (click)="afterPage()"
+                [disabled]="this.catalogMeta.currentPage >= this.catalogMeta.totalPages">
+                proxima
+            </button>
+        </div>
+    </section>
 </div>

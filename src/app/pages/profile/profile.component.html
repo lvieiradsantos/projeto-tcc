@@ -18,7 +18,8 @@
             </mat-form-field>
             <mat-form-field>
                 <mat-label>Telefone</mat-label>
-                <input formControlName="phone" type="text" matInput placeholder="Telefone" [dropSpecialCharacters]="true" mask="(00)00000-0000" [clearIfNotMatch]="true">
+                <input formControlName="phone" type="text" matInput placeholder="Telefone"
+                    [dropSpecialCharacters]="true" mask="(00)00000-0000" [clearIfNotMatch]="true">
                 <mat-hint *ngIf="!updateProfile.controls.phone.valid">Telefone inválido
                 </mat-hint>
             </mat-form-field>
@@ -42,7 +43,7 @@
                 <mat-label>Ouvinte?</mat-label>
                 <mat-select formControlName="hearing">
                     <mat-option value="y">Sim</mat-option>
-                    <mat-option value="n">Não</mat-option>
+                    <mat-option selected value="n">Não</mat-option>
                     <mat-option value="p">Parcialmente</mat-option>
                 </mat-select>
                 <mat-hint *ngIf="!updateProfile.controls.hearing.valid">Preencha corretamente
