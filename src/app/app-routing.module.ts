@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { AboutUsComponent } from './pages/about-us/about-us.component';
 import { HomeComponent } from './pages/home/home.component';
 import { LoginComponent } from './pages/login/login.component';
+import { ObjectCatalogEditComponent } from './pages/object-catalog-edit/object-catalog-edit.component';
 import { OpenObjectComponent } from './pages/open-object/open-object.component';
 import { PrivacyPolicyComponent } from './pages/privacy-policy/privacy-policy.component';
 import { ProfileComponent } from './pages/profile/profile.component';
@@ -46,10 +47,15 @@ const routes: Routes = [
   },
 
   {
+    path: 'atualizar-item/:id',
+    component: ObjectCatalogEditComponent,
+    canActivate: [AuthGuard]
+  },
+  {
     path: 'fale-conosco',
     component: TalkUsComponent
   },
-  
+
   {
     path: 'politica-de-privacidade',
     component: PrivacyPolicyComponent

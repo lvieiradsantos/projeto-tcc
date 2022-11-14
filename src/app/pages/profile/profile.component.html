@@ -3,7 +3,7 @@
         <h1 class="profile-info-title">Bem vindo(a), {{this.profileInfo.name}}</h1>
         <p class="profile-info-subtitle">Atualize seu perfil</p>
 
-        <form [formGroup]="updateProfile" class="profile-info__form">
+        <form [formGroup]="updateProfile" class="profile-info__form" *ngIf="profileInfo">
             <mat-form-field>
                 <mat-label>Nome Completo</mat-label>
                 <input formControlName="name" type="text" matInput placeholder="Nome Completo">

@@ -42,7 +42,7 @@
                         <div class="catalog-item__wrapper__item-description_buttons--actions"
                             *ngIf="this.token && this.userType.type =='admin'">
                             <button class="catalog-item__wrapper__item-description_buttons--actions--icon-edit">
-                                <fa-icon [icon]="faPenToSquare" class="icon">
+                                <fa-icon [icon]="faPenToSquare" class="icon" [routerLink]="['/atualizar-item', item.id]">
                                 </fa-icon>
                             </button>
                             <button class="catalog-item__wrapper__item-description_buttons--actions--icon-delete"

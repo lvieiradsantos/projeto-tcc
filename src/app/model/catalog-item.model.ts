@@ -5,7 +5,7 @@ export interface CatalogItemModel {
     brand: string,
     watts: number,
     db?: number,
-    photo?: File,
+    file?: File,
     rate: string,
     active: boolean
 }

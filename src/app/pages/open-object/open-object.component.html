@@ -1,7 +1,7 @@
 <div class="container">
     <div class="open-object-content">
         <div class="open-object-content__pic">
-            <img src="{{this.itemDetails.photo}}" width="200" height="200">
+            <img src="{{this.itemDetails?.photo}}" width="200" height="200">
         </div>
         <div class="object-info" *ngIf="this.itemDetails">
             <h1>Ficha Técnica</h1>
@@ -23,7 +23,7 @@
             </div>
             <div class="object-info__db alignment">
                 <p class="object-info__title"> Decibéis </p>
-                <p class="object-info__description">{{this.itemDetails.db}}</p>
+                <p class="object-info__description">{{this.itemDetails?.db}}</p>
             </div>
             <div class="object-info__rate alignment">
                 <p class="object-info__title">
