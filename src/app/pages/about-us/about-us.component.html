@@ -5,15 +5,19 @@
                 <img src="./assets/images/banner-taalto.png" width="100%" height="">
             </div>
             <div class="about-us__text__center">
-                <h1 class="about-us__text__center__p">Nosso propósito é transformar o dia a dia de pessoas com deficiência auditiva para uma melhor convivência e adaptação ao mundo dos ouvintes.
+                <h1 class="about-us__text__center__p">Nosso propósito é transformar o dia a dia de pessoas com
+                    deficiência auditiva para uma melhor convivência e adaptação ao mundo dos ouvintes.
                 </h1>
             </div>
             <div class="about-us__text__bottom">
                 <div class="about-us__text__bottom__left">
                     <p class="about-us__text__bottom__left__p">
-                        O Tá Alto? surgiu em 2022, quando a fundadora do projeto Larissa Vieira desenvolveu uma proposta de sistema inovador e com alto potencial de crescimento dentro da realidade de pessoas não ouvintes - e também fora delas. Com valores profundamente enraizados,
+                        O Tá Alto? surgiu em 2022, quando a fundadora do projeto Larissa Vieira desenvolveu uma proposta
+                        de sistema inovador e com alto potencial de crescimento dentro da realidade de pessoas não
+                        ouvintes - e também fora delas. Com valores profundamente enraizados,
                         criou-se um sistema baseado em princípios como <strong>respeito, comprometimento, confiança,
-                            igualdade, excelência, diversidade, empatia e inclusão </strong>, uma vez que entendemos que a maior fonte de riqueza de conhecimento são as pessoas que colaboram com este sistema.
+                            igualdade, excelência, diversidade, empatia e inclusão </strong>, uma vez que entendemos que
+                        a maior fonte de riqueza de conhecimento são as pessoas que colaboram com este sistema.
                     </p>
                 </div>
                 <div class="about-us__text__bottom__right">
@@ -25,7 +29,8 @@
                             <fa-icon [icon]="faHeart"></fa-icon>Respeito
                         </div>
                         <div class="about-us__text__bottom__right__p2-card">
-                            <fa-icon [icon]="faHandshake"></fa-icon>Comprometimento</div>
+                            <fa-icon [icon]="faHandshake"></fa-icon>Comprometimento
+                        </div>
                         <div class="about-us__text__bottom__right__p2-card">
                             <fa-icon [icon]="faUserGroup"></fa-icon>Confiança
                         </div>
@@ -48,8 +53,17 @@
                 </div>
             </div>
         </div>
-        <div class="graphics-area">
 
+        <div class="software-infos">
+            <div class="software-infos__graphics-area">
+                <h3>Nossos amados colaboradores</h3>
+                <app-ng-chart></app-ng-chart>
+            </div>
+
+            <div class="software-infos__total-itens-registered">
+                <h3>Itens registrados em nossa base de dados</h3>
+                <p>{{this.totalItens}}</p>
+            </div>
         </div>
     </div>
 </div>

@@ -1,6 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { CdkTextareaAutosize } from '@angular/cdk/text-field';
+import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { faHeart, faUserGroup, faHandsAslInterpreting, faStar, faHandshake, faEquals , faHandHoldingHeart, faUsersRectangle } from '@fortawesome/free-solid-svg-icons';
+import { faHeart, faUserGroup, faHandsAslInterpreting, faStar, faHandshake, faEquals, faHandHoldingHeart, faUsersRectangle } from '@fortawesome/free-solid-svg-icons';
+import { take } from 'rxjs';
+import { ApiService } from 'src/app/services/api.service';
+
 
 @Component({
   selector: 'app-about-us',
@@ -17,11 +21,28 @@ export class AboutUsComponent implements OnInit {
   faEquals = faEquals;
   faHandHoldingHeart = faHandHoldingHeart;
   faUsersRectangle = faUsersRectangle;
+  totalItens: number;
+
+
+
 
   constructor(
-    private router: Router)
-  {}
+    private router: Router,
+    private apiService: ApiService) {
+  }
 
   ngOnInit(): void {
+    this.getTotalItemsCadastrados();
+  }
+
+
+  getTotalItemsCadastrados() {
+    this.apiService.getItens().pipe(take(1)).subscribe({
+      next: v => {
+        this.totalItens = v.length;
+      }
+
+    })
   }
 }
+
