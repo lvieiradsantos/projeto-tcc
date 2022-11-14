@@ -41,12 +41,12 @@
 
             <mat-form-field>
                 <mat-label>Ouvinte?</mat-label>
-                <mat-select formControlName="userType">
+                <mat-select formControlName="hearing">
                     <mat-option value="y">Sim</mat-option>
                     <mat-option value="n">Não</mat-option>
                     <mat-option value="p">Parcialmente</mat-option>
                 </mat-select>
-                <mat-hint *ngIf="!signUp.controls.userType.value">Escolha uma
+                <mat-hint *ngIf="!signUp.controls.hearing.value">Escolha uma
                     das opções
                 </mat-hint>
             </mat-form-field>

@@ -25,16 +25,16 @@ export class SignUpComponent implements OnInit {
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(5)]],
       confirmPassword: ['', [Validators.required, Validators.minLength(5)]],
-      userType: ['', [Validators.required]],
-      termsAccepted: [false, [Validators.required]]
+      termsAccepted: [false, [Validators.required]],
+      hearing: ['', [Validators.required]],
     })
   }
 
 
   sendResgister() {
-    const { name, email, password, type, termsAccepted } = this.signUp.value
+    const { name, email, password, termsAccepted, hearing } = this.signUp.value
 
-    const user = { name, email, password, type, termsAccepted }
+    const user = { name, email, password, termsAccepted, hearing }
 
     this.apiService.createUsuario(user).pipe(take(1)).subscribe({
       next: (v) => {

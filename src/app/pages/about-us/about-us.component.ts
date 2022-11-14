@@ -41,7 +41,6 @@ export class AboutUsComponent implements OnInit {
       next: v => {
         this.totalItens = v.length;
       }
-
     })
   }
 }

@@ -55,8 +55,22 @@ export class ApiService {
         return this.http.get(`${environment.api.itens}/${itemId}`) as Observable<CatalogItemModel>;
     }
 
-    editItem(itemId: string, item: any) {
-        return this.http.put(`${environment.api.itens}/${itemId}`, item) as Observable<CatalogItemModel>;
+    editItem(itemId: string, item: {
+        name: string,
+        model: string,
+        brand: string,
+        watts: number,
+        db: number,
+        rate: 'yellow' | 'red' | 'green',
+        file?: File
+    }) {
+        if (item.file) {
+            return this.http.put(`${environment.api.itens}/${itemId}`, item).pipe(
+                switchMap(resp => this.uploadItemPhoto(resp['id'], item?.file))
+            );
+        } else {
+            return this.http.put(`${environment.api.itens}/${itemId}`, item) as Observable<any>;
+        }
     }
 
     createUsuario(user: {
@@ -120,5 +134,9 @@ export class ApiService {
                 last: string;
             }
         }>;
+    }
+
+    getUsersNumbers() {
+        return this.http.get(environment.api.userNumbers) as Observable<any>;
     }
 }
