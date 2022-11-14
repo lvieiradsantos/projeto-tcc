@@ -65,7 +65,10 @@ export class ApiService {
         file?: File
     }) {
         if (item.file) {
-            return this.http.put(`${environment.api.itens}/${itemId}`, item).pipe(
+            return this.http.put(`${environment.api.itens}/${itemId}`, {
+                ...item,
+                file: null
+            }).pipe(
                 switchMap(resp => this.uploadItemPhoto(resp['id'], item?.file))
             );
         } else {
