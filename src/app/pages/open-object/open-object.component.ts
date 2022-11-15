@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { faCircleQuestion } from '@fortawesome/free-solid-svg-icons';
+import { faCircleQuestion, faSquareCheck } from '@fortawesome/free-solid-svg-icons';
 import { take } from 'rxjs';
 import { ApiService } from 'src/app/services/api.service';
 import { faPenToSquare, faTrashCan } from '@fortawesome/free-solid-svg-icons';
@@ -17,6 +17,7 @@ export class OpenObjectComponent implements OnInit {
   itemDetails: any;
   faPenToSquare = faPenToSquare;
   faTrashCan = faTrashCan;
+  faSquareCheck = faSquareCheck;
   userType: any;
   token: string;
 
@@ -51,6 +52,33 @@ export class OpenObjectComponent implements OnInit {
       return this.userType;
     }
   }
+
+  acceptItem(itemId) {
+    Swal.fire({
+      title: 'Você realmente deseja aprovar este item?',
+      text: `Os dados do item serão exibidos no catalogo.`,
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Sim, aprovar agora!'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.apiService.editItem(itemId, { active: true }).subscribe({
+          next: v => {
+
+            Swal.fire(
+              'Item aprovado com sucesso!',
+            ).then(() => {
+              window.location.reload();
+            }
+            );
+          }
+        });
+      }
+    });
+  }
+
 
 
   deleteItem(itemId) {

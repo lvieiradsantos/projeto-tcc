@@ -203,10 +203,10 @@
             }
         }
     }
+}
 
-    ::ng-deep .catalog {
-        svg {
-            height: 16px !important;
-        }
+::ng-deep .catalog {
+    svg {
+        height: 16px !important;
     }
 }

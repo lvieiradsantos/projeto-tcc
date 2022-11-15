@@ -28,12 +28,13 @@
                 &--actions {
                     display: flex;
                     gap: 10px;
-                    width: 105px;
                     height: 45px;
+                    &--icon-accept,
                     &--icon-edit,
                     &--icon-delete {
                         border-radius: 5px;
                         width: 100%;
+                        padding: 0 14px;
                         cursor: pointer;
                         .icon {
                             color: #fff;
@@ -51,6 +52,13 @@
                         border: 1px solid #13acc7;
                         &:hover {
                             background: #166e7d;
+                        }
+                    }
+                    &--icon-accept {
+                        background: #96ad4f;
+                        border: 1px solid #abc75a;
+                        &:hover {
+                            background: #829745;
                         }
                     }
                 }
@@ -80,5 +88,12 @@
     .open-object-content {
         flex-direction: row !important;
         gap: 30px;
+    }
+}
+
+
+::ng-deep .object-info{
+    svg {
+        height: 16px !important;
     }
 }
