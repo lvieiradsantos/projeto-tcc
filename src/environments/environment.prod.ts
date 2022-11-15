@@ -9,6 +9,7 @@ export const environment = {
     user: baseUrl + 'user',
     itemPhoto: baseUrl + 'item/photo',
     itensPag: baseUrl + 'item/pag',
-    userNumbers: baseUrl + 'user-counts'
+    userNumbers: baseUrl + 'user-counts',
+    itensNumbers: baseUrl + 'item-counts'
   }
 };

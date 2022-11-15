@@ -1,5 +1,31 @@
 .about-us__chart {
     display: block;
     width: 400px;
-    height: 400px;
+}
+
+.software-infos__graphics-area {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    h3 {
+        color: #0b877d;
+        font-weight: 600;
+        font-size: 1.5rem;
+    }
+    &__graphics-area {
+        max-width: fit-content;
+    }
+    &__total-itens-registered {
+        margin-right: 160px;
+        text-align: center;
+        p {
+            font-size: 2.5em;
+            font-weight: 900;
+            color: #0b877d;
+        }
+    }
+}
+
+::ng-deep app-ng-chart {
+    width: 100%;
 }

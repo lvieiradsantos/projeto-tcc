@@ -29,15 +29,7 @@ export class AboutUsComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.getTotalItemsCadastrados();
   }
 
-  getTotalItemsCadastrados() {
-    this.apiService.getItens().pipe(take(1)).subscribe({
-      next: v => {
-        this.totalItens = v.length;
-      }
-    })
-  }
 }
 

@@ -162,4 +162,8 @@ export class ApiService {
     getUsersNumbers() {
         return this.http.get(environment.api.userNumbers) as Observable<any>;
     }
+
+    getItensNumbers() {
+        return this.http.get(environment.api.itensNumbers) as Observable<any>;
+    }
 }

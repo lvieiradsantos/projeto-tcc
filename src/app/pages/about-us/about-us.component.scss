@@ -91,22 +91,6 @@
 .software-infos {
     display: flex;
     justify-content: space-between;
-    margin-top: 40px;
-    h3 {
-        color: #0b877d;
-        font-weight: 600;
-        font-size: 1.5rem;
-    }
-    &__graphics-area {
-        max-width: fit-content;
-    }
-    &__total-itens-registered {
-        margin-right: 160px;
-        text-align: center;
-        p {
-            font-size: 2.5em;
-            font-weight: 900;
-            color: #0b877d;
-        }
-    }
+    margin: 100px 0;
+    width: 100%;
 }
