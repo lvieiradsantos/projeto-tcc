@@ -1,4 +1,5 @@
 .terms-of-use {
+    margin-bottom: 30px;
     &__top {
         width: 100%;
         &-banner {
@@ -17,8 +18,8 @@
             font-size: 20px;
         }
     }
-
     &__content {
+        border-bottom: 1px solid #000 !important;
         &__date-of-att {
             @media screen and (max-width: 1200px) {
                 margin-top: -5px;
@@ -30,6 +31,28 @@
             font-weight: 500;
             margin-top: 120px;
             margin-bottom: 120px;
+            & a {
+                text-decoration: none;
+                color: #592f8c;
+                margin: 0 0.2rem;
+            }
+            & a:hover {
+                text-decoration: underline;
+            }
+        }
+        &__title {
+            font-size: 3.6rem;
+            font-weight: 700;
+            letter-spacing: -.025rem;
+            line-height: 3.6rem;
+            &__text {
+                font-size: .890rem;
+                font-weight: 400;
+                letter-spacing: 0.5;
+                line-height: 1.2rem;
+                margin-bottom: 40px;
+            }
         }
     }
+    &__bottom {}
 }
