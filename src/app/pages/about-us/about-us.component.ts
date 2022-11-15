@@ -23,9 +23,6 @@ export class AboutUsComponent implements OnInit {
   faUsersRectangle = faUsersRectangle;
   totalItens: number;
 
-
-
-
   constructor(
     private router: Router,
     private apiService: ApiService) {
@@ -34,7 +31,6 @@ export class AboutUsComponent implements OnInit {
   ngOnInit(): void {
     this.getTotalItemsCadastrados();
   }
-
 
   getTotalItemsCadastrados() {
     this.apiService.getItens().pipe(take(1)).subscribe({

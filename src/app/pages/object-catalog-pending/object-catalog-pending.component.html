@@ -1,4 +1,4 @@
-<div class="container">
+<div class="pending-catalog container">
     <h1>Catalogo de itens pendentes</h1>
     <div class="catalog-header">
         <div class="filter">
@@ -29,15 +29,30 @@
                     <div class="catalog-item__wrapper__item-description--brand">
                         Marca: {{ item.brand }}
                     </div>
+                    <div class="catalog-item__wrapper__item-description--watts">
+                        Watts: {{ item.watts }}
+                    </div>
+                    <div class="catalog-item__wrapper__item-description--db">
+                        Decibéis: {{ item.db }}
+                    </div>
+                    <div class="catalog-item__wrapper__item-description--rate">
+                        Selo: {{ item.rate }}
+                    </div>
 
                     <div class="catalog-item__wrapper__item-description_buttons">
 
                         <div class="catalog-item__wrapper__item-description_buttons--actions"
                             *ngIf="this.token && this.userType.type =='admin'">
-                            <button class="catalog-item__wrapper__item-description_buttons--actions--icon-edit"
-                                [routerLink]="['/atualizar-item', item.id]">
-                                <fa-icon [icon]="faPenToSquare" class="icon">
+
+                            <button class="catalog-item__wrapper__item-description_buttons--actions--icon-accept" (click)="acceptItem(item.id)">
+                                <fa-icon [icon]="faSquareCheck" class="fa-regular icon" >
                                 </fa-icon>
+                            </button>
+
+                            <button class=" catalog-item__wrapper__item-description_buttons--actions--icon-edit"
+                                    [routerLink]="['/atualizar-item', item.id]">
+                                    <fa-icon [icon]="faPenToSquare" class="icon">
+                                    </fa-icon>
                             </button>
                             <button class="catalog-item__wrapper__item-description_buttons--actions--icon-delete"
                                 (click)="deleteItem(item.id)">

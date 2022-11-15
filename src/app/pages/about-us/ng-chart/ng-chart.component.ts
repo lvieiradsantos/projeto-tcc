@@ -10,9 +10,6 @@ import { take } from 'rxjs';
   styleUrls: ['./ng-chart.component.scss']
 })
 
-
-
-
 export class NgChartComponent implements OnInit {
 
 
@@ -35,12 +32,8 @@ export class NgChartComponent implements OnInit {
         this.parcialNumbers = v.totalHearing.partial;
         this.ouvinteNumbers = v.totalHearing.yes;
 
-        
-        console.log(v);
-
-
         const myChart = new Chart('myChart', {
-          type: 'doughnut',
+          type: 'pie',
           data: {
             labels: [
               'Não Ouvinte',

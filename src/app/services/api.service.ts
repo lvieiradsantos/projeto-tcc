@@ -56,13 +56,14 @@ export class ApiService {
     }
 
     editItem(itemId: string, item: {
-        name: string,
-        model: string,
-        brand: string,
-        watts: number,
-        db: number,
-        rate: 'yellow' | 'red' | 'green',
+        name?: string,
+        model?: string,
+        brand?: string,
+        watts?: number,
+        db?: number,
+        rate?: 'yellow' | 'red' | 'green',
         file?: File
+        active?: boolean
     }) {
         if (item.file) {
             return this.http.put(`${environment.api.itens}/${itemId}`, {

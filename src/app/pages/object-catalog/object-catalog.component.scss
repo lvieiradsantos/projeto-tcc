@@ -52,7 +52,7 @@
         display: flex;
         gap: 30px;
         flex-wrap: wrap;
-        justify-content: space-between;
+        justify-content: flex-start;
 
         &__item {
             display: flex;
@@ -119,20 +119,20 @@
                     display: flex;
                     justify-content: space-between;
                     margin-top: 10px;
+
                     &--link {
+                        max-width: fit-content;
+                        color: #fff;
+                        font-weight: 600;
+                        font-size: 14px;
+                        text-decoration: none;
                         padding: 10px;
                         border-radius: 2px;
                         border: 1px solid #abc75a;
                         background: #96ad4f;
-                        max-width: fit-content;
+                        cursor: pointer;
                         &:hover {
                             background: #829745;
-                        }
-                        a {
-                            color: #fff;
-                            font-weight: 600;
-                            font-size: 14px;
-                            text-decoration: none;
                         }
                     }
                     &--actions {

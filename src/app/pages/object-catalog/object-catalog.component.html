@@ -35,9 +35,10 @@
                 </div>
 
                 <div class="catalog-item__wrapper__item-description_buttons">
-                    <div class="catalog-item__wrapper__item-description_buttons--link">
-                        <a [routerLink]="['/item', item.id]">Mais informações</a>
-                    </div>
+                    <button [routerLink]="['/item', item.id]"
+                        class="catalog-item__wrapper__item-description_buttons--link">
+                        Mais informações
+                    </button>
 
                     <div class="catalog-item__wrapper__item-description_buttons--actions"
                         *ngIf="this.token && this.userType.type =='admin'">

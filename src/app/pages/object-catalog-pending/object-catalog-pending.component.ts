@@ -108,6 +108,33 @@ export class ObjectCatalogPendingComponent implements OnInit {
     }
   }
 
+  acceptItem(itemId) {
+    Swal.fire({
+      title: 'Você realmente deseja aprovar este item?',
+      text: `Os dados do item serão exibidos no catalogo.`,
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Sim, aprovar agora!'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.apiService.editItem(itemId, { active: true }).subscribe({
+          next: v => {
+
+            Swal.fire(
+              'Item aprovado com sucesso!',
+            ).then(() => {
+              window.location.reload();
+            }
+            );
+          }
+        });
+      }
+    });
+  }
+
+
   deleteItem(itemId) {
     Swal.fire({
       title: 'Você realmente deseja deletar este item?',
