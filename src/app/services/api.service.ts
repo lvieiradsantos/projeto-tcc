@@ -22,7 +22,7 @@ export class ApiService {
     }
 
     getItensPendentes() {
-        return this.http.get(environment.api.itensPendentes) as Observable<CatalogItemModel>;
+        return this.http.get(environment.api.itensPendentes) as Observable<any>;
     }
 
     getItens(like?: string) {
@@ -122,6 +122,25 @@ export class ApiService {
 
     getItensPaginado(page: number, limit: number, like?: string) {
         return this.http.get(`${environment.api.itensPag}?page=${page || ''}&limit=${limit || ''}&like=${like || ''}`) as Observable<{
+            items: CatalogItemModel[],
+            meta: {
+                totalItems: number;
+                itemCount: number;
+                itemsPerPage: number;
+                totalPages: number;
+                currentPage: number;
+            },
+            links: {
+                first: string;
+                previous: string;
+                next: string;
+                last: string;
+            }
+        }>;
+    }
+
+    getPendingItensPaginado(page: number, limit: number, like?: string) {
+        return this.http.get(`${environment.api.itensPendentes}/?page=${page || ''}&limit=${limit || ''}&like=${like || ''}`) as Observable<{
             items: CatalogItemModel[],
             meta: {
                 totalItems: number;

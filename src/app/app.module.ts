@@ -40,6 +40,7 @@ import { TermsOfUseComponent } from './pages/terms-of-use/terms-of-use.component
 import { PrivacyPolicyComponent } from './pages/privacy-policy/privacy-policy.component';
 import { ObjectCatalogEditComponent } from './pages/object-catalog-edit/object-catalog-edit.component';
 import { NgChartComponent } from './pages/about-us/ng-chart/ng-chart.component';
+import { ObjectCatalogPendingComponent } from './pages/object-catalog-pending/object-catalog-pending.component';
 
 @NgModule({
   declarations: [
@@ -61,7 +62,8 @@ import { NgChartComponent } from './pages/about-us/ng-chart/ng-chart.component';
     TermsOfUseComponent,
     PrivacyPolicyComponent,
     ObjectCatalogEditComponent,
-    NgChartComponent
+    NgChartComponent,
+    ObjectCatalogPendingComponent
   ],
   imports: [
     FormsModule,

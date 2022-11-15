@@ -3,8 +3,23 @@
         <div class="open-object-content__pic">
             <img src="{{this.itemDetails?.photo}}" width="200" height="200">
         </div>
-        <div class="object-info" *ngIf="this.itemDetails">
-            <h1>Ficha Técnica</h1>
+
+        <div class="object-info"
+            *ngIf="this.itemDetails && this.token && this.userType.type =='admin'">
+            <div class="object-info__header">
+                <h1>Ficha Técnica</h1>
+                <div class="object-info__header--actions">
+                    <button class="object-info__header--actions--icon-edit"
+                        [routerLink]="['/atualizar-item', itemDetails.id]">
+                        <fa-icon [icon]="faPenToSquare" class="icon">
+                        </fa-icon>
+                    </button>
+                    <button class="object-info__header--actions--icon-delete" (click)="deleteItem(itemDetails.id)">
+                        <fa-icon [icon]="faTrashCan" class="icon">
+                        </fa-icon>
+                    </button>
+                </div>
+            </div>
             <div class="object-info__name alignment">
                 <p class="object-info__title"> Nome do Objeto</p>
                 <p class="object-info__description">{{this.itemDetails.name}}</p>

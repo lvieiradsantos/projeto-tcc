@@ -3,6 +3,22 @@
     background: gray;
 }
 
+.pending--btn {
+    width: 100%;
+    // background: #ef7d00;
+    background: #ebc909f6;
+    padding: 20px;
+    font-size: 20px;
+    text-align: center;
+    font-weight: 600;
+    color: #fff;
+    letter-spacing: 1.5px;
+    cursor: pointer;
+    &:hover {
+        background: #d6b707f6;
+    }
+}
+
 .div-info {
     justify-content: space-evenly;
     width: 100%;

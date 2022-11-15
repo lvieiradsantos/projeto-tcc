@@ -1,72 +1,71 @@
-<div class="container">
-    <div class="catalog-header">
-        <div class="filter">
-            <form [formGroup]="filterCatalog" class="filter__search-form">
-                <div class="filter__search-form--bar">
-                    <input type="text" formControlName="searchInput" placeholder="Pesquisar"
-                        class="filter__search-form--bar-input" />
-                </div>
-            </form>
-        </div>
-        <div class="new-catalog__item">
-            <button class="new-catalog__item-btn" routerLink="/cadastrar-item" *ngIf="this.token">
-                Cadastrar Item
-            </button>
-        </div>
+<h1>Catalogo de itens</h1>
+<div class="catalog-header">
+    <div class="filter">
+        <form [formGroup]="filterCatalog" class="filter__search-form">
+            <div class="filter__search-form--bar">
+                <input type="text" formControlName="searchInput" placeholder="Pesquisar"
+                    class="filter__search-form--bar-input" />
+            </div>
+        </form>
     </div>
-    <section class="catalog">
-        <div class="catalog-item__wrapper">
-            <div class="catalog-item__wrapper__item" *ngFor="let item of this.catalogItems">
-                <div class="catalog-item__wrapper__item--photo" *ngIf="item.photo">
-                    <img src="{{ item.photo }}" />
+    <div class="new-catalog__item">
+        <button class="new-catalog__item-btn" routerLink="/cadastrar-item" *ngIf="this.token">
+            Cadastrar Item
+        </button>
+    </div>
+</div>
+<section class="catalog">
+    <div class="catalog-item__wrapper">
+        <div class="catalog-item__wrapper__item" *ngFor="let item of this.catalogItems">
+            <div class="catalog-item__wrapper__item--photo" *ngIf="item.photo">
+                <img src="{{ item.photo }}" />
+            </div>
+            <div class="catalog-item__wrapper__item--photo nophoto" *ngIf="!item.photo">
+                <span>Este item ainda não possui foto</span>
+            </div>
+            <div class="catalog-item__wrapper__item-description">
+                <div class="catalog-item__wrapper__item-description--name">
+                    {{ item.name }}
                 </div>
-                <div class="catalog-item__wrapper__item--photo nophoto" *ngIf="!item.photo">
-                    <span>Este item ainda não possui foto</span>
+                <div class="catalog-item__wrapper__item-description--model">
+                    Modelo: {{ item.model }}
                 </div>
-                <div class="catalog-item__wrapper__item-description">
-                    <div class="catalog-item__wrapper__item-description--name">
-                        {{ item.name }}
-                    </div>
-                    <div class="catalog-item__wrapper__item-description--model">
-                        Modelo: {{ item.model }}
-                    </div>
-                    <div class="catalog-item__wrapper__item-description--brand">
-                        Marca: {{ item.brand }}
+                <div class="catalog-item__wrapper__item-description--brand">
+                    Marca: {{ item.brand }}
+                </div>
+
+                <div class="catalog-item__wrapper__item-description_buttons">
+                    <div class="catalog-item__wrapper__item-description_buttons--link">
+                        <a [routerLink]="['/item', item.id]">Mais informações</a>
                     </div>
 
-                    <div class="catalog-item__wrapper__item-description_buttons">
-                        <div class="catalog-item__wrapper__item-description_buttons--link">
-                            <a [routerLink]="['/item', item.id]">Mais informações</a>
-                        </div>
-
-                        <div class="catalog-item__wrapper__item-description_buttons--actions"
-                            *ngIf="this.token && this.userType.type =='admin'">
-                            <button class="catalog-item__wrapper__item-description_buttons--actions--icon-edit"
-                                [routerLink]="['/atualizar-item', item.id]">
-                                <fa-icon [icon]="faPenToSquare" class="icon">
-                                </fa-icon>
-                            </button>
-                            <button class="catalog-item__wrapper__item-description_buttons--actions--icon-delete"
-                                (click)="deleteItem(item.id)">
-                                <fa-icon [icon]="faTrashCan" class="icon">
-                                </fa-icon>
-                            </button>
-                        </div>
+                    <div class="catalog-item__wrapper__item-description_buttons--actions"
+                        *ngIf="this.token && this.userType.type =='admin'">
+                        <button class="catalog-item__wrapper__item-description_buttons--actions--icon-edit"
+                            [routerLink]="['/atualizar-item', item.id]">
+                            <fa-icon [icon]="faPenToSquare" class="icon">
+                            </fa-icon>
+                        </button>
+                        <button class="catalog-item__wrapper__item-description_buttons--actions--icon-delete"
+                            (click)="deleteItem(item.id)">
+                            <fa-icon [icon]="faTrashCan" class="icon">
+                            </fa-icon>
+                        </button>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="catalog__item-navigation" *ngIf="this.catalogMeta">
-            <button class="catalog__item-navigation--previous" [disabled]="this.catalogMeta.currentPage < 2"
-                (click)="beforePage()">
-                anterior
-            </button>
-            <span>Pagina {{ this.catalogMeta.currentPage }} de
-                {{ this.catalogMeta.totalPages }}</span>
-            <button class="catalog__item-navigation--next" (click)="afterPage()"
-                [disabled]="this.catalogMeta.currentPage >= this.catalogMeta.totalPages">
-                proxima
-            </button>
-        </div>
-    </section>
-</div>
+    </div>
+    <div class="catalog__item-navigation" *ngIf="this.catalogMeta">
+        <button class="catalog__item-navigation--previous" [disabled]="this.catalogMeta.currentPage < 2"
+            (click)="beforePage()">
+            anterior
+        </button>
+        <span>Pagina {{ this.catalogMeta.currentPage }} de
+            {{ this.catalogMeta.totalPages }}</span>
+        <button class="catalog__item-navigation--next" (click)="afterPage()"
+            [disabled]="this.catalogMeta.currentPage >= this.catalogMeta.totalPages">
+            proxima
+        </button>
+    </div>
+</section>

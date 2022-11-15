@@ -4,6 +4,7 @@ import { AboutUsComponent } from './pages/about-us/about-us.component';
 import { HomeComponent } from './pages/home/home.component';
 import { LoginComponent } from './pages/login/login.component';
 import { ObjectCatalogEditComponent } from './pages/object-catalog-edit/object-catalog-edit.component';
+import { ObjectCatalogPendingComponent } from './pages/object-catalog-pending/object-catalog-pending.component';
 import { OpenObjectComponent } from './pages/open-object/open-object.component';
 import { PrivacyPolicyComponent } from './pages/privacy-policy/privacy-policy.component';
 import { ProfileComponent } from './pages/profile/profile.component';
@@ -64,6 +65,11 @@ const routes: Routes = [
   {
     path: 'termos-de-uso',
     component: TermsOfUseComponent
+  },
+  {
+    path: 'itens-pendentes',
+    component: ObjectCatalogPendingComponent,
+    canActivate: [AuthGuard]
   },
 
   { path: '**', redirectTo: '' },

@@ -16,11 +16,44 @@
             }
         }
         .object-info {
-            h1 {
-                font-weight: bold;
-                font-size: 26px;
-                padding: 2px 0px 10px 10px;
-                color: rgb(102, 102, 102);
+            &__header {
+                display: flex;
+                justify-content: space-between;
+                h1 {
+                    font-weight: bold;
+                    font-size: 26px;
+                    padding: 2px 0px 10px 10px;
+                    color: rgb(102, 102, 102);
+                }
+                &--actions {
+                    display: flex;
+                    gap: 10px;
+                    width: 105px;
+                    height: 45px;
+                    &--icon-edit,
+                    &--icon-delete {
+                        border-radius: 5px;
+                        width: 100%;
+                        cursor: pointer;
+                        .icon {
+                            color: #fff;
+                        }
+                    }
+                    &--icon-delete {
+                        background: #b90606;
+                        border: 1px solid #d40a0a;
+                        &:hover {
+                            background: #9b0404;
+                        }
+                    }
+                    &--icon-edit {
+                        background: #0f96ae;
+                        border: 1px solid #13acc7;
+                        &:hover {
+                            background: #166e7d;
+                        }
+                    }
+                }
             }
             width: 100%;
             &__title {

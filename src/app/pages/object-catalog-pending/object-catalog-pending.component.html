@@ -1,0 +1,68 @@
+<div class="container">
+    <h1>Catalogo de itens pendentes</h1>
+    <div class="catalog-header">
+        <div class="filter">
+            <form [formGroup]="filterPendingCatalog" class="filter__search-form">
+                <div class="filter__search-form--bar">
+                    <input type="text" formControlName="searchInput" placeholder="Pesquisar"
+                        class="filter__search-form--bar-input" />
+                </div>
+            </form>
+        </div>
+    </div>
+    <section class="catalog">
+        <div class="catalog-item__wrapper">
+            <div class="catalog-item__wrapper__item" *ngFor="let item of this.catalogPendingItems">
+                <div class="catalog-item__wrapper__item--photo" *ngIf="item.photo">
+                    <img src="{{ item.photo }}" />
+                </div>
+                <div class="catalog-item__wrapper__item--photo nophoto" *ngIf="!item.photo">
+                    <span>Este item ainda não possui foto</span>
+                </div>
+                <div class="catalog-item__wrapper__item-description">
+                    <div class="catalog-item__wrapper__item-description--name">
+                        {{ item.name }}
+                    </div>
+                    <div class="catalog-item__wrapper__item-description--model">
+                        Modelo: {{ item.model }}
+                    </div>
+                    <div class="catalog-item__wrapper__item-description--brand">
+                        Marca: {{ item.brand }}
+                    </div>
+
+                    <div class="catalog-item__wrapper__item-description_buttons">
+                        <div class="catalog-item__wrapper__item-description_buttons--link">
+                            <a [routerLink]="['/item', item.id]">Mais informações</a>
+                        </div>
+
+                        <div class="catalog-item__wrapper__item-description_buttons--actions"
+                            *ngIf="this.token && this.userType.type =='admin'">
+                            <button class="catalog-item__wrapper__item-description_buttons--actions--icon-edit"
+                                [routerLink]="['/atualizar-item', item.id]">
+                                <fa-icon [icon]="faPenToSquare" class="icon">
+                                </fa-icon>
+                            </button>
+                            <button class="catalog-item__wrapper__item-description_buttons--actions--icon-delete"
+                                (click)="deleteItem(item.id)">
+                                <fa-icon [icon]="faTrashCan" class="icon">
+                                </fa-icon>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="catalog__item-navigation" *ngIf="this.catalogPendingMeta">
+            <button class="catalog__item-navigation--previous" [disabled]="this.catalogPendingMeta.currentPage < 2"
+                (click)="beforePage()">
+                anterior
+            </button>
+            <span>Pagina {{ this.catalogPendingMeta.currentPage }} de
+                {{ this.catalogPendingMeta.totalPages }}</span>
+            <button class="catalog__item-navigation--next" (click)="afterPage()"
+                [disabled]="this.catalogPendingMeta.currentPage >= this.catalogPendingMeta.totalPages">
+                proxima
+            </button>
+        </div>
+    </section>
+</div>
