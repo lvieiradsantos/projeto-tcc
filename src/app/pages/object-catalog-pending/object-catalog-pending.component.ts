@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 import { debounceTime, take } from 'rxjs';
 import { CatalogItemModel } from 'src/app/model/catalog-item.model';
 import { ApiService } from 'src/app/services/api.service';
-import { faPenToSquare, faTrashCan } from '@fortawesome/free-solid-svg-icons';
+import { faPenToSquare, faTrashCan, faSquareCheck } from '@fortawesome/free-solid-svg-icons';
 import jwt_decode from "jwt-decode";
 import Swal from 'sweetalert2';
 
@@ -26,6 +26,7 @@ export class ObjectCatalogPendingComponent implements OnInit {
 
   faPenToSquare = faPenToSquare;
   faTrashCan = faTrashCan;
+  faSquareCheck = faSquareCheck;
 
 
   constructor(
