@@ -26,7 +26,7 @@ export class HomeComponent implements OnInit {
     if (this.token) {
       this.userId = localStorage.getItem('userId');
       this.getUserType();
-      this.getItensPending();
+      this.getPendingItens();
     }
   }
 
@@ -39,13 +39,33 @@ export class HomeComponent implements OnInit {
     })
   }
 
-  getItensPending() {
-    this.apiService.getItensPendentes().pipe(take(1)).subscribe({
-      next: pendingItens => {
-        this.pendingItens = pendingItens.items;
-        return this.pendingItens;
+  getPendingItens() {
+    this.apiService.getUsuario(this.userId).pipe(take(1)).subscribe(userInfo => {
+      this.userType = userInfo.type;
+
+      if (this.userType == 'admin') {
+        this.apiService.getItensPendentes().pipe(take(1)).subscribe({
+          next: pendingItens => {
+            this.pendingItens = pendingItens.items;
+            return this.pendingItens;
+          }
+        })
       }
     })
+  }
+
+
+
+  checkPendingItens() {
+    if (this.pendingItens) {
+      if (this.pendingItens.length > 0) {
+        return true;
+      } else {
+        return false;
+      }
+    } else{
+      return false;
+    }
   }
 
 

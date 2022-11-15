@@ -1,14 +1,14 @@
 <div class="container">
-    <div class="open-object-content">
+    <div class="open-object-content" *ngIf="this.itemDetails">
         <div class="open-object-content__pic">
             <img src="{{this.itemDetails?.photo}}" width="200" height="200">
         </div>
 
         <div class="object-info"
-            *ngIf="this.itemDetails && this.token && this.userType.type =='admin'">
+            *ngIf="this.itemDetails">
             <div class="object-info__header">
                 <h1>Ficha Técnica</h1>
-                <div class="object-info__header--actions">
+                <div class="object-info__header--actions" *ngIf="this.token && this.userType.type =='admin'">
                     <button class="object-info__header--actions--icon-edit"
                         [routerLink]="['/atualizar-item', itemDetails.id]">
                         <fa-icon [icon]="faPenToSquare" class="icon">

@@ -39,6 +39,7 @@ export class OpenObjectComponent implements OnInit {
         const itemId = item['id']
         this.apiService.getItem(itemId).subscribe(item => {
           this.itemDetails = item;
+          console.log(this.itemDetails)
         })
       })
   }

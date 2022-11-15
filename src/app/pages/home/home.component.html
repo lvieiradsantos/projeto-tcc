@@ -1,5 +1,5 @@
 <div class="middle-content container">
-    <div class="pending--btn" routerLink="/itens-pendentes" *ngIf="this.token && this.userType == 'admin'  && this.pendingItens.length > 0">Há itens
+    <div class="pending--btn" routerLink="/itens-pendentes" *ngIf="this.token && this.userType == 'admin'  && this.checkPendingItens()">Há itens
         esperando para serem aprovados!
         Clique aqui!!</div>
     <app-object-catalog></app-object-catalog>
