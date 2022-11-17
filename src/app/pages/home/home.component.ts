@@ -35,7 +35,6 @@ export class HomeComponent implements OnInit {
   getUserType() {
     this.apiService.getUsuario(this.userId).pipe(take(1)).subscribe(userInfo => {
       this.userType = userInfo.type;
-      return this.userType;
     })
   }
 
@@ -47,7 +46,6 @@ export class HomeComponent implements OnInit {
         this.apiService.getItensPendentes().pipe(take(1)).subscribe({
           next: pendingItens => {
             this.pendingItens = pendingItens.items;
-            return this.pendingItens;
           }
         })
       }
@@ -57,15 +55,7 @@ export class HomeComponent implements OnInit {
 
 
   checkPendingItens() {
-    if (this.pendingItens) {
-      if (this.pendingItens.length > 0) {
-        return true;
-      } else {
-        return false;
-      }
-    } else{
-      return false;
-    }
+    return this.pendingItens?.length > 0;
   }
 
 

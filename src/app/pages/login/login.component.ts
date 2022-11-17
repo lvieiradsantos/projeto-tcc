@@ -34,9 +34,7 @@ export class LoginComponent implements OnInit {
     this.apiService.login(email, password).subscribe({
 
       next: (v) => {
-        this.router.navigate(['/']).then(() => {
-          window.location.reload();
-        })
+        this.router.navigate(['/']);
       }
     })
   }

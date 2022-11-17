@@ -61,10 +61,7 @@ export class ObjectCatalogEditComponent implements OnInit {
   sendUpdateItem() {
     let { name, model, brand, watts, db, rate, file } = this.updateItem.value;
 
-    db = +db;
-    watts = +watts;
-
-    const item = { name, model, brand, db, watts, rate, file };
+    const item = { name, model, brand, db: +db, watts:+watts, rate, file };
 
     this.apiService.editItem(this.itemId, item).subscribe({
       next: (v) => {
