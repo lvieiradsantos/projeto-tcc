@@ -41,11 +41,7 @@ export class AppComponent implements OnInit {
   }
 
   getFaleConosco() {
-    if(window.location.pathname == '/fale-conosco') {
-    return true;
-  } else {
-    return false;
-  }
+    return window.location.pathname == '/fale-conosco';
 }
 
 }

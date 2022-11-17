@@ -76,7 +76,7 @@ export class ProfileComponent implements OnInit {
               Swal.fire(
                 'Usuário deletado com sucesso!',
               ).then(() => {
-                window.location.reload();
+                this.getUserProfile();
               }
               )
             }

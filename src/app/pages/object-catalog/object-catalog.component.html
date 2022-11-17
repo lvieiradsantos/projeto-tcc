@@ -19,9 +19,7 @@
     <div class="catalog-item__wrapper">
         <div class="catalog-item__wrapper__item" *ngFor="let item of this.catalogItems">
             <div class="catalog-item__wrapper__item--photo" *ngIf="item.photo">
-                <img src="{{ item.photo }}" />
-                <div class="star-toggle">
-                    no</div>
+                <img [src]="item.photo" />
             </div>
             <div class="catalog-item__wrapper__item--photo nophoto" *ngIf="!item.photo">
                 <span>Este item ainda não possui foto</span>
@@ -71,7 +69,7 @@
             {{ this.catalogMeta.totalPages }}</span>
         <button class="catalog__item-navigation--next" (click)="afterPage()"
             [disabled]="this.catalogMeta.currentPage >= this.catalogMeta.totalPages">
-            proxima
+            próxima
         </button>
     </div>
 </section>

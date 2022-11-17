@@ -36,10 +36,7 @@ export class RegistryObjectComponent implements OnInit {
   sendRegisterItem() {
     let { name, model, brand, watts, db, rate, file } = this.registryItem.value;
 
-    db = +db;
-    watts = +watts;
-
-    const item = { name, model, brand, db, watts, rate, file };
+    const item = { name, model, brand, db: +db, watts: +watts, rate, file };
 
     this.apiService.createItem(item).subscribe({
       next: (v) => {
