@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { debounceTime, take } from 'rxjs';
-import { CatalogItemModel } from 'src/app/model/catalog-item.model';
 import { ApiService } from 'src/app/services/api.service';
 import { faPenToSquare, faTrashCan } from '@fortawesome/free-solid-svg-icons';
 import jwt_decode from "jwt-decode";
@@ -20,7 +19,8 @@ export class ObjectCatalogComponent implements OnInit {
   filteredWord: string;
   token: string;
   pageNumber = 1;
-  userType: any;
+  user: any;
+  userFavItemsId: [] | any;
 
   faPenToSquare = faPenToSquare;
   faTrashCan = faTrashCan;
@@ -32,7 +32,7 @@ export class ObjectCatalogComponent implements OnInit {
 
   ngOnInit(): void {
     this.token = localStorage.getItem('token');
-    this.getUserId();
+    this.getUser();
     this.paginatedItems();
     this.filterCatalog = this.formBuilder.group({
       searchInput: ['']
@@ -93,13 +93,14 @@ export class ObjectCatalogComponent implements OnInit {
     });
   }
 
-  getUserId() {
+  getUser() {
     this.token = localStorage.getItem('token');
     if (this.token) {
-      this.userType = jwt_decode(this.token);
-      return this.userType;
+      this.user = jwt_decode(this.token);
+      return this.user;
     }
   }
+
 
   deleteItem(itemId) {
     Swal.fire({
@@ -124,6 +125,18 @@ export class ObjectCatalogComponent implements OnInit {
         });
       }
     });
+  }
+
+  favoritedItem(itemId) {
+    this.apiService.addFavouriteItem(itemId, this.user.id).pipe(take(1)).subscribe({
+      next: v => {
+        Swal.fire({
+          title: 'Item adicionado aos favoritos!',
+          icon: 'success',
+          confirmButtonText: 'Fechar'
+        })
+      }
+    })
   }
 
 }

@@ -42,6 +42,7 @@ import { ObjectCatalogEditComponent } from './pages/object-catalog-edit/object-c
 import { NgChartComponent } from './pages/about-us/ng-chart/ng-chart.component';
 import { ObjectCatalogPendingComponent } from './pages/object-catalog-pending/object-catalog-pending.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,

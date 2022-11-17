@@ -79,6 +79,21 @@
                 border-bottom: 1px solid #e4e4e4;
                 display: flex;
                 background: #efefef;
+                position: relative;
+                .star-toggle {
+                    position: absolute;
+                    left: 0;
+                    top: 0;
+                    padding: 10px;
+                    cursor: pointer;
+
+                    &.star-noActive {
+                        background: pink;
+                    }
+                    &.star-active {
+                        background: green;
+                    }
+                }
                 @media screen and (max-width: 1200px) {
                     width: 100%;
                 }

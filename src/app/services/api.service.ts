@@ -98,11 +98,11 @@ export class ApiService {
     }
 
     addFavouriteItem(itemId: string, userId: string) {
-        return this.http.post(`${environment.api.user}/${userId}/${environment.api.itens}/${itemId}`, {}) as Observable<any>;
+        return this.http.post(`${environment.api.user}/${userId}/item/${itemId}`, {}) as Observable<any>;
     }
 
     removeFavouriteItem(itemId: string, userId: string) {
-        return this.http.delete(`${environment.api.user}/${userId}/${environment.api.itens}/${itemId}`, {}) as Observable<any>;
+        return this.http.delete(`${environment.api.user}/${userId}/item/${itemId}`, {}) as Observable<any>;
     }
 
     uploadItemPhoto(itemId: string, file: File) {
