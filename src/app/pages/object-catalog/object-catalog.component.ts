@@ -38,6 +38,7 @@ export class ObjectCatalogComponent implements OnInit {
       searchInput: ['']
     });
     this.filterCatalogItems();
+    this.getUserFavItems();
   }
 
 
@@ -101,6 +102,20 @@ export class ObjectCatalogComponent implements OnInit {
     }
   }
 
+  getUserFavItems() {
+    if (this.token) {
+      this.apiService.getUsuario(this.user.id).pipe(take(1)).subscribe({
+        next: v => {
+          console.log(v)
+          return this.userFavItemsId = v.favItems;
+        }
+      })
+    }
+  }
+
+  checkIfItemFavorite(itemId) {
+    return !!this.userFavItemsId.find(item => item.id === itemId);
+  }
 
   deleteItem(itemId) {
     Swal.fire({
@@ -127,14 +142,19 @@ export class ObjectCatalogComponent implements OnInit {
     });
   }
 
-  favoritedItem(itemId) {
+  favoriteItem(itemId) {
     this.apiService.addFavouriteItem(itemId, this.user.id).pipe(take(1)).subscribe({
       next: v => {
-        Swal.fire({
-          title: 'Item adicionado aos favoritos!',
-          icon: 'success',
-          confirmButtonText: 'Fechar'
-        })
+        window.location.reload();
+
+      }
+    })
+  }
+  
+  unfavoriteItem(itemId) {
+    this.apiService.removeFavouriteItem(itemId, this.user.id).pipe(take(1)).subscribe({
+      next: v => {
+        window.location.reload();
       }
     })
   }

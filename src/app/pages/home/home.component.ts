@@ -16,6 +16,7 @@ export class HomeComponent implements OnInit {
   userType: string;
   pendingItens: any;
 
+
   constructor(
     private router: Router,
     private apiService: ApiService
@@ -24,22 +25,28 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
     this.token = localStorage.getItem('token');
     if (this.token) {
-      this.userId = localStorage.getItem('userId');
+      this.getUser()
       this.getUserType();
       this.getPendingItens();
     }
   }
 
-
+  getUser() {
+    this.token = localStorage.getItem('token');
+    if (this.token) {
+      this.userId = jwt_decode(this.token);
+      return this.userId.id;
+    }
+  }
 
   getUserType() {
-    this.apiService.getUsuario(this.userId).pipe(take(1)).subscribe(userInfo => {
+    this.apiService.getUsuario(this.userId.id).pipe(take(1)).subscribe(userInfo => {
       this.userType = userInfo.type;
     })
   }
 
   getPendingItens() {
-    this.apiService.getUsuario(this.userId).pipe(take(1)).subscribe(userInfo => {
+    this.apiService.getUsuario(this.userId.id).pipe(take(1)).subscribe(userInfo => {
       this.userType = userInfo.type;
 
       if (this.userType == 'admin') {
