@@ -7,11 +7,13 @@ import {
 import { Injectable } from '@angular/core';
 import { finalize, Observable } from 'rxjs';
 import { LoaderService } from '../services/loader.service';
+import { UtilService } from '../services/util.service';
 
 @Injectable()
 export class HeadersInterceptor implements HttpInterceptor {
     constructor(
-        public loaderService: LoaderService
+        private loaderService: LoaderService,
+        private utilService: UtilService
     ) { }
 
     intercept(
@@ -21,7 +23,7 @@ export class HeadersInterceptor implements HttpInterceptor {
         this.loaderService.show();
         req = req.clone({
             setHeaders: {
-                Authorization: '' + localStorage.getItem('token')
+                Authorization: '' + this.utilService.getToken()
             },
         });
         return next.handle(req).pipe(finalize(() => this.loaderService.hide()));
