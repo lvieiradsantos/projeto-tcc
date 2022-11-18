@@ -80,18 +80,22 @@
                 display: flex;
                 background: #efefef;
                 position: relative;
-                .star-toggle {
+                .heart-toggle {
                     position: absolute;
                     left: 0;
                     top: 0;
                     padding: 10px;
                     cursor: pointer;
 
-                    &.star-noActive {
-                        background: pink;
+                    &.heart-noActive {
+                        padding: 18px;
+                        margin: 10px;
+                        background-image: url("./../../../assets/icons/heart-empty_1234321.svg");
                     }
-                    &.star-active {
-                        background: green;
+                    &.heart-active {
+                        padding: 18px;
+                        margin: 10px;
+                        background-image: url("./../../../assets/icons/heart-star_1234321.svg");
                     }
                 }
                 @media screen and (max-width: 1200px) {
