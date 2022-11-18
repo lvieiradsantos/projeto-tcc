@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { debounceTime, take } from 'rxjs';
 import { ApiService } from 'src/app/services/api.service';
-import { faPenToSquare, faTrashCan } from '@fortawesome/free-solid-svg-icons';
+import { faPenToSquare, faTrashCan, faHeart } from '@fortawesome/free-solid-svg-icons';
 import jwt_decode from "jwt-decode";
 import Swal from 'sweetalert2';
 
@@ -24,6 +24,7 @@ export class ObjectCatalogComponent implements OnInit {
 
   faPenToSquare = faPenToSquare;
   faTrashCan = faTrashCan;
+  faHeart = faHeart;
 
   constructor(
     private apiService: ApiService,
