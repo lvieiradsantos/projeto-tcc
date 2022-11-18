@@ -1,10 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { debounceTime, take } from 'rxjs';
-import { CatalogItemModel } from 'src/app/model/catalog-item.model';
 import { ApiService } from 'src/app/services/api.service';
-import { faPenToSquare, faTrashCan, faSquareCheck } from '@fortawesome/free-solid-svg-icons';
-import jwt_decode from "jwt-decode";
 import Swal from 'sweetalert2';
 import { ProfileModel } from 'src/app/model/profile.model';
 import { UtilService } from 'src/app/services/util.service';
@@ -23,11 +20,6 @@ export class ObjectCatalogPendingComponent implements OnInit {
   isLogged: boolean;
   pageNumber = 1;
   user: ProfileModel;
-
-  faPenToSquare = faPenToSquare;
-  faTrashCan = faTrashCan;
-  faSquareCheck = faSquareCheck;
-
 
   constructor(
     private apiService: ApiService,
@@ -101,33 +93,6 @@ export class ObjectCatalogPendingComponent implements OnInit {
     });
   }
 
-  acceptItem(itemId) {
-    Swal.fire({
-      title: 'Você realmente deseja aprovar este item?',
-      text: `Os dados do item serão exibidos no catalogo.`,
-      icon: 'warning',
-      showCancelButton: true,
-      confirmButtonColor: '#3085d6',
-      cancelButtonColor: '#d33',
-      confirmButtonText: 'Sim, aprovar agora!'
-    }).then((result) => {
-      if (result.isConfirmed) {
-        this.apiService.editItem(itemId, { active: true }).subscribe({
-          next: v => {
-
-            Swal.fire(
-              'Item aprovado com sucesso!',
-            ).then(() => {
-              window.location.reload();
-            }
-            );
-          }
-        });
-      }
-    });
-  }
-
-
   deleteItem(itemId) {
     Swal.fire({
       title: 'Você realmente deseja deletar este item?',
@@ -151,6 +116,10 @@ export class ObjectCatalogPendingComponent implements OnInit {
         });
       }
     });
+  }
+
+  refeshItemList() {
+    this.paginatedPendingItems();
   }
 
 }

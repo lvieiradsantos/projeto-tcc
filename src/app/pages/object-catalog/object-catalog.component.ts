@@ -3,7 +3,6 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 import { debounceTime, take } from 'rxjs';
 import { ApiService } from 'src/app/services/api.service';
 import { faPenToSquare, faTrashCan, faHeart } from '@fortawesome/free-solid-svg-icons';
-import Swal from 'sweetalert2';
 import { UtilService } from 'src/app/services/util.service';
 import { ProfileModel } from 'src/app/model/profile.model';
 
@@ -118,49 +117,8 @@ export class ObjectCatalogComponent implements OnInit {
     }
   }
 
-  checkIfItemFavorite(itemId) {
-    return !!this.userFavItemsId?.find(item => item.id === itemId);
-  }
-
-  deleteItem(itemId) {
-    Swal.fire({
-      title: 'Você realmente deseja deletar este item?',
-      text: "Os dados do item serão apagados do nosso sistema.",
-      icon: 'warning',
-      showCancelButton: true,
-      confirmButtonColor: '#3085d6',
-      cancelButtonColor: '#d33',
-      confirmButtonText: 'Sim, deletar agora!'
-    }).then((result) => {
-      if (result.isConfirmed) {
-        this.apiService.deleteItem(itemId).subscribe({
-          next: v => {
-            Swal.fire(
-              'Item deletado com sucesso!',
-            ).then(() => {
-              window.location.reload();
-            }
-            );
-          }
-        });
-      }
-    });
-  }
-
-  favoriteItem(itemId) {
-    this.apiService.addFavouriteItem(itemId, this.user.id).pipe(take(1)).subscribe({
-      next: v => {
-        this.getUserFavItems();
-      }
-    })
-  }
-
-  unfavoriteItem(itemId) {
-    this.apiService.removeFavouriteItem(itemId, this.user.id).pipe(take(1)).subscribe({
-      next: v => {
-        this.getUserFavItems();
-      }
-    })
+  refeshItemList() {
+    this.getUserFavItems();
   }
 
 }

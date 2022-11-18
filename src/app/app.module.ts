@@ -41,6 +41,7 @@ import { PrivacyPolicyComponent } from './pages/privacy-policy/privacy-policy.co
 import { ObjectCatalogEditComponent } from './pages/object-catalog-edit/object-catalog-edit.component';
 import { NgChartComponent } from './pages/about-us/ng-chart/ng-chart.component';
 import { ObjectCatalogPendingComponent } from './pages/object-catalog-pending/object-catalog-pending.component';
+import { ItemComponent } from './shared/item/item.component';
 
 
 @NgModule({
@@ -64,7 +65,8 @@ import { ObjectCatalogPendingComponent } from './pages/object-catalog-pending/ob
     PrivacyPolicyComponent,
     ObjectCatalogEditComponent,
     NgChartComponent,
-    ObjectCatalogPendingComponent
+    ObjectCatalogPendingComponent,
+    ItemComponent
   ],
   imports: [
     FormsModule,

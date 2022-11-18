@@ -18,51 +18,8 @@
 <section class="catalog">
     <div class="catalog-item__wrapper">
         <div class="catalog-item__wrapper__item" *ngFor="let item of this.catalogItems">
-            <div class="catalog-item__wrapper__item--photo" *ngIf="item.photo">
-                <div class="heart-toggle" *ngIf="this.isLogged"
-                    [ngClass]="checkIfItemFavorite(item.id) ? 'heart-active' : 'heart-noActive'"
-                    (click)="checkIfItemFavorite(item.id) ? unfavoriteItem(item.id) : favoriteItem(item.id)"></div>
-                <img [src]="item.photo" />
-            </div>
-            <div class="catalog-item__wrapper__item--photo nophoto" *ngIf="!item.photo">
-                <span>Este item ainda não possui foto</span>
-                <div class="heart-toggle" *ngIf="this.isLogged"
-                    [ngClass]="checkIfItemFavorite(item.id) ? 'heart-active' : 'heart-noActive'"
-                    (click)="checkIfItemFavorite(item.id) ? unfavoriteItem(item.id) : favoriteItem(item.id) "></div>
-
-            </div>
-            <div class="catalog-item__wrapper__item-description">
-                <div class="catalog-item__wrapper__item-description--name">
-                    {{ item.name }}
-                </div>
-                <div class="catalog-item__wrapper__item-description--model">
-                    Modelo: {{ item.model }}
-                </div>
-                <div class="catalog-item__wrapper__item-description--brand">
-                    Marca: {{ item.brand }}
-                </div>
-
-                <div class="catalog-item__wrapper__item-description_buttons">
-                    <button [routerLink]="['/item', item.id]"
-                        class="catalog-item__wrapper__item-description_buttons--link">
-                        Mais informações
-                    </button>
-
-                    <div class="catalog-item__wrapper__item-description_buttons--actions"
-                        *ngIf="this.isLogged && this.user?.type =='admin'">
-                        <button class="catalog-item__wrapper__item-description_buttons--actions--icon-edit"
-                            [routerLink]="['/atualizar-item', item.id]">
-                            <fa-icon [icon]="faPenToSquare" class="icon">
-                            </fa-icon>
-                        </button>
-                        <button class="catalog-item__wrapper__item-description_buttons--actions--icon-delete"
-                            (click)="deleteItem(item.id)">
-                            <fa-icon [icon]="faTrashCan" class="icon">
-                            </fa-icon>
-                        </button>
-                    </div>
-                </div>
-            </div>
+            <app-item [item]="item" [user]="user" [userFavItemsId]="userFavItemsId" (shouldRefresh)="refeshItemList()">
+            </app-item>
         </div>
     </div>
     <div class="catalog__item-navigation" *ngIf="this.catalogMeta">
