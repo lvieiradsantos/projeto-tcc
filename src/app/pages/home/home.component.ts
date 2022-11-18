@@ -3,7 +3,6 @@ import { Router } from '@angular/router';
 import jwt_decode from "jwt-decode";
 import { take } from 'rxjs';
 import { ApiService } from 'src/app/services/api.service';
-import { UtilService } from 'src/app/services/util.service';
 
 @Component({
   selector: 'app-home',
@@ -11,31 +10,43 @@ import { UtilService } from 'src/app/services/util.service';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-  token: boolean;
+  token: string;
   userId: any;
   tokenDecripted: any;
   userType: string;
   pendingItens: any;
-  user: any;
 
 
   constructor(
     private router: Router,
-    private apiService: ApiService,
-    private utilService: UtilService
+    private apiService: ApiService
   ) { }
 
   ngOnInit(): void {
-    this.token = this.utilService.isLogged();
-    this.user = this.utilService.getUserDecoded();
-    this.userType = this.utilService.getUserDecoded().type;
-    this.getPendingItens();
+    this.token = localStorage.getItem('token');
+    if (this.token) {
+      this.getUser()
+      this.getUserType();
+      this.getPendingItens();
+    }
   }
 
+  getUser() {
+    this.token = localStorage.getItem('token');
+    if (this.token) {
+      this.userId = jwt_decode(this.token);
+      return this.userId.id;
+    }
+  }
 
+  getUserType() {
+    this.apiService.getUsuario(this.userId.id).pipe(take(1)).subscribe(userInfo => {
+      this.userType = userInfo.type;
+    })
+  }
 
   getPendingItens() {
-    this.apiService.getUsuario(this.user.id).pipe(take(1)).subscribe(userInfo => {
+    this.apiService.getUsuario(this.userId.id).pipe(take(1)).subscribe(userInfo => {
       this.userType = userInfo.type;
 
       if (this.userType == 'admin') {
