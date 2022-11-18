@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { UtilService } from 'src/app/services/util.service';
 
 @Component({
   selector: 'app-menu',
@@ -9,21 +10,19 @@ import { Router } from '@angular/router';
 export class MenuComponent implements OnInit {
 
 
-  token: any;
+  isLogged: boolean;
 
   constructor(
-    private router: Router
+    private router: Router,
+    private utilService: UtilService
   ) { }
 
   ngOnInit(): void {
-    this.token = localStorage.getItem('token');
+    this.isLogged = this.utilService.isLogged();
   }
 
   logout() {
-    this.token = localStorage.removeItem('token');
-    this.router.navigate(['/']).then(() => {
-      window.location.reload();
-    })
+    this.utilService.logout();
   }
 }
 

@@ -24,15 +24,12 @@ export class LoginComponent implements OnInit {
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(5)]]
     })
-
-    this.token = localStorage.getItem('token');
   }
 
   sendLogin() {
     const { email, password } = this.loginForm.value;
 
     this.apiService.login(email, password).subscribe({
-
       next: (v) => {
         this.router.navigate(['/']);
       }

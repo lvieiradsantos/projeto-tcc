@@ -21,7 +21,7 @@
             <div class="catalog-item__wrapper__item--photo" *ngIf="item.photo">
                 <div class="heart-toggle" *ngIf="this.token"
                     [ngClass]="checkIfItemFavorite(item.id) ? 'heart-active' : 'heart-noActive'"
-                    (click)="checkIfItemFavorite(item.id) ? favoriteItem(item.id): unfavoriteItem(item.id)"></div>
+                    (click)="checkIfItemFavorite(item.id) ? unfavoriteItem(item.id) : favoriteItem(item.id)"></div>
                 <img [src]="item.photo" />
             </div>
             <div class="catalog-item__wrapper__item--photo nophoto" *ngIf="!item.photo">

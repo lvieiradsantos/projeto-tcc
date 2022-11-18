@@ -146,16 +146,15 @@ export class ObjectCatalogComponent implements OnInit {
   favoriteItem(itemId) {
     this.apiService.addFavouriteItem(itemId, this.user.id).pipe(take(1)).subscribe({
       next: v => {
-        window.location.reload();
-
+        this.getUserFavItems();
       }
     })
   }
-  
+
   unfavoriteItem(itemId) {
     this.apiService.removeFavouriteItem(itemId, this.user.id).pipe(take(1)).subscribe({
       next: v => {
-        window.location.reload();
+        this.getUserFavItems();
       }
     })
   }

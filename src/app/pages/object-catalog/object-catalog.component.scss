@@ -90,12 +90,12 @@
                     &.heart-noActive {
                         padding: 18px;
                         margin: 10px;
-                        background-image: url("./../../../assets/icons/heart-empty_1234321.svg");
+                        background-image: url("/assets/icons/heart-empty.svg");
                     }
                     &.heart-active {
                         padding: 18px;
                         margin: 10px;
-                        background-image: url("./../../../assets/icons/heart-star_1234321.svg");
+                        background-image: url("/assets/icons/heart-star.svg");
                     }
                 }
                 @media screen and (max-width: 1200px) {
