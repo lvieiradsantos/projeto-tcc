@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
 import jwt_decode from "jwt-decode";
 
 @Component({
@@ -14,7 +13,6 @@ export class AppComponent implements OnInit {
   userId: any;
 
   constructor(
-    private activatedRoute: ActivatedRoute,
   ) { }
 
   ngOnInit() {
@@ -31,7 +29,6 @@ export class AppComponent implements OnInit {
     }
   }
 
-
   getUrl() {
     if (window.location.pathname == '/login' || window.location.pathname == '/cadastro') {
       return true;
@@ -42,6 +39,6 @@ export class AppComponent implements OnInit {
 
   getFaleConosco() {
     return window.location.pathname == '/fale-conosco';
-}
+  }
 
 }

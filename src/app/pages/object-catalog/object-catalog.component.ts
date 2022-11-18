@@ -115,7 +115,7 @@ export class ObjectCatalogComponent implements OnInit {
   }
 
   checkIfItemFavorite(itemId) {
-    return !!this.userFavItemsId.find(item => item.id === itemId);
+    return !!this.userFavItemsId?.find(item => item.id === itemId);
   }
 
   deleteItem(itemId) {

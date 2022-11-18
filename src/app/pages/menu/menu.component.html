@@ -1,14 +1,14 @@
 <div class="menu">
     <div class="menu__btn">
-        <div class="not-logged" *ngIf="isLogged">
+        <div class="not-logged" *ngIf="!isLogged; else showLogout">
             <button routerLink="/login" class="menu__btn__sign-in">ENTRAR</button>
             <button routerLink="/cadastro" class="menu__btn__sign-up">CADASTRAR-SE</button>
             <button routerLink="/sobre-nos" class="menu__btn__about-us-catalog">SOBRE NÓS</button>
         </div>
-        <div class="not-logged" *ngIf="!isLogged">
+        <ng-template #showLogout>
             <button class="menu__btn__sign-up" (click)="logout()">SAIR</button>
             <button routerLink="/profile" class="menu__btn__sign-in">PERFIL</button>
             <button routerLink="/home" class="menu__btn__about-us-catalog">CATÁLOGO</button>
-        </div>
+        </ng-template>
     </div>
 </div>

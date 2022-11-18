@@ -9,7 +9,6 @@ import { UtilService } from 'src/app/services/util.service';
 })
 export class MenuComponent implements OnInit {
 
-
   isLogged: boolean;
 
   constructor(
@@ -18,7 +17,11 @@ export class MenuComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.isLogged = this.utilService.isLogged();
+    this.isLogged = !!this.utilService.getToken();
+    this.utilService.isLoggedSubject
+      .subscribe(isLogged => {
+        this.isLogged = isLogged;
+      });
   }
 
   logout() {
