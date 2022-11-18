@@ -5,6 +5,7 @@ import { ApiService } from 'src/app/services/api.service';
 import { faPenToSquare, faTrashCan, faHeart } from '@fortawesome/free-solid-svg-icons';
 import jwt_decode from "jwt-decode";
 import Swal from 'sweetalert2';
+import { UtilService } from 'src/app/services/util.service';
 
 @Component({
   selector: 'app-object-catalog',
@@ -17,7 +18,7 @@ export class ObjectCatalogComponent implements OnInit {
   catalogMeta: any;
   filterCatalog: FormGroup;
   filteredWord: string;
-  token: string;
+  token: boolean;
   pageNumber = 1;
   user: any;
   userFavItemsId: [] | any;
@@ -28,18 +29,24 @@ export class ObjectCatalogComponent implements OnInit {
 
   constructor(
     private apiService: ApiService,
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private utilService: UtilService
   ) { }
 
   ngOnInit(): void {
-    this.token = localStorage.getItem('token');
-    this.getUser();
+    this.token = this.utilService.isLogged();
+    this.user = this.utilService.getUserDecoded();
     this.paginatedItems();
     this.filterCatalog = this.formBuilder.group({
       searchInput: ['']
     });
     this.filterCatalogItems();
     this.getUserFavItems();
+
+    this.utilService.isLoggedSubject
+    .subscribe(isLogged => {
+      this.token = isLogged;
+    });
   }
 
 
@@ -93,14 +100,6 @@ export class ObjectCatalogComponent implements OnInit {
         }
       });
     });
-  }
-
-  getUser() {
-    this.token = localStorage.getItem('token');
-    if (this.token) {
-      this.user = jwt_decode(this.token);
-      return this.user;
-    }
   }
 
   getUserFavItems() {
