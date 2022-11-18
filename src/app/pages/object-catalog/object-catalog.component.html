@@ -9,7 +9,7 @@
         </form>
     </div>
     <div class="new-catalog__item">
-        <button class="new-catalog__item-btn" routerLink="/cadastrar-item" *ngIf="this.token">
+        <button class="new-catalog__item-btn" routerLink="/cadastrar-item" *ngIf="this.isLogged">
             Cadastrar Item
         </button>
     </div>
@@ -19,14 +19,14 @@
     <div class="catalog-item__wrapper">
         <div class="catalog-item__wrapper__item" *ngFor="let item of this.catalogItems">
             <div class="catalog-item__wrapper__item--photo" *ngIf="item.photo">
-                <div class="heart-toggle" *ngIf="this.token"
+                <div class="heart-toggle" *ngIf="this.isLogged"
                     [ngClass]="checkIfItemFavorite(item.id) ? 'heart-active' : 'heart-noActive'"
                     (click)="checkIfItemFavorite(item.id) ? unfavoriteItem(item.id) : favoriteItem(item.id)"></div>
                 <img [src]="item.photo" />
             </div>
             <div class="catalog-item__wrapper__item--photo nophoto" *ngIf="!item.photo">
                 <span>Este item ainda não possui foto</span>
-                <div class="heart-toggle" *ngIf="this.token"
+                <div class="heart-toggle" *ngIf="this.isLogged"
                     [ngClass]="checkIfItemFavorite(item.id) ? 'heart-active' : 'heart-noActive'"
                     (click)="checkIfItemFavorite(item.id) ? unfavoriteItem(item.id) : favoriteItem(item.id) "></div>
 
@@ -49,7 +49,7 @@
                     </button>
 
                     <div class="catalog-item__wrapper__item-description_buttons--actions"
-                        *ngIf="this.token && this.user.type =='admin'">
+                        *ngIf="this.isLogged && this.user?.type =='admin'">
                         <button class="catalog-item__wrapper__item-description_buttons--actions--icon-edit"
                             [routerLink]="['/atualizar-item', item.id]">
                             <fa-icon [icon]="faPenToSquare" class="icon">

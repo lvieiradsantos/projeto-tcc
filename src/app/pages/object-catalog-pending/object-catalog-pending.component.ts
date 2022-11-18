@@ -6,6 +6,8 @@ import { ApiService } from 'src/app/services/api.service';
 import { faPenToSquare, faTrashCan, faSquareCheck } from '@fortawesome/free-solid-svg-icons';
 import jwt_decode from "jwt-decode";
 import Swal from 'sweetalert2';
+import { ProfileModel } from 'src/app/model/profile.model';
+import { UtilService } from 'src/app/services/util.service';
 
 @Component({
   selector: 'app-object-catalog-pending',
@@ -14,15 +16,13 @@ import Swal from 'sweetalert2';
 })
 export class ObjectCatalogPendingComponent implements OnInit {
 
-
   catalogPendingItems: any;
   catalogPendingMeta: any;
   filterPendingCatalog: FormGroup;
   filteredWord: string;
-  token: string;
+  isLogged: boolean;
   pageNumber = 1;
-  userType: any;
-
+  user: ProfileModel;
 
   faPenToSquare = faPenToSquare;
   faTrashCan = faTrashCan;
@@ -31,12 +31,13 @@ export class ObjectCatalogPendingComponent implements OnInit {
 
   constructor(
     private apiService: ApiService,
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private utilService: UtilService
   ) { }
 
   ngOnInit(): void {
-    this.token = localStorage.getItem('token');
-    this.getUserId();
+    this.isLogged = this.utilService.isLogged();
+    this.getUser();
     this.paginatedPendingItems();
     this.filterPendingCatalog = this.formBuilder.group({
       searchInput: ['']
@@ -45,6 +46,9 @@ export class ObjectCatalogPendingComponent implements OnInit {
     this.filterPendingCatalogItems()
   }
 
+  getUser() {
+    this.user = this.utilService.getDecodedUser();
+  }
 
   beforePage() {
     this.pageNumber--;
@@ -54,7 +58,6 @@ export class ObjectCatalogPendingComponent implements OnInit {
     } else {
       this.apiService.getPendingItensPaginado(this.pageNumber, 8, searchInput.value?.toLowerCase()).subscribe({
         next: catalog => {
-          console.log('before', catalog)
           this.catalogPendingItems = catalog.items;
           this.catalogPendingMeta = catalog.meta;
         }
@@ -80,13 +83,11 @@ export class ObjectCatalogPendingComponent implements OnInit {
   paginatedPendingItems() {
     this.apiService.getPendingItensPaginado(this.pageNumber, 8).pipe(take(1)).subscribe({
       next: catalog => {
-        console.log('paginatedpendingitem', catalog)
         this.catalogPendingItems = catalog.items;
         this.catalogPendingMeta = catalog.meta;
       }
     });
   }
-
 
   filterPendingCatalogItems() {
     const { searchInput } = this.filterPendingCatalog.controls;
@@ -98,14 +99,6 @@ export class ObjectCatalogPendingComponent implements OnInit {
         }
       });
     });
-  }
-
-  getUserId() {
-    this.token = localStorage.getItem('token');
-    if (this.token) {
-      this.userType = jwt_decode(this.token);
-      return this.userType;
-    }
   }
 
   acceptItem(itemId) {
@@ -159,6 +152,5 @@ export class ObjectCatalogPendingComponent implements OnInit {
       }
     });
   }
-
 
 }

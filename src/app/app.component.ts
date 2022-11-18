@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import jwt_decode from "jwt-decode";
+import { UtilService } from './services/util.service';
 
 @Component({
   selector: 'app-root',
@@ -7,34 +7,31 @@ import jwt_decode from "jwt-decode";
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-  title = 'projeto-tcc';
-  token: any;
-  tokenDecripted: any;
-  userId: any;
+  isLogged: boolean;
 
   constructor(
+    private utilService: UtilService
   ) { }
 
   ngOnInit() {
     this.getUrl();
-    this.getUserId();
+    this.setIsLogged();
+    this.subscribeToIsLoggedSubject();
   }
 
-  getUserId() {
-    this.token = localStorage.getItem('token');
-    if (this.token) {
-      this.tokenDecripted = jwt_decode(this.token);
-      this.userId = this.tokenDecripted.id;
-      localStorage.setItem('userId', this.userId);
-    }
+  subscribeToIsLoggedSubject() {
+    this.utilService.isLoggedSubject
+      .subscribe(isLogged => {
+        this.isLogged = isLogged;
+      });
+  }
+
+  setIsLogged() {
+    this.isLogged = this.utilService.isLogged();
   }
 
   getUrl() {
-    if (window.location.pathname == '/login' || window.location.pathname == '/cadastro') {
-      return true;
-    } else {
-      return false;
-    }
+    return (window.location.pathname == '/login' || window.location.pathname == '/cadastro');
   }
 
   getFaleConosco() {

@@ -4,18 +4,21 @@ import { environment } from "src/environments/environment";
 import { switchMap, tap } from 'rxjs/operators';
 import { Observable } from 'rxjs';
 import { CatalogItemModel } from "../model/catalog-item.model";
+import { ProfileModel } from "../model/profile.model";
+import { UtilService } from "./util.service";
 
 @Injectable()
 export class ApiService {
 
     constructor(
         private http: HttpClient,
+        private utilService: UtilService
     ) { }
 
     login(email: string, password: string) {
         return this.http.post(environment.api.login, { email, password })
             .pipe(tap((response: any) => {
-                localStorage.setItem('token', response.token);
+                this.utilService.setToken(response.token);
             })) as Observable<{
                 token: string
             }>;
@@ -82,11 +85,11 @@ export class ApiService {
         email: string,
         password: string
     }) {
-        return this.http.post(environment.api.user, user) as Observable<any>;
+        return this.http.post(environment.api.user, user) as Observable<ProfileModel>;
     }
 
     getUsuario(userId: string) {
-        return this.http.get(`${environment.api.user}/${userId}`) as Observable<any>;
+        return this.http.get(`${environment.api.user}/${userId}`) as Observable<ProfileModel>;
     }
 
     deleteUser(userId: string) {
@@ -94,15 +97,15 @@ export class ApiService {
     }
 
     editUsuario(userId: string, user: any) {
-        return this.http.put(`${environment.api.user}/${userId}`, user) as Observable<any>;
+        return this.http.put(`${environment.api.user}/${userId}`, user) as Observable<ProfileModel>;
     }
 
     addFavouriteItem(itemId: string, userId: string) {
-        return this.http.post(`${environment.api.user}/${userId}/item/${itemId}`, {}) as Observable<any>;
+        return this.http.post(`${environment.api.user}/${userId}/item/${itemId}`, {}) as Observable<ProfileModel>;
     }
 
     removeFavouriteItem(itemId: string, userId: string) {
-        return this.http.delete(`${environment.api.user}/${userId}/item/${itemId}`, {}) as Observable<any>;
+        return this.http.delete(`${environment.api.user}/${userId}/item/${itemId}`, {}) as Observable<ProfileModel>;
     }
 
     uploadItemPhoto(itemId: string, file: File) {
@@ -114,7 +117,7 @@ export class ApiService {
             'POST',
             environment.api.itemPhoto,
             formData, {
-            headers: new HttpHeaders({ Authorization: String(localStorage.getItem('token')) }),
+            headers: new HttpHeaders({ Authorization: String(this.utilService.getToken()) }),
             reportProgress: true,
         }
         );

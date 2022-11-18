@@ -5,7 +5,8 @@ import { take } from 'rxjs';
 import { ApiService } from 'src/app/services/api.service';
 import { faPenToSquare, faTrashCan } from '@fortawesome/free-solid-svg-icons';
 import Swal from 'sweetalert2';
-import jwt_decode from "jwt-decode";
+import { UtilService } from 'src/app/services/util.service';
+import { ProfileModel } from 'src/app/model/profile.model';
 
 @Component({
   selector: 'app-open-object',
@@ -18,19 +19,25 @@ export class OpenObjectComponent implements OnInit {
   faPenToSquare = faPenToSquare;
   faTrashCan = faTrashCan;
   faSquareCheck = faSquareCheck;
-  userType: any;
-  token: string;
+  user: ProfileModel;
+  isLogged: boolean;
 
   constructor(
     private apiService: ApiService,
     private activatedRoute: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    private utilServce: UtilService
 
   ) { }
 
-  ngOnInit(): void {
+  ngOnInit() {
     this.getActiveId();
-    this.getUserId();
+    this.getUser();
+    this.setIsLogged();
+  }
+
+  setIsLogged() {
+    this.isLogged = this.utilServce.isLogged();
   }
 
   getActiveId() {
@@ -40,17 +47,12 @@ export class OpenObjectComponent implements OnInit {
         const itemId = item['id']
         this.apiService.getItem(itemId).subscribe(item => {
           this.itemDetails = item;
-          console.log(this.itemDetails)
         })
       })
   }
 
-  getUserId() {
-    this.token = localStorage.getItem('token');
-    if (this.token) {
-      this.userType = jwt_decode(this.token);
-      return this.userType;
-    }
+  getUser() {
+    this.user = this.utilServce.getDecodedUser();
   }
 
   acceptItem(itemId) {

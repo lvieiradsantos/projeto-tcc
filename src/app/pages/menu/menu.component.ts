@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 import { UtilService } from 'src/app/services/util.service';
 
 @Component({
@@ -12,12 +11,15 @@ export class MenuComponent implements OnInit {
   isLogged: boolean;
 
   constructor(
-    private router: Router,
     private utilService: UtilService
   ) { }
 
   ngOnInit(): void {
     this.isLogged = !!this.utilService.getToken();
+    this.subscribeToIsLoggedSubject();
+  }
+
+  subscribeToIsLoggedSubject() {
     this.utilService.isLoggedSubject
       .subscribe(isLogged => {
         this.isLogged = isLogged;

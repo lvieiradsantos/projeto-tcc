@@ -3,8 +3,9 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 import { debounceTime, take } from 'rxjs';
 import { ApiService } from 'src/app/services/api.service';
 import { faPenToSquare, faTrashCan, faHeart } from '@fortawesome/free-solid-svg-icons';
-import jwt_decode from "jwt-decode";
 import Swal from 'sweetalert2';
+import { UtilService } from 'src/app/services/util.service';
+import { ProfileModel } from 'src/app/model/profile.model';
 
 @Component({
   selector: 'app-object-catalog',
@@ -17,9 +18,9 @@ export class ObjectCatalogComponent implements OnInit {
   catalogMeta: any;
   filterCatalog: FormGroup;
   filteredWord: string;
-  token: string;
+  isLogged: boolean;
   pageNumber = 1;
-  user: any;
+  user: ProfileModel;
   userFavItemsId: [] | any;
 
   faPenToSquare = faPenToSquare;
@@ -28,11 +29,12 @@ export class ObjectCatalogComponent implements OnInit {
 
   constructor(
     private apiService: ApiService,
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private utilService: UtilService
   ) { }
 
   ngOnInit(): void {
-    this.token = localStorage.getItem('token');
+    this.isLogged = this.utilService.isLogged();
     this.getUser();
     this.paginatedItems();
     this.filterCatalog = this.formBuilder.group({
@@ -40,8 +42,15 @@ export class ObjectCatalogComponent implements OnInit {
     });
     this.filterCatalogItems();
     this.getUserFavItems();
+    this.subscribeToIsLoggedSubject();
   }
 
+  subscribeToIsLoggedSubject() {
+    this.utilService.isLoggedSubject
+      .subscribe(isLogged => {
+        this.isLogged = isLogged;
+      });
+  }
 
   beforePage() {
     this.pageNumber--;
@@ -96,18 +105,13 @@ export class ObjectCatalogComponent implements OnInit {
   }
 
   getUser() {
-    this.token = localStorage.getItem('token');
-    if (this.token) {
-      this.user = jwt_decode(this.token);
-      return this.user;
-    }
+    this.user = this.utilService.getDecodedUser();
   }
 
   getUserFavItems() {
-    if (this.token) {
+    if (this.isLogged) {
       this.apiService.getUsuario(this.user.id).pipe(take(1)).subscribe({
         next: v => {
-          console.log(v)
           return this.userFavItemsId = v.favItems;
         }
       })

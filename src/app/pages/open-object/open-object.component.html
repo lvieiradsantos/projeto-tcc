@@ -1,13 +1,14 @@
 <div class="container">
     <div class="open-object-content" *ngIf="this.itemDetails">
         <div class="open-object-content__pic">
-            <img src="{{ this.itemDetails?.photo ? this.itemDetails?.photo : 'assets/images/placeholder-no-image.jpg' }}" width="200" height="200">
+            <img src="{{ this.itemDetails?.photo ? this.itemDetails?.photo : 'assets/images/placeholder-no-image.jpg' }}"
+                width="200" height="200">
         </div>
 
         <div class="object-info" *ngIf="this.itemDetails">
             <div class="object-info__header">
                 <h1>Ficha Técnica</h1>
-                <div class="object-info__header--actions" *ngIf="this.token && this.userType.type =='admin'">
+                <div class="object-info__header--actions" *ngIf="this.isLogged && this.user?.type =='admin'">
 
                     <button class="object-info__header--actions--icon-accept" *ngIf="itemDetails?.active == false"
                         (click)="acceptItem(itemDetails.id)">

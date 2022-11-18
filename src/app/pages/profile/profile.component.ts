@@ -1,9 +1,10 @@
-import { Component, OnInit, OnChanges } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ProfileModel } from 'src/app/model/profile.model';
 import { take } from 'rxjs';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import Swal from 'sweetalert2'
 import { ApiService } from 'src/app/services/api.service';
+import { UtilService } from 'src/app/services/util.service';
 
 @Component({
   selector: 'app-profile',
@@ -11,13 +12,13 @@ import { ApiService } from 'src/app/services/api.service';
   styleUrls: ['./profile.component.scss']
 })
 export class ProfileComponent implements OnInit {
-  userId: string | any;
   updateProfile: FormGroup | any;
   profileInfo: ProfileModel | any;
 
   constructor(
     private apiService: ApiService,
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private utilService: UtilService
   ) { }
 
   ngOnInit(): void {
@@ -25,8 +26,7 @@ export class ProfileComponent implements OnInit {
   }
 
   getUserProfile() {
-    this.userId = localStorage.getItem('userId');
-    this.apiService.getUsuario(this.userId).pipe(take(1)).subscribe(userInfo => {
+    this.apiService.getUsuario(this.utilService.getDecodedUser().id).pipe(take(1)).subscribe(userInfo => {
       this.profileInfo = userInfo;
 
       this.updateProfile = this.formBuilder.group({
@@ -45,7 +45,7 @@ export class ProfileComponent implements OnInit {
     const { name, email, phone, type, country, ageGroup, hearing } = this.updateProfile.value
 
     const userUpdated = { name, email, phone, type, country, ageGroup, hearing };
-    this.apiService.editUsuario(this.userId, userUpdated).pipe(take(1)).subscribe({
+    this.apiService.editUsuario(this.utilService.getDecodedUser().id, userUpdated).pipe(take(1)).subscribe({
       next: (v) => {
         Swal.fire({
           title: 'Sucesso',
@@ -58,7 +58,6 @@ export class ProfileComponent implements OnInit {
   }
 
   deleteProfileUser() {
-
     Swal.fire({
       title: 'Você realmente deseja deletar este usuário?',
       text: "Seus dados serão apagado do nosso sistema.",
@@ -69,21 +68,18 @@ export class ProfileComponent implements OnInit {
       confirmButtonText: 'Sim, deletar agora!'
     }).then((result) => {
       if (result.isConfirmed) {
-        this.apiService.deleteUser(this.userId).subscribe(
+        this.apiService.deleteUser(this.utilService.getDecodedUser().id).subscribe(
           {
             next: (v) => {
-              localStorage.removeItem('token')
               Swal.fire(
                 'Usuário deletado com sucesso!',
               ).then(() => {
-                this.getUserProfile();
+                this.utilService.logout();
               }
               )
             }
           })
-
       }
     })
-
   }
 }
