@@ -46,21 +46,21 @@
 
     <div class="catalog-item__wrapper__item-description_buttons" *ngIf="!item?.active">
 
-        <div class="catalog-item__wrapper__item-description_buttons--actions"
+        <div class="catalog-item__wrapper__item-description_buttons--actions--noactive"
             *ngIf="this.isLogged && this.user?.type =='admin'">
 
-            <button class="catalog-item__wrapper__item-description_buttons--actions--icon-accept"
+            <button class="catalog-item__wrapper__item-description_buttons--actions--noactive--icon-accept"
                 (click)="acceptItem(item.id)">
                 <fa-icon [icon]="faSquareCheck" class="fa-regular icon">
                 </fa-icon>
             </button>
 
-            <button class=" catalog-item__wrapper__item-description_buttons--actions--icon-edit"
+            <button class=" catalog-item__wrapper__item-description_buttons--actions--noactive--icon-edit"
                 [routerLink]="['/atualizar-item', item.id]">
                 <fa-icon [icon]="faPenToSquare" class="icon">
                 </fa-icon>
             </button>
-            <button class="catalog-item__wrapper__item-description_buttons--actions--icon-delete"
+            <button class="catalog-item__wrapper__item-description_buttons--actions--noactive--icon-delete"
                 (click)="deleteItem(item.id)">
                 <fa-icon [icon]="faTrashCan" class="icon">
                 </fa-icon>

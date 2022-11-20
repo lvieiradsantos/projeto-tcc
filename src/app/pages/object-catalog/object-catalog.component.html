@@ -7,11 +7,15 @@
                     class="filter__search-form--bar-input" />
             </div>
         </form>
-    </div>
-    <div class="new-catalog__item">
-        <button class="new-catalog__item-btn" routerLink="/cadastrar-item" *ngIf="this.isLogged">
-            Cadastrar Item
-        </button>
+        <div class="new-catalog">
+            <button class="new-catalog__fav-btn" routerLink="/meus-favoritos" *ngIf="this.isLogged">
+                Meus Favoritos
+            </button>
+
+            <button class="new-catalog__item-btn" routerLink="/cadastrar-item" *ngIf="this.isLogged">
+                Cadastrar Item
+            </button>
+        </div>
     </div>
 </div>
 

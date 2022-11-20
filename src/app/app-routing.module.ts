@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AboutUsComponent } from './pages/about-us/about-us.component';
+import { FavoriteObjectsCatalogComponent } from './pages/favorite-objects-catalog/favorite-objects-catalog.component';
 import { HomeComponent } from './pages/home/home.component';
 import { LoginComponent } from './pages/login/login.component';
 import { ObjectCatalogEditComponent } from './pages/object-catalog-edit/object-catalog-edit.component';
@@ -69,6 +70,11 @@ const routes: Routes = [
   {
     path: 'itens-pendentes',
     component: ObjectCatalogPendingComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'meus-favoritos',
+    component: FavoriteObjectsCatalogComponent,
     canActivate: [AuthGuard]
   },
 
