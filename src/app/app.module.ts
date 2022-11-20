@@ -42,6 +42,7 @@ import { ObjectCatalogEditComponent } from './pages/object-catalog-edit/object-c
 import { NgChartComponent } from './pages/about-us/ng-chart/ng-chart.component';
 import { ObjectCatalogPendingComponent } from './pages/object-catalog-pending/object-catalog-pending.component';
 import { ItemComponent } from './shared/item/item.component';
+import { MostRatedComponent } from './shared/most-rated/most-rated.component';
 
 
 @NgModule({
@@ -66,7 +67,8 @@ import { ItemComponent } from './shared/item/item.component';
     ObjectCatalogEditComponent,
     NgChartComponent,
     ObjectCatalogPendingComponent,
-    ItemComponent
+    ItemComponent,
+    MostRatedComponent
   ],
   imports: [
     FormsModule,

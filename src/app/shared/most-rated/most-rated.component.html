@@ -1,0 +1,16 @@
+<section class="most-rated container">
+    <h1>Os mais favoritados</h1>
+    <div class="most-rated__item" *ngFor="let item of rankedItens">
+        <div class="most-rated__item-photo">
+            <img [src]="item?.photo" *ngIf="item?.photo">
+            <p *ngIf="!item?.photo">Este item ainda não possui foto</p>
+            <div class="most-rated__item-photo-fav--counter"><span>{{item.favCount}}</span></div>
+        </div>
+        <div class="most-rated__item-description">
+            <h3>{{item.name}}</h3>
+            <p> Modelo: <span>{{item.model}}</span></p>
+            <p> Marca: <span>{{item.brand}}</span></p>
+            <p> Selo: <span>{{item.rate}}</span></p>
+        </div>
+    </div>
+</section>

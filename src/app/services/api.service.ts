@@ -169,4 +169,8 @@ export class ApiService {
     getItensNumbers() {
         return this.http.get(environment.api.itensNumbers) as Observable<any>;
     }
+
+    getRankedItems(limit: number, order: string) {
+        return this.http.get(`${environment.api.favitems}rank?limit=${limit || ''}&order=${order || ''}`)
+    }
 }
