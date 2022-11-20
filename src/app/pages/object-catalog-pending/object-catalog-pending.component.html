@@ -13,7 +13,7 @@
     <section class="catalog">
         <div class="catalog-item__wrapper">
             <div class="catalog-item__wrapper__item" *ngFor="let item of this.catalogPendingItems">
-                <app-item [item]="item" [user]="user" (shouldRefresh)="refeshItemList()"></app-item>
+                <app-item [item]="item" [user]="user" (shouldRefresh)="refreshItemList()"></app-item>
             </div>
         </div>
         <div class="catalog__item-navigation" *ngIf="this.catalogPendingMeta">

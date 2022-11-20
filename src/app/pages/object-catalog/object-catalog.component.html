@@ -22,7 +22,7 @@
 <section class="catalog">
     <div class="catalog-item__wrapper">
         <div class="catalog-item__wrapper__item" *ngFor="let item of this.catalogItems">
-            <app-item [item]="item" [user]="user" [userFavItemsId]="userFavItemsId" (shouldRefresh)="refeshItemList()">
+            <app-item [item]="item" [user]="user" [userFavItemsId]="userFavItemsId" (shouldRefresh)="refreshItemList()">
             </app-item>
         </div>
     </div>

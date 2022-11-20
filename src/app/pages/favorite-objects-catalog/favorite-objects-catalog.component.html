@@ -2,7 +2,7 @@
     <h1>Meus produtos favoritos</h1>
     <div class="my-favorites__wrapper">
         <div class="my-favorites__wrapper__item" *ngFor="let item of userFavItemsId">
-            <app-item [item]="item" [user]="user" [userFavItemsId]="userFavItemsId" (shouldRefresh)="refeshItemList()">
+            <app-item [item]="item" [user]="user" [userFavItemsId]="userFavItemsId">
             </app-item>
         </div>
     </div>

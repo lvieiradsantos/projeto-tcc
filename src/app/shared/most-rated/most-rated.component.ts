@@ -20,7 +20,7 @@ export class MostRatedComponent implements OnInit {
 
   ngOnInit(): void {
     this.utilService.isLogged();
-    this.mostRatedItems();
+    this.getMostRatedItems();
     this.subscribeToIsLoggedSubject();
   }
 
@@ -32,12 +32,11 @@ export class MostRatedComponent implements OnInit {
   }
 
 
-  mostRatedItems() {
+  getMostRatedItems() {
     this.apiService.getRankedItems(3, 'desc').pipe(take(1)).subscribe({
       next: v => {
         this.rankedItens = v;
       }
     })
   }
-
 }

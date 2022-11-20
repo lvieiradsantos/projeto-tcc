@@ -118,7 +118,7 @@ export class ObjectCatalogPendingComponent implements OnInit {
     });
   }
 
-  refeshItemList() {
+  refreshItemList() {
     this.paginatedPendingItems();
   }
 

@@ -87,6 +87,7 @@ export class ItemComponent implements OnInit {
     })
   }
 
+
   acceptItem(itemId) {
     Swal.fire({
       title: 'Você realmente deseja aprovar este item?',
