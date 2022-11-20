@@ -4,13 +4,37 @@
             <div class="header__logo">
                 <img src="./../../../assets/images/logo.png" routerLink="/">
             </div>
-            <div class="header__acessibility-menu">
-                <button class="header__acessibility-menu__font-up">A+</button>
-                <button class="header__acessibility-menu__font-down">A-</button>
-                <span class="header__acessibility-menu__divisor"></span>
-                <button class="header__acessibility-menu__highlight acessibilidade">Alto
-                    Contraste</button>
+            <div class="header__btn-menu" *ngIf="!isLogged; else showLogout">
+                <div routerLink="/home" class="header__btn-menu__catalog alignment">
+                    <fa-icon [icon]="faGrip"></fa-icon>
+                    <span class="header__btn-menu__catalog__catalog-title">Catálogo</span>
+                </div>
+                <div routerLink="/login" class="header__btn-menu__login alignment">
+                    <fa-icon [icon]="faArrowRightToBracket"></fa-icon>
+                    <span class="header__btn-menu__login__login-title">Entrar</span>
+                </div>
+                <div routerLink="/cadastro" class="header__btn-menu__sign-up alignment">
+                    <fa-icon [icon]="faUserPlus "></fa-icon>
+                    <span class="header__btn-menu__sign-up__sign-up-title ">Cadastrar-se</span>
+                </div>
             </div>
+
+            <ng-template #showLogout>
+                <div class="header__btn-menu">
+                    <div routerLink="/home" class="header__btn-menu__catalog alignment">
+                        <fa-icon [icon]="faGrip"></fa-icon>
+                        <span class="header__btn-menu__catalog__catalog-title">Catálogo</span>
+                    </div>
+                    <div routerLink="/profile" class="header__btn-menu__profile alignment">
+                        <fa-icon [icon]="faCircleUser"></fa-icon>
+                        <span class="header__btn-menu__login__profile-title">Perfil</span>
+                    </div>
+                    <div (click)="logout()" class="header__btn-menu__logout alignment">
+                        <fa-icon [icon]="faArrowRightFromBracket"></fa-icon>
+                        <span class="header__btn-menu__sign-up__logout-title ">Sair</span>
+                    </div>
+                </div>
+            </ng-template>
         </div>
     </div>
     <app-menu></app-menu>
