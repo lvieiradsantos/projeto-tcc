@@ -1,8 +1,9 @@
 <header class="header">
     <div class="header-fix">
         <div class="container">
-            <div class="header__logo">
-                <img src="./../../../assets/images/logo.png" routerLink="/">
+            <div class="header__logo-div">
+                <img class="header__logo-div__desk" src="assets\images\logo.png" routerLink="/">
+                <img class="header__logo-div__mobile" src="assets\images\logo-mobile.png" routerLink="/">
             </div>
             <div class="header__btn-menu" *ngIf="!isLogged; else showLogout">
                 <div routerLink="/home" class="header__btn-menu__catalog alignment">
