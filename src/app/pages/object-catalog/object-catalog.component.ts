@@ -117,7 +117,7 @@ export class ObjectCatalogComponent implements OnInit {
     }
   }
 
-  refeshItemList() {
+  refreshItemList() {
     this.getUserFavItems();
   }
 
