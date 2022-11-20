@@ -5,6 +5,7 @@ import { ApiService } from 'src/app/services/api.service';
 import Swal from 'sweetalert2';
 import { ProfileModel } from 'src/app/model/profile.model';
 import { UtilService } from 'src/app/services/util.service';
+import { faTriangleExclamation } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-object-catalog-pending',
@@ -20,6 +21,9 @@ export class ObjectCatalogPendingComponent implements OnInit {
   isLogged: boolean;
   pageNumber = 1;
   user: ProfileModel;
+  itensPending: number;
+
+  faTriangleExclamation = faTriangleExclamation;
 
   constructor(
     private apiService: ApiService,
@@ -30,6 +34,7 @@ export class ObjectCatalogPendingComponent implements OnInit {
   ngOnInit(): void {
     this.isLogged = this.utilService.isLogged();
     this.getUser();
+    this.getItensNumbers();
     this.paginatedPendingItems();
     this.filterPendingCatalog = this.formBuilder.group({
       searchInput: ['']
@@ -91,6 +96,15 @@ export class ObjectCatalogPendingComponent implements OnInit {
         }
       });
     });
+  }
+
+  getItensNumbers() {
+    this.apiService.getItensNumbers().pipe(take(1)).subscribe({
+      next: v => {
+        console.log(v);
+        this.itensPending = v.totalPending;
+      }
+    })
   }
 
   deleteItem(itemId) {

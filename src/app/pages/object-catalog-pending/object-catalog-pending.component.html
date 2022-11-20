@@ -1,16 +1,26 @@
 <app-back-btn></app-back-btn>
 <div class="pending-catalog container">
-    <h1>Catalogo de itens pendentes</h1>
     <div class="catalog-header">
         <div class="filter">
             <form [formGroup]="filterPendingCatalog" class="filter__search-form">
                 <div class="filter__search-form--bar">
-                    <input type="text" formControlName="searchInput" placeholder="Pesquisar"
-                        class="filter__search-form--bar-input" />
+                    <input type="text" formControlName="searchInput" placeholder="Pesquisar" class="filter__search-form--bar-input" />
                 </div>
             </form>
         </div>
+        <div class="itens-info">
+            <div class="itens-info__pending">
+                <p class="numbers">{{ this.itensPending }}</p>
+                <p class="text">itens pendentes <br> aguardando aprovação</p>
+            </div>
+        </div>
     </div>
+
+    <h1>
+        <fa-icon [icon]="faTriangleExclamation"></fa-icon>
+        Catalogo de itens pendentes
+    </h1>
+
     <section class="catalog">
         <div class="catalog-item__wrapper">
             <div class="catalog-item__wrapper__item" *ngFor="let item of this.catalogPendingItems">
@@ -18,14 +28,12 @@
             </div>
         </div>
         <div class="catalog__item-navigation" *ngIf="this.catalogPendingMeta">
-            <button class="catalog__item-navigation--previous" [disabled]="this.catalogPendingMeta.currentPage < 2"
-                (click)="beforePage()">
+            <button class="catalog__item-navigation--previous" [disabled]="this.catalogPendingMeta.currentPage < 2" (click)="beforePage()">
                 anterior
             </button>
             <span>Pagina {{ this.catalogPendingMeta.currentPage }} de
                 {{ this.catalogPendingMeta.totalPages }}</span>
-            <button class="catalog__item-navigation--next" (click)="afterPage()"
-                [disabled]="this.catalogPendingMeta.currentPage >= this.catalogPendingMeta.totalPages">
+            <button class="catalog__item-navigation--next" (click)="afterPage()" [disabled]="this.catalogPendingMeta.currentPage >= this.catalogPendingMeta.totalPages">
                 próxima
             </button>
         </div>

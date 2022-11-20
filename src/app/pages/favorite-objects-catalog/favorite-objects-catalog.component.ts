@@ -3,6 +3,7 @@ import { take } from 'rxjs';
 import { ProfileModel } from 'src/app/model/profile.model';
 import { ApiService } from 'src/app/services/api.service';
 import { UtilService } from 'src/app/services/util.service';
+import { faStar } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-favorite-objects-catalog',
@@ -14,6 +15,8 @@ export class FavoriteObjectsCatalogComponent implements OnInit {
   userFavItemsId: [] | any;
   user: ProfileModel;
   isLogged: boolean;
+
+  faStar = faStar;
 
   constructor(
     private utilService: UtilService,

@@ -4,6 +4,8 @@ import { CatalogItemModel } from 'src/app/model/catalog-item.model';
 import { ProfileModel } from 'src/app/model/profile.model';
 import { ApiService } from 'src/app/services/api.service';
 import { UtilService } from 'src/app/services/util.service';
+import { faTriangleExclamation } from '@fortawesome/free-solid-svg-icons';
+
 
 @Component({
   selector: 'app-home',
@@ -15,6 +17,8 @@ export class HomeComponent implements OnInit {
   tokenDecripted: any;
   user: ProfileModel;
   pendingItens: CatalogItemModel[];
+
+  faTriangleExclamation = faTriangleExclamation;
 
   constructor(
     private apiService: ApiService,

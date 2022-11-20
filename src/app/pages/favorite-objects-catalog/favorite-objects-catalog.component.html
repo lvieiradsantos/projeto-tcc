@@ -1,6 +1,8 @@
 <app-back-btn></app-back-btn>
 <section class="my-favorites container">
-    <h1>Meus produtos favoritos</h1>
+    <h1>
+        <fa-icon [icon]="faStar"></fa-icon>
+        Meus produtos favoritos</h1>
     <div class="my-favorites__wrapper">
         <div class="my-favorites__wrapper__item" *ngFor="let item of userFavItemsId">
             <app-item [item]="item" [user]="user" [userFavItemsId]="userFavItemsId">

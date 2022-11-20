@@ -3,19 +3,29 @@
     background: gray;
 }
 
+.center-peding {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .pending--btn {
-    width: 100%;
-    margin: 20px 0;
-    background: #ebc909f6;
+    width: 50%;
+    margin: 20px 0 10px 0;
+    background: #ff7a00;
     padding: 20px;
     font-size: 20px;
     text-align: center;
     font-weight: 600;
     color: #fff;
     letter-spacing: 1.5px;
+    border-radius: 30px;
     cursor: pointer;
     &:hover {
-        background: #d6b707f6;
+        background: #ed8e35;
+    }
+    p {
+        margin: 0;
     }
 }
 

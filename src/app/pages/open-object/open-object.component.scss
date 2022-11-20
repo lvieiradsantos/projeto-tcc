@@ -1,10 +1,12 @@
 .container {
-    width: 100%;
+    width: 80%;
     height: 450px;
+    margin-bottom: 50px;
     .open-object-content {
         display: flex;
         flex-direction: column;
         justify-content: center;
+        align-items: flex-end;
         margin: 40px 0;
         &__pic {
             & img {
@@ -20,10 +22,15 @@
                 display: flex;
                 justify-content: space-between;
                 h1 {
-                    font-weight: bold;
                     font-size: 26px;
                     padding: 2px 0px 10px 10px;
                     color: rgb(102, 102, 102);
+                    margin-top: 60px;
+                    text-transform: uppercase;
+                    font-weight: 500;
+                    fa-icon {
+                        font-size: 25px;
+                    }
                 }
                 &--actions {
                     display: flex;
@@ -43,6 +50,7 @@
                     &--icon-delete {
                         background: #b90606;
                         border: 1px solid #d40a0a;
+                        font-size: 16px;
                         &:hover {
                             background: #9b0404;
                         }
@@ -50,6 +58,7 @@
                     &--icon-edit {
                         background: #0f96ae;
                         border: 1px solid #13acc7;
+                        font-size: 16px;
                         &:hover {
                             background: #166e7d;
                         }
@@ -69,9 +78,24 @@
                 padding: 20px;
                 margin: 0;
             }
+            &__rate__icon {
+                color: #cb6505;
+            }
             &__description {
                 padding: 20px;
                 margin: 0;
+                fa-icon {
+                    font-size: 18px;
+                }
+                &__label-green {
+                    color: #0b877d;
+                }
+                &__label-red {
+                    color: #d80a0a;
+                }
+                &__label-yellow {
+                    color: #ffcd56;
+                }
             }
             .alignment {
                 display: grid;
@@ -88,12 +112,5 @@
     .open-object-content {
         flex-direction: row !important;
         gap: 30px;
-    }
-}
-
-
-::ng-deep .object-info{
-    svg {
-        height: 16px !important;
     }
 }

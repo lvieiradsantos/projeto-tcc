@@ -8,7 +8,7 @@ h1 {
     display: flex;
     width: 100%;
     align-items: center;
-    margin: 70px 0 60px 0;
+    margin: 50px 0 60px 0;
     flex-direction: column;
     gap: 10px;
 }
@@ -223,6 +223,7 @@ h1 {
             padding: 10px;
             border-radius: 2px;
             border: 1px solid #fe9430;
+            border-radius: 5px;
             background: #ff7a00;
             color: #fff;
             font-weight: 600;

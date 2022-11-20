@@ -1,7 +1,10 @@
 <app-back-btn></app-back-btn>
 <section class="profile container">
     <div class="profile-info" *ngIf="this.profileInfo">
-        <h1 class="profile-info-title">Bem vindo(a), {{this.profileInfo.name}}</h1>
+        <h1 class="profile-info-title">
+            <fa-icon [icon]="faAddressCard"></fa-icon>
+            Bem vindo(a), {{this.profileInfo.name}}
+        </h1>
         <p class="profile-info-subtitle">Atualize seu perfil</p>
 
         <form [formGroup]="updateProfile" class="profile-info__form" *ngIf="profileInfo">
@@ -19,8 +22,7 @@
             </mat-form-field>
             <mat-form-field>
                 <mat-label>Telefone</mat-label>
-                <input formControlName="phone" type="text" matInput placeholder="Telefone"
-                    [dropSpecialCharacters]="true" mask="(00)00000-0000" [clearIfNotMatch]="true">
+                <input formControlName="phone" type="text" matInput placeholder="Telefone" [dropSpecialCharacters]="true" mask="(00)00000-0000" [clearIfNotMatch]="true">
                 <mat-hint *ngIf="!updateProfile.controls.phone.valid">Telefone inválido
                 </mat-hint>
             </mat-form-field>

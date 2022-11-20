@@ -1,7 +1,12 @@
 <div class="middle-content container">
-    <div class="pending--btn" routerLink="/itens-pendentes"
-        *ngIf="this.isLogged && this.user?.type == 'admin' && this.hasPendingItens()">Há itens
-        esperando para serem aprovados!
-        Clique aqui!!</div>
+    <div class="center-peding">
+        <div class="pending--btn" routerLink="/itens-pendentes" *ngIf="this.isLogged && this.user?.type == 'admin' && this.hasPendingItens()">
+            <p class="pending--btn__text">
+                <fa-icon [icon]="faTriangleExclamation"></fa-icon>
+                Clique aqui, há itens esperando para serem aprovados
+                <fa-icon [icon]="faTriangleExclamation"></fa-icon>
+            </p>
+        </div>
+    </div>
     <app-object-catalog></app-object-catalog>
 </div>

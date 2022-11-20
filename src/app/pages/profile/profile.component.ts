@@ -5,6 +5,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import Swal from 'sweetalert2'
 import { ApiService } from 'src/app/services/api.service';
 import { UtilService } from 'src/app/services/util.service';
+import { faAddressCard } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-profile',
@@ -14,6 +15,8 @@ import { UtilService } from 'src/app/services/util.service';
 export class ProfileComponent implements OnInit {
   updateProfile: FormGroup | any;
   profileInfo: ProfileModel | any;
+
+  faAddressCard = faAddressCard;
 
   constructor(
     private apiService: ApiService,

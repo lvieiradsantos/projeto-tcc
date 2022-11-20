@@ -1,16 +1,18 @@
 .pending-catalog {
     margin-top: 40px;
     h1 {
-        margin: 20px 0;
+        margin-top: 60px;
+        text-transform: uppercase;
+        font-weight: 700;
     }
     .catalog-header {
         display: flex;
         width: 100%;
-        justify-content: space-between;
-        align-items: baseline;
-        margin: 20px 0 10px 0;
+        align-items: center;
+        margin: 50px 0 60px 0;
+        flex-direction: column;
+        gap: 10px;
     }
-
     .new-catalog__item {
         &-btn {
             padding: 10px;
@@ -27,12 +29,14 @@
             }
         }
     }
-
     .filter {
         display: flex;
-        width: 89%;
+        width: 100%;
+        align-items: baseline;
+        justify-content: center;
+        flex-wrap: wrap;
         &__search-form {
-            width: 100%;
+            width: 45%;
             display: flex;
             align-items: baseline;
             &--bar {
@@ -43,7 +47,10 @@
                     text-transform: lowercase;
                     border-radius: 10px;
                     border: 1px solid #93b4d8;
-                    padding: 10px 0 10px 10px;
+                    padding: 10px;
+                    background: url(/assets/images/lupa.png) no-repeat right;
+                    background-size: contain;
+                    background-origin: content-box;
                 }
             }
             &--icon {
@@ -51,14 +58,12 @@
             }
         }
     }
-
     .catalog {
         &-item__wrapper {
             display: flex;
             gap: 30px;
             flex-wrap: wrap;
             justify-content: flex-start;
-
             &__item {
                 display: flex;
                 flex-direction: column;
@@ -151,7 +156,6 @@
                                 border-radius: 5px;
                                 width: 100%;
                                 padding: 0px 14px;
-
                                 cursor: pointer;
                                 .icon {
                                     color: #fff;
@@ -193,9 +197,10 @@
             &--next {
                 cursor: pointer;
                 padding: 10px;
-                border-radius: 2px;
-                border: 1px solid #6837a4;
-                background: #672b8c;
+                border-radius: 8px;
+                border: 1px solid #fe9430;
+                border-radius: 5px;
+                background: #ff7a00;
                 color: #fff;
                 font-weight: 600;
                 font-size: 14px;
@@ -206,6 +211,30 @@
                 }
             }
         }
+    }
+}
+
+.itens-info {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    gap: 60px;
+    &__pending {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        text-align: center;
+        &:hover {
+            color: #ff7a00;
+        }
+    }
+    .numbers {
+        font-size: 20px;
+        font-weight: 700;
+    }
+    .text {
+        font-size: 14px;
+        font-weight: 300;
     }
 }
 

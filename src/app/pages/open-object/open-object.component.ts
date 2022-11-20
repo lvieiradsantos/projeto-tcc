@@ -3,7 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { faCircleQuestion, faSquareCheck } from '@fortawesome/free-solid-svg-icons';
 import { take } from 'rxjs';
 import { ApiService } from 'src/app/services/api.service';
-import { faPenToSquare, faTrashCan } from '@fortawesome/free-solid-svg-icons';
+import { faPenToSquare, faTrashCan, faBookmark, faClipboard } from '@fortawesome/free-solid-svg-icons';
 import Swal from 'sweetalert2';
 import { UtilService } from 'src/app/services/util.service';
 import { ProfileModel } from 'src/app/model/profile.model';
@@ -18,6 +18,8 @@ export class OpenObjectComponent implements OnInit {
   itemDetails: any;
   faPenToSquare = faPenToSquare;
   faTrashCan = faTrashCan;
+  faBookmark = faBookmark;
+  faClipboard = faClipboard;
   faSquareCheck = faSquareCheck;
   user: ProfileModel;
   isLogged: boolean;

@@ -1,7 +1,9 @@
 <app-back-btn></app-back-btn>
 <section class="resgitry-item container">
     <div class="resgitry-item__area">
-        <h1>Cadastre um novo item</h1>
+        <h1>
+            <fa-icon [icon]="faCirclePlus"></fa-icon>
+            Cadastre um novo item</h1>
         <form [formGroup]="registryItem" class="resgitry-item__area__form">
             <mat-form-field>
                 <ngx-mat-file-input formControlName="file" [accept]="'.png, .jpg, .jpeg'" placeholder="Insira a foto do produto">
@@ -41,8 +43,7 @@
                 </mat-select>
                 <mat-hint *ngIf="!registryItem.controls['rate'].valid">O campo selo do produto é inválido</mat-hint>
             </mat-form-field>
-            <button (click)="sendRegisterItem()" class="resgitry-item__area__form__btn"
-                [disabled]="!registryItem.valid">Cadastrar item</button>
+            <button (click)="sendRegisterItem()" class="resgitry-item__area__form__btn" [disabled]="!registryItem.valid">Cadastrar item</button>
         </form>
 
     </div>

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { faCircleChevronLeft } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-back-btn',
@@ -7,6 +8,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BackBtnComponent implements OnInit {
 
+  faCircleChevronLeft = faCircleChevronLeft;
+  
   constructor() { }
 
   ngOnInit(): void {
