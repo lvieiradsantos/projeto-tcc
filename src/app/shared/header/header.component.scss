@@ -26,14 +26,13 @@
             align-items: center;
             line-height: 1.5rem;
             cursor: pointer;
-            color: #0a66c2;
+            color: #062c52;
             fa-icon {
                 font-size: 16px;
             }
         }
         .alignment:hover {
-            color: #3486d8;
-            text-decoration: underline;
+            color: #125393;
         }
     }
 }
@@ -44,7 +43,7 @@
             gap: 35px;
             .alignment {
                 fa-icon {
-                    font-size: 18px;
+                    font-size: 23px;
                 }
             }
         }

@@ -6,7 +6,7 @@
             </div>
             <div class="header__btn-menu" *ngIf="!isLogged; else showLogout">
                 <div routerLink="/home" class="header__btn-menu__catalog alignment">
-                    <fa-icon [icon]="faGrip"></fa-icon>
+                    <fa-icon [icon]="faBookOpen"></fa-icon>
                     <span class="header__btn-menu__catalog__catalog-title">Catálogo</span>
                 </div>
                 <div routerLink="/login" class="header__btn-menu__login alignment">
@@ -22,7 +22,7 @@
             <ng-template #showLogout>
                 <div class="header__btn-menu">
                     <div routerLink="/home" class="header__btn-menu__catalog alignment">
-                        <fa-icon [icon]="faGrip"></fa-icon>
+                        <fa-icon [icon]="faBookOpen"></fa-icon>
                         <span class="header__btn-menu__catalog__catalog-title">Catálogo</span>
                     </div>
                     <div routerLink="/profile" class="header__btn-menu__profile alignment">
