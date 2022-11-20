@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { debounceTime, take } from 'rxjs';
 import { ApiService } from 'src/app/services/api.service';
-import { faPenToSquare, faTrashCan, faHeart } from '@fortawesome/free-solid-svg-icons';
+import { faPenToSquare, faTrashCan, faHeart, faSearch, faGrip } from '@fortawesome/free-solid-svg-icons';
 import { UtilService } from 'src/app/services/util.service';
 import { ProfileModel } from 'src/app/model/profile.model';
 
@@ -17,6 +17,8 @@ export class ObjectCatalogComponent implements OnInit {
   catalogMeta: any;
   filterCatalog: FormGroup;
   filteredWord: string;
+  itensActived: number;
+  itensPending: number;
   isLogged: boolean;
   pageNumber = 1;
   user: ProfileModel;
@@ -25,6 +27,8 @@ export class ObjectCatalogComponent implements OnInit {
   faPenToSquare = faPenToSquare;
   faTrashCan = faTrashCan;
   faHeart = faHeart;
+  faSearch = faSearch;
+  faGrip = faGrip;
 
   constructor(
     private apiService: ApiService,
@@ -39,6 +43,7 @@ export class ObjectCatalogComponent implements OnInit {
     this.filterCatalog = this.formBuilder.group({
       searchInput: ['']
     });
+    this.getItensNumbers();
     this.filterCatalogItems();
     this.getUserFavItems();
     this.subscribeToIsLoggedSubject();
@@ -101,6 +106,16 @@ export class ObjectCatalogComponent implements OnInit {
         }
       });
     });
+  }
+
+  getItensNumbers() {
+    this.apiService.getItensNumbers().pipe(take(1)).subscribe({
+      next: v => {
+        console.log(v);
+        this.itensActived = v.totalActive;
+        this.itensPending = v.totalPending;
+      }
+    })
   }
 
   getUser() {

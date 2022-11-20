@@ -1,23 +1,27 @@
-<h1>Catalogo de itens</h1>
 <div class="catalog-header">
     <div class="filter">
         <form [formGroup]="filterCatalog" class="filter__search-form">
             <div class="filter__search-form--bar">
-                <input type="text" formControlName="searchInput" placeholder="Pesquisar"
-                    class="filter__search-form--bar-input" />
+                <input type="text" formControlName="searchInput" placeholder="Pesquisar" class="filter__search-form--bar-input" />
             </div>
         </form>
-        <div class="new-catalog">
-            <button class="new-catalog__fav-btn" routerLink="/meus-favoritos" *ngIf="this.isLogged">
-                Meus Favoritos
-            </button>
-
-            <button class="new-catalog__item-btn" routerLink="/cadastrar-item" *ngIf="this.isLogged">
-                Cadastrar Item
-            </button>
+    </div>
+    <div class="itens-info">
+        <div class="itens-info__actived">
+            <p class="numbers">{{ this.itensActived }}</p>
+            <p class="text">total de itens <br> cadastrados</p>
+        </div>
+        <div class="itens-info__pending">
+            <p class="numbers">{{ this.itensPending }}</p>
+            <p class="text">itens pendentes <br> aguardando aprovação</p>
         </div>
     </div>
 </div>
+
+<h1>
+    <fa-icon [icon]="faGrip"></fa-icon>
+    Catalogo de itens
+</h1>
 
 <section class="catalog">
     <div class="catalog-item__wrapper">
@@ -27,14 +31,12 @@
         </div>
     </div>
     <div class="catalog__item-navigation" *ngIf="this.catalogMeta">
-        <button class="catalog__item-navigation--previous" [disabled]="this.catalogMeta.currentPage < 2"
-            (click)="beforePage()">
+        <button class="catalog__item-navigation--previous" [disabled]="this.catalogMeta.currentPage < 2" (click)="beforePage()">
             anterior
         </button>
-        <span>Pagina {{ this.catalogMeta.currentPage }} de
+        <span>página {{ this.catalogMeta.currentPage }} de
             {{ this.catalogMeta.totalPages }}</span>
-        <button class="catalog__item-navigation--next" (click)="afterPage()"
-            [disabled]="this.catalogMeta.currentPage >= this.catalogMeta.totalPages">
+        <button class="catalog__item-navigation--next" (click)="afterPage()" [disabled]="this.catalogMeta.currentPage >= this.catalogMeta.totalPages">
             próxima
         </button>
     </div>

@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { take } from 'rxjs';
 import { ApiService } from 'src/app/services/api.service';
 import Swal from 'sweetalert2';
+import { faUserPlus } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-sign-up',
@@ -14,6 +15,8 @@ export class SignUpComponent implements OnInit {
 
   signUp: FormGroup | any;
 
+  faUserPlus = faUserPlus;
+  
   constructor(
     private formBuilder: FormBuilder,
     private apiService: ApiService,

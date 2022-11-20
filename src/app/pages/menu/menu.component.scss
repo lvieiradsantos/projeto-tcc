@@ -9,28 +9,22 @@
             font-weight: 700;
             padding: 10px 0;
         }
-        .not-logged {
+        .editor-logged {
             display: flex;
             justify-content: space-evenly;
             width: 100%;
         }
-        &__sign-in {
+        &__fav {
             background: #96ad4f;
         }
-        &__sign-in:hover {
+        &__fav:hover {
             background: #5d7024;
         }
-        &__sign-up {
+        &__new-object {
             background: #0f96ae;
         }
-        &__sign-up:hover {
+        &__new-object:hover {
             background: #166e7d;
-        }
-        &__about-us-catalog {
-            background: #ef7d00;
-        }
-        &__about-us-catalog:hover {
-            background: #ac702f;
         }
     }
 }
