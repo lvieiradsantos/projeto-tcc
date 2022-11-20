@@ -43,6 +43,7 @@ import { NgChartComponent } from './pages/about-us/ng-chart/ng-chart.component';
 import { ObjectCatalogPendingComponent } from './pages/object-catalog-pending/object-catalog-pending.component';
 import { ItemComponent } from './shared/item/item.component';
 import { MostRatedComponent } from './shared/most-rated/most-rated.component';
+import { BackBtnComponent } from './shared/back-btn/back-btn.component';
 
 
 @NgModule({
@@ -68,7 +69,8 @@ import { MostRatedComponent } from './shared/most-rated/most-rated.component';
     NgChartComponent,
     ObjectCatalogPendingComponent,
     ItemComponent,
-    MostRatedComponent
+    MostRatedComponent,
+    BackBtnComponent
   ],
   imports: [
     FormsModule,
