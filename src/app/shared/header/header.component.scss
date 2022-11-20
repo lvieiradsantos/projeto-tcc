@@ -19,7 +19,7 @@
     }
     &__btn-menu {
         display: flex;
-        gap: 14px;
+        gap: 10px;
         .alignment {
             display: flex;
             flex-direction: column;
@@ -28,7 +28,7 @@
             cursor: pointer;
             color: #062c52;
             fa-icon {
-                font-size: 16px;
+                font-size: 14px;
             }
         }
         .alignment:hover {
