@@ -36,7 +36,7 @@
         justify-content: center;
         flex-wrap: wrap;
         &__search-form {
-            width: 45%;
+            width: 80%;
             display: flex;
             align-items: baseline;
             &--bar {
@@ -241,5 +241,13 @@
 ::ng-deep .catalog {
     svg {
         height: 16px !important;
+    }
+}
+
+@media screen and (min-width: 1000px) {
+    .filter {
+        &__search-form {
+            width: 45%;
+        }
     }
 }

@@ -5,6 +5,7 @@ import { take } from 'rxjs';
 import { CatalogItemModel } from 'src/app/model/catalog-item.model';
 import { ApiService } from 'src/app/services/api.service';
 import Swal from 'sweetalert2';
+import { faPenToSquare } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-object-catalog-edit',
@@ -13,6 +14,7 @@ import Swal from 'sweetalert2';
 })
 export class ObjectCatalogEditComponent implements OnInit {
 
+  faPenToSquare = faPenToSquare;
 
   itemId: string;
   itemDetails: CatalogItemModel;

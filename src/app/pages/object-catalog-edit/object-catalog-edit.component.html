@@ -1,7 +1,10 @@
 <app-back-btn></app-back-btn>
 <section class="update-item container">
     <div class="update-item__area">
-        <h1>Editar item</h1>
+        <h1>
+            <fa-icon [icon]="faPenToSquare"></fa-icon>
+            Editar item
+        </h1>
         <form [formGroup]="updateItem" class="update-item__area__form" *ngIf="this.itemDetails">
             <mat-form-field>
                 <ngx-mat-file-input formControlName="file" [accept]="'.png, .jpg, .jpeg'" placeholder="Insira a foto do produto">
@@ -36,7 +39,7 @@
                     <mat-option value="red">Vermelho</mat-option>
                 </mat-select>
             </mat-form-field>
-            <button (click)="sendUpdateItem()" class="update-item__area__form__btn" [disabled]="!updateItem.valid">Cadastrar item</button>
+            <button (click)="sendUpdateItem()" class="update-item__area__form__btn" [disabled]="!updateItem.valid">Salvar Alterações</button>
         </form>
 
     </div>

@@ -20,7 +20,7 @@ h1 {
     justify-content: center;
     flex-wrap: wrap;
     &__search-form {
-        width: 45%;
+        width: 80%;
         display: flex;
         align-items: baseline;
         @media screen and (max-width: 1400px) {
@@ -240,5 +240,13 @@ h1 {
 ::ng-deep .catalog {
     svg {
         height: 16px !important;
+    }
+}
+
+@media screen and (min-width: 1000px) {
+    .filter {
+        &__search-form {
+            width: 45%;
+        }
     }
 }
