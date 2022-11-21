@@ -4,7 +4,7 @@ export const environment = {
   production: true,
   api: {
     login: baseUrl + 'login',
-    itensPendentes: baseUrl + 'item/pending',
+    itensPendentes: baseUrl + 'item/find/pending/pag',
     itens: baseUrl + 'item',
     user: baseUrl + 'user',
     itemPhoto: baseUrl + 'item/photo',
