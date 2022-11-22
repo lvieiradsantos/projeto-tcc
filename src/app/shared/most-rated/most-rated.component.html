@@ -1,6 +1,6 @@
 <section class="most-rated container">
     <h1>
-        <fa-icon [icon]="faStar"></fa-icon>
+        <fa-icon [icon]="faRankingStar"></fa-icon>
         Os mais favoritados
     </h1>
     <div class="most-rated-alignment">
@@ -15,13 +15,20 @@
                 <h3>{{item.name}}</h3>
                 <p> Modelo: <span>{{item.model}}</span></p>
                 <p> Marca: <span>{{item.brand}}</span></p>
-                <p *ngIf="item.rate == 'green'"> Selo: <span>
+                <p *ngIf="item.rate == 'green'"> Selo
+                    <fa-icon [icon]="faCircleQuestion" routerLink="/selo-de-classificacao" class="rate-icon"></fa-icon><span> </span>:
+                    <span>
                     <fa-icon class="most-rated__item-description__label-green" [icon]="faBookmark"></fa-icon>
                 </span></p>
-                <p *ngIf="item.rate == 'red'"> Selo: <span>
+                <p *ngIf="item.rate == 'red'"> Selo
+                    <fa-icon [icon]="faCircleQuestion" routerLink="/selo-de-classificacao" class="rate-icon"></fa-icon>
+                    <span>
+                </span> : <span>
                     <fa-icon class="most-rated__item-description__label-red" [icon]="faBookmark"></fa-icon>
                 </span></p>
-                <p *ngIf="item.rate == 'yellow'"> Selo: <span>
+                <p *ngIf="item.rate == 'yellow'"> Selo
+                    <fa-icon [icon]="faCircleQuestion" routerLink="/selo-de-classificacao" class="rate-icon"></fa-icon><span>
+                </span> : <span>
                     <fa-icon class="most-rated__item-description__label-yellow" [icon]="faBookmark"></fa-icon>
                 </span></p>
             </div>

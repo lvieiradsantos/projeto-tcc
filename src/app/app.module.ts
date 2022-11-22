@@ -44,6 +44,7 @@ import { ObjectCatalogPendingComponent } from './pages/object-catalog-pending/ob
 import { ItemComponent } from './shared/item/item.component';
 import { MostRatedComponent } from './shared/most-rated/most-rated.component';
 import { BackBtnComponent } from './shared/back-btn/back-btn.component';
+import { RatePageComponent } from './pages/rate-page/rate-page.component';
 
 
 @NgModule({
@@ -70,7 +71,8 @@ import { BackBtnComponent } from './shared/back-btn/back-btn.component';
     ObjectCatalogPendingComponent,
     ItemComponent,
     MostRatedComponent,
-    BackBtnComponent
+    BackBtnComponent,
+    RatePageComponent
   ],
   imports: [
     FormsModule,

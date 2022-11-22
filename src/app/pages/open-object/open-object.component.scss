@@ -1,7 +1,7 @@
 .container {
     width: 80%;
     height: 450px;
-    margin-bottom: 50px;
+    margin-bottom: 600px;
     .open-object-content {
         display: flex;
         flex-direction: column;
@@ -109,6 +109,9 @@
 }
 
 @media (min-width: 1000px) {
+    .container {
+        margin-bottom: 50px;
+    }
     .open-object-content {
         flex-direction: row !important;
         gap: 30px;

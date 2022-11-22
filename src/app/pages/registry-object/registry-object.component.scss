@@ -11,6 +11,16 @@
         &__form {
             display: flex;
             flex-direction: column;
+            .rate-alignment {
+                width: 100%;
+                display: flex;
+                align-items: center;
+                gap: 5px;
+                .rate-field {
+                    width: 100%;
+                }
+                .rate-icon {}
+            }
             &__btn {
                 padding: 10px;
                 font-size: 20px;

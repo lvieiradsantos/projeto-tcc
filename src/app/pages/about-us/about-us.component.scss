@@ -88,9 +88,29 @@
     }
 }
 
-.software-infos {
-    display: flex;
-    justify-content: space-between;
-    margin: 100px 0;
-    width: 100%;
+// .software-infos {
+//     display: flex;
+//     justify-content: space-between;
+//     margin: 100px 0;
+//     width: 100%;
+// }
+@media screen and (max-width: 670px) {
+    .container-page {
+        .about-us {
+            &__text {
+                &__bottom {
+                    flex-direction: column;
+                    gap: 30px;
+                    &__left,
+                    &__right {
+                        width: 100% !important;
+                        text-align: justify;
+                    }
+                }
+            }
+        }
+        .software-infos {
+            margin-top: 50px;
+        }
+    }
 }

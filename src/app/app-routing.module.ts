@@ -9,6 +9,7 @@ import { ObjectCatalogPendingComponent } from './pages/object-catalog-pending/ob
 import { OpenObjectComponent } from './pages/open-object/open-object.component';
 import { PrivacyPolicyComponent } from './pages/privacy-policy/privacy-policy.component';
 import { ProfileComponent } from './pages/profile/profile.component';
+import { RatePageComponent } from './pages/rate-page/rate-page.component';
 import { RegistryObjectComponent } from './pages/registry-object/registry-object.component';
 import { SignUpComponent } from './pages/sign-up/sign-up.component';
 import { TalkUsComponent } from './pages/talk-us/talk-us.component';
@@ -66,6 +67,10 @@ const routes: Routes = [
   {
     path: 'termos-de-uso',
     component: TermsOfUseComponent
+  },
+  {
+    path: 'selo-de-classificacao',
+    component: RatePageComponent
   },
   {
     path: 'itens-pendentes',

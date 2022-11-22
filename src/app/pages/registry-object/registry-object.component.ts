@@ -4,7 +4,7 @@ import { take } from 'rxjs';
 import { CatalogItemModel } from 'src/app/model/catalog-item.model';
 import { ApiService } from 'src/app/services/api.service';
 import Swal from 'sweetalert2';
-import { faCirclePlus } from '@fortawesome/free-solid-svg-icons';
+import { faCirclePlus, faCircleQuestion } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-registry-object',
@@ -16,6 +16,7 @@ export class RegistryObjectComponent implements OnInit {
   registryItem: FormGroup;
 
   faCirclePlus = faCirclePlus;
+  faCircleQuestion = faCircleQuestion;
 
   constructor(
     private apiService: ApiService,

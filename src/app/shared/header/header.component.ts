@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { faBookOpen, faCircleInfo, faArrowRightToBracket, faArrowRightFromBracket, faCircleUser, faUserPlus } from '@fortawesome/free-solid-svg-icons';
+import { faBookOpen, faBookmark, faArrowRightToBracket, faArrowRightFromBracket, faCircleUser, faUserPlus } from '@fortawesome/free-solid-svg-icons';
 import { UtilService } from 'src/app/services/util.service';
 
 @Component({
@@ -12,7 +12,7 @@ export class HeaderComponent {
   isLogged: boolean;
 
   faBookOpen = faBookOpen; //catálogo
-  faCircleInfo = faCircleInfo;
+  faBookmark = faBookmark;
   faArrowRightToBracket = faArrowRightToBracket; //entrar
   faArrowRightFromBracket = faArrowRightFromBracket; //sair
   faCircleUser = faCircleUser; //perfil

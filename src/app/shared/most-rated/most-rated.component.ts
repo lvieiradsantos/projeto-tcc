@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { take } from 'rxjs';
 import { ApiService } from 'src/app/services/api.service';
 import { UtilService } from 'src/app/services/util.service';
-import { faBookmark, faStar } from '@fortawesome/free-solid-svg-icons';
+import { faBookmark, faRankingStar, faCircleQuestion } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-most-rated',
@@ -15,7 +15,8 @@ export class MostRatedComponent implements OnInit {
   isLogged: boolean;
   
   faBookmark = faBookmark;
-  faStar = faStar;
+  faRankingStar = faRankingStar;
+  faCircleQuestion = faCircleQuestion;
 
   constructor(
     private apiService: ApiService,

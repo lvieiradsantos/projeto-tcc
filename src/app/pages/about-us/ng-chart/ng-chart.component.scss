@@ -1,12 +1,16 @@
 .about-us__chart {
-    display: block;
-    width: 400px;
+    width: fit-content;
+    display: flex;
+    flex-direction: column;
 }
 
 .software-infos__graphics-area {
     display: flex;
-    justify-content: space-around;
-    width: 100%;
+    justify-content: center;
+    width: fit-content;
+    flex-direction: column;
+    margin-top: 40px;
+    gap: 25px;
     h3 {
         color: #0b877d;
         font-weight: 600;
@@ -28,4 +32,18 @@
 
 ::ng-deep app-ng-chart {
     width: 100%;
+}
+
+@media screen and (min-width: 800px) {
+    .about-us__chart {
+        display: block;
+        width: 400px;
+    }
+    .software-infos__graphics-area {
+        display: flex;
+        justify-content: space-evenly !important;
+        flex-direction: row;
+        margin-top: 40px;
+        width: 100% !important;
+    }
 }
