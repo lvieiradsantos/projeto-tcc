@@ -1,0 +1,99 @@
+.middle-content {
+    width: 100%;
+    background-color: #ffff;
+    padding-bottom: 20px;
+    .container-page {
+        .rate-page {
+            &__banner {
+                max-height: 380px;
+                height: 100%;
+                overflow: hidden;
+                & img {
+                    object-fit: cover;
+                    margin-top: -4%;
+                }
+            }
+            &__text {
+                &__center {
+                    width: 100%;
+                    display: flex;
+                    justify-content: center;
+                    & h1 {
+                        margin: 50px 0;
+                        color: #0b877d;
+                        font-size: 1.5rem;
+                        line-height: 1.4;
+                        font-weight: 600;
+                        text-align: center;
+                        letter-spacing: 3px;
+                    }
+                }
+                &__bottom {
+                    width: 100%;
+                    line-height: 2;
+                    text-align: justify;
+                    flex-wrap: wrap;
+                    margin-bottom: 50px;
+                    font-weight: 400;
+                    font-size: 16px;
+                    & strong {
+                        color: #592f8c;
+                    }
+                    .text-green {
+                        color: #57A280;
+                    }
+                    .text-yellow {
+                        color: #e1c118;
+                    }
+                    .text-red {
+                        color: #b42e21;
+                    }
+                    .bold-hour {
+                        font-weight: 500;
+                    }
+                }
+            }
+            &__images {
+                width: 100%;
+                height: fit-content;
+                display: flex;
+                justify-content: center;
+                gap: 5%;
+                margin-bottom: 30px;
+                img {
+                    width: 26%;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 981px) {
+    .container-page {
+        .rate-page {
+            &__images {
+                align-content: center !important;
+                flex-direction: row !important;
+                align-items: center !important;
+                img {
+                    width: 33% !important;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 450px) {
+    .container-page {
+        .rate-page {
+            &__images {
+                width: 100% !important;
+                flex-direction: column !important;
+                gap: 10px !important;
+                img {
+                    width: 100% !important;
+                }
+            }
+        }
+    }
+}
