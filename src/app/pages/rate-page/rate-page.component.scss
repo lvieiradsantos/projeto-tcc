@@ -34,10 +34,9 @@
                     text-align: justify;
                     flex-wrap: wrap;
                     margin-bottom: 50px;
-                    font-weight: 400;
                     font-size: 16px;
                     & strong {
-                        color: #592f8c;
+                        color: #000;
                     }
                     .text-green {
                         color: #57A280;
@@ -49,7 +48,7 @@
                         color: #b42e21;
                     }
                     .bold-hour {
-                        font-weight: 500;
+                        font-weight: 500 !important;
                     }
                 }
             }
