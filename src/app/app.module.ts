@@ -45,6 +45,8 @@ import { ItemComponent } from './shared/item/item.component';
 import { MostRatedComponent } from './shared/most-rated/most-rated.component';
 import { BackBtnComponent } from './shared/back-btn/back-btn.component';
 import { RatePageComponent } from './pages/rate-page/rate-page.component';
+import {MatExpansionModule} from '@angular/material/expansion';
+
 
 
 @NgModule({
@@ -91,6 +93,7 @@ import { RatePageComponent } from './pages/rate-page/rate-page.component';
     NgxMaskModule.forRoot(),
     BlockUIModule.forRoot(),
     NgxMatFileInputModule,
+    MatExpansionModule
   ],
   providers: [ApiService,
     {
