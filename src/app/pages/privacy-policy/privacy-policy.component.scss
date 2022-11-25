@@ -60,6 +60,10 @@
                 &__text:hover {
                     border: 1px solid #000;
                     color: #96ad4f;
+                    background: hsl(242deg 6% 93%);
+                    height: 70px;
+                    width: 250px;
+                    transition: 0.3s;
                 }
             }
         }
@@ -67,6 +71,9 @@
     &__bottom {
         display: flex;
         flex-direction: column;
+        &__public {
+            margin-top: 25px;
+        }
         &__public,
         &__datas,
         &__infos,
@@ -74,6 +81,7 @@
         &__kids,
         &__change,
         &__contact {
+            margin-bottom: 25px;
             h2,
             h3 {
                 margin: 20px 0;
@@ -106,6 +114,14 @@
                 }
             }
         }
+    }
+}
+
+.mat-expanded {
+    background: hsl(242deg, 6%, 93%);
+    mat-panel-title {
+        padding-bottom: 10px;
+        border-bottom: 1px solid rgb(154, 154, 154);
     }
 }
 
