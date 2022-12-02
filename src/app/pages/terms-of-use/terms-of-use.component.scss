@@ -46,7 +46,7 @@
             letter-spacing: -.025rem;
             line-height: 3.6rem;
             &__text {
-                font-size: .890rem;
+                font-size: 1.1rem;
                 font-weight: 400;
                 letter-spacing: 0.5;
                 line-height: 1.2rem;
@@ -70,7 +70,7 @@
             }
             &__text {
                 text-align: justify;
-                font-size: 16px;
+                font-size: 17px;
                 font-weight: 400;
                 letter-spacing: 1;
                 line-height: 2rem;
@@ -92,6 +92,9 @@
                 letter-spacing: 0.5;
                 margin-top: 40px;
             }
+        }
+        &__general__operative {
+            font-size: 17px;
         }
     }
 }

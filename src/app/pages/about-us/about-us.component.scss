@@ -23,13 +23,13 @@
                     & h1 {
                         margin: 50px 0;
                         color: #0b877d;
-                        font-size: 1.5rem;
+                        font-size: 1.8rem;
                         line-height: 1.4;
                         font-weight: 600;
                         text-align: center;
                         letter-spacing: 3px;
                         @media screen and (max-width: 650px) {
-                            font-size: 1.2rem;
+                            font-size: 1.5rem;
                         }
                     }
                 }
@@ -42,7 +42,7 @@
                         width: 48%;
                     }
                     &__left__p {
-                        font-size: 1rem;
+                        font-size: 1.2rem;
                         line-height: 2;
                         & strong {
                             color: #592f8c;
@@ -54,11 +54,11 @@
                         font-size: 1.4rem;
                         @media screen and (max-width: 650px) {
                             line-height: 1.2;
-                            font-size: 1.2rem;
+                            font-size: 1.4rem;
                         }
                     }
                     &__right__p2 {
-                        font-size: 1rem;
+                        font-size: 1.2rem;
                         display: flex;
                         justify-content: space-between;
                         flex-wrap: wrap;
@@ -71,7 +71,7 @@
                             padding: 1.25rem;
                             box-shadow: 0 15px 45px 0 rgb(135 140 189 / 20%);
                             color: #0b877d;
-                            font-size: 1.125rem;
+                            font-size: 1.2rem;
                             font-weight: 600;
                             letter-spacing: 2px;
                             & fa-icon {
